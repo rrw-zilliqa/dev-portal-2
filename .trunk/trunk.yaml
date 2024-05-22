@@ -34,17 +34,9 @@ lint:
     - trivy@0.51.2
     - trufflehog@3.76.3
     - yamllint@1.35.1
-actions:
-  enabled:
-    - trunk-announce
-    - trunk-check-pre-push
-    - trunk-fmt-pre-commit
-    - trunk-upgrade-available
-
-
-ignore:
-  - linters: [gitleaks]
-    paths:
+  ignore:
+    - linters: [gitleaks]
+      paths:
         - zq2/docs/api # Contains a lot of hashes, etc. that are interpreted as secrets
         - zq1/docs/api # Contains a lot of hashes, etc. that are interpreted as secrets
         - zq1/docs/scilla/interface.md # contains a lot of hashes
@@ -53,9 +45,16 @@ ignore:
         - zq1/docs/developers/transaction-lifecycle # Contains examples.
         - zq1/docs/developers/developer-toolings
         - zq1/docs/exchanges
-  - linters: [ALL]
-    paths:
+    - linters: [ALL]
+      paths:
         - Dockerfile # Annoying, but trunk is now very opinionated on how you write dockerfiles.
         - zq2/docs/js/** # trunk does not know this is looking for metamask in the user's browser.
         - zq2/docs/index.md # contains legitimate empty links
         - .trunk/*out/**
+
+actions:
+  enabled:
+    - trunk-announce
+    - trunk-check-pre-push
+    - trunk-fmt-pre-commit
+    - trunk-upgrade-available
