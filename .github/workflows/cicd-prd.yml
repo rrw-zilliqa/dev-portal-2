@@ -23,7 +23,7 @@ jobs:
         include:
           - application: developer-portal
             image_name: developer-portal
-            path: products/developer-portal
+            path: .
             tag_length: 8
             tag_latest: false
     env:
