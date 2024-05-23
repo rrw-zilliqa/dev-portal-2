@@ -84,11 +84,12 @@ jobs:
           make image/build-and-push
 
   deploy-to-staging:
-    needs: [ build-makefile ]
+    needs: [build-makefile]
     permissions:
       id-token: write
       contents: write
     runs-on: ubuntu-22.04
+    if: github.actor != 'dependabot[bot]' && github.ref_name == 'main'
     strategy:
       fail-fast: false
       matrix:
@@ -111,7 +112,7 @@ jobs:
           ref: main
           sparse-checkout: |
             ${{ env.Z_ENV }}
-      
+
       - name: Authenticate to Google Cloud
         id: google-auth
         uses: google-github-actions/auth@v2
