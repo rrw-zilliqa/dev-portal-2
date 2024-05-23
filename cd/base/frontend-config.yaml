@@ -2,6 +2,9 @@ apiVersion: networking.gke.io/v1beta1
 kind: FrontendConfig
 metadata:
   name: developer-portal
+  namespace: developer-portal
+  labels:
+    app.kubernetes.io/name: "developer-portal"
 spec:
   redirectToHttps:
     enabled: true
