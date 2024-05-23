@@ -1,0 +1,11 @@
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: developer-portal
+  namespace: developer-portal
+  labels:
+    app.kubernetes.io/name: "developer-portal"
+spec:
+  timeoutSec: 120
+  healthCheck:
+    requestPath: /zilliqa2/

@@ -5,6 +5,8 @@ metadata:
   namespace: developer-portal
   labels:
     app.kubernetes.io/name: "developer-portal"
+  annotations:
+    beta.cloud.google.com/backend-config: '{"default": "developer-portal"}'
 spec:
   type: ClusterIP
   ports:

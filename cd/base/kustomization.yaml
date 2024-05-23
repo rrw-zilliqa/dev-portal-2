@@ -5,3 +5,5 @@ resources:
   - deployment.yaml
   - svc.yaml
   - ingress.yaml
+  - backend-config.yaml
+  - frontend-config.yaml
