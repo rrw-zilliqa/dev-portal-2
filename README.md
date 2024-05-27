@@ -1,5 +1,6 @@
 # Developer portal
 
+
 ## Deploying applications with z
 
 `z` is the one-stop shop for the Zilliqa provisioning and deployment operations. To deploy applications with z ensure the `z`
