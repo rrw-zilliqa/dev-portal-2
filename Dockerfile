@@ -1,10 +1,13 @@
-FROM rust:buster AS builder
+# Same as zq2 uses, or the z2 build fails :-(
+FROM rust:1.78.0-slim-bullseye as builder
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV NEEDRESTART_MODE=a
 
 RUN apt-get update && apt-get dist-upgrade -y
 RUN apt-get install -y python3 python3-pip python3-setuptools --no-install-recommends
+RUN apt-get install -y protobuf-compiler build-essential libssl-dev pkg-config git cmake
+RUN apt autoremove
 
 COPY .  /build
 RUN pip3 install --no-cache-dir -r /build/requirements.txt
