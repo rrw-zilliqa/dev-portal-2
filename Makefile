@@ -8,6 +8,8 @@ SHELL := /bin/bash
 ENVIRONMENT ?= dev
 VALID_ENVIRONMENTS := dev stg prd
 
+# Set SERVEOPTS="-a 0.0.0.0:3001" or somesuch to serve at port 3001 on all interfaces.
+
 # Check if the ENVIRONMENT variable is in the list of valid environments
 ifeq ($(filter $(ENVIRONMENT),$(VALID_ENVIRONMENTS)),)
 $(error Invalid value for ENVIRONMENT. Valid values are dev, stg, or prd.)
@@ -19,11 +21,15 @@ HERE=$(shell pwd)
 VERSION=$(shell cat $(HERE)/VERSION)
 export VERSION
 
-dev1:
-	(cd zq1 && DOC_SOURCE=$(HERE)/zq1/docs mkdocs serve)
+.PHONY: autogen dev1 dev2 assemble build run-image push-dev-image image/build-and-push
+zq2/docs/mkdocs.yml autogen:
+	(cd $(HERE)/docgen && cargo run $(HERE))
 
-dev2:
-	(cd zq2 && DOC_SOURCE=$(HERE)/zq2/docs mkdocs serve)
+dev1:
+	(cd zq1 && DOC_SOURCE=$(HERE)/zq1/docs mkdocs serve $(SERVEOPTS))
+
+dev2: zq2/docs/mkdocs.yml
+	(cd zq2 && DOC_SOURCE=$(HERE)/zq2/docs mkdocs serve $(SERVEOPTS))
 
 BINDIR=$(HERE)/obj
 HERE_FILES=Dockerfile requirements.txt
