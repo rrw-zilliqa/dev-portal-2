@@ -14,6 +14,11 @@ There are a number of differences between Zilliqa 1.0 and Zilliqa 2.0 that you s
 - Zilliqa 2.0 has a much faster block time (there is typically a hardwired minimum of 1s/block); dApp operators will need to make sure that where they use block number as a proxy for a timestamp, they allow sufficient blocks for users to react.
 - Zilliqa 2 upgrades are seamless and relatively quick; you don't need to redownload persistence and there is an auto-upgrader you can run if you wish which will run the newer version of zq2 and cut over when ready. We hope this will enable us to eliminate upgrade downtime and to make more frequent bug fixes.
 
+## API differences
+
+- There are no DS epochs any longer (though some are faked to allow existing applications that retrieve the current DS epoch to work), so the transaction pool is no longer cleared at the start of a DS epoch.
+- `GetTransactionStatus` no longer depends on an off-chain transaction store, and therefore now works for any transaction.
+
 ## Continuity
 
 There are also a number of things that have not changed:
