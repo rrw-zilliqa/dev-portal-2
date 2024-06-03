@@ -43,7 +43,7 @@ async fn main() -> Result<()> {
         };
         println!("Compiling zq2 version {name}");
         let mut cache_dir: Option<PathBuf> = Some(root_path.clone().join("cache"));
-        let mut zq2_checkout_dir: PathBuf;
+        let zq2_checkout_dir: PathBuf;
         if let Ok(val) = std::env::var("USE_ZQ2_FROM") {
             checkout = false;
             cache_dir = None;
@@ -75,7 +75,7 @@ async fn main() -> Result<()> {
                     .current_dir(&zq2_checkout_dir.clone())?
                     .run_logged()
                     .await?
-                    .success_or("Cannot run git fetch")?
+                    .success_or("Cannot run git fetch")?;
             } else if let Some(val) = &cache_dir {
                 // Clone
                 CommandBuilder::new()
@@ -83,7 +83,7 @@ async fn main() -> Result<()> {
                     .current_dir(&val.clone())?
                     .run_logged()
                     .await?
-                    .success_or("Cannot run git clone")?
+                    .success_or("Cannot run git clone")?;
             };
             // Check out
             CommandBuilder::new()
