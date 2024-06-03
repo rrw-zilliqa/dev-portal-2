@@ -16,8 +16,12 @@ There are a number of differences between Zilliqa 1.0 and Zilliqa 2.0 that you s
 
 ## API differences
 
-- There are no DS epochs any longer (though some are faked to allow existing applications that retrieve the current DS epoch to work), so the transaction pool is no longer cleared at the start of a DS epoch.
-- `GetTransactionStatus` no longer depends on an off-chain transaction store, and therefore now works for any transaction.
+- There are no DS epochs any longer (though some are faked to allow
+  existing applications that retrieve the current DS epoch to work),
+  so the transaction pool is no longer cleared wat the start of a DS
+  epoch.
+- `GetTransactionStatus` no longer depends on an off-chain transaction
+  store, and therefore now works for any transaction.
 
 ## Continuity
 
