@@ -23,12 +23,9 @@ async fn main() -> Result<()> {
     let here = String::from(&args[1]);
 
     // Set NO_CHECKOUT to skip the checkout steps - this allows you to do debugging with symlinks or similar.
-    let checkout = std::env::var("NO_CHECKOUT").is_err();
+    let mut checkout = std::env::var("NO_CHECKOUT").is_err();
 
     // Find the zq2 versions that we need to collect.
-
-    println!("here = {here}");
-
     let root_path = PathBuf::from(&here);
     let versions: Zq2Spec =
         serde_yaml::from_str(&fs::read_to_string(format!("{}/zq2_spec.yaml", here))?)?;
@@ -45,8 +42,20 @@ async fn main() -> Result<()> {
             Some(ref val) => val.to_string(),
         };
         println!("Compiling zq2 version {name}");
-        let cache_dir: PathBuf = root_path.clone().join("cache");
-        let zq2_checkout_dir: PathBuf = cache_dir.clone().join("zq2");
+        let mut cache_dir: Option<PathBuf> = Some(root_path.clone().join("cache"));
+        let zq2_checkout_dir: PathBuf;
+        if let Ok(val) = std::env::var("USE_ZQ2_FROM") {
+            checkout = false;
+            cache_dir = None;
+            zq2_checkout_dir = PathBuf::from(val);
+        } else if let Some(val) = &cache_dir {
+            zq2_checkout_dir = val.clone().join("zq2");
+        } else {
+            return Err(anyhow!(
+                "No zq2 specified - no cache dir and USE_ZQ2_FROM is not specified"
+            ));
+        }
+
         let id_prefix = format!("Versions/{name}");
         let target_dir = root_path.clone().join("zq2").join("docs");
         let target_dir_str = target_dir
@@ -66,15 +75,15 @@ async fn main() -> Result<()> {
                     .current_dir(&zq2_checkout_dir.clone())?
                     .run_logged()
                     .await?
-                    .success_or("Cannot run git fetch")?
-            } else {
+                    .success_or("Cannot run git fetch")?;
+            } else if let Some(val) = &cache_dir {
                 // Clone
                 CommandBuilder::new()
                     .cmd("git", &["clone", "https://github.com/zilliqa/zq2"])
-                    .current_dir(&cache_dir.clone())?
+                    .current_dir(&val.clone())?
                     .run_logged()
                     .await?
-                    .success_or("Cannot run git clone")?
+                    .success_or("Cannot run git clone")?;
             };
             // Check out
             CommandBuilder::new()
