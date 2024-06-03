@@ -29,7 +29,17 @@ async fn main() -> Result<()> {
     let root_path = PathBuf::from(&here);
     let versions: Zq2Spec =
         serde_yaml::from_str(&fs::read_to_string(format!("{}/zq2_spec.yaml", here))?)?;
-    for vrec in &versions.versions {
+    let overridden_zq2 = std::env::var("USE_ZQ2_FROM").is_ok();
+    let vtable = if overridden_zq2 {
+        vec![Version {
+            refspec: "use_zq2_from".to_string(),
+            name: Some("use_zq2_from".to_string()),
+        }]
+    } else {
+        versions.versions.clone()
+    };
+
+    for vrec in &vtable {
         let refspec = &vrec.refspec;
         let name: String = match vrec.name {
             None => {
