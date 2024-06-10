@@ -122,6 +122,11 @@ jobs:
           service_account: ${{ env.Z_SERVICE_ACCOUNT }}
           create_credentials_file: true
 
+      - name: Cleanup ssh-keys
+        run: |
+          gcloud config set account ${{ env.Z_SERVICE_ACCOUNT }} && \
+          for i in $(gcloud compute os-login ssh-keys list | grep -v FINGERPRINT); do echo $i; gcloud compute os-login ssh-keys remove --key $i; done
+
       - name: Deploy application
         run: |
           gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://${{ env.REGISTRY }}
