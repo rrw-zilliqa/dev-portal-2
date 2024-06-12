@@ -7,8 +7,6 @@ keywords:
 description: Ecosystem index page
 ---
 
----
-
 # Zilliqa ecosystem
 
 These pages contain developer information about the Zilliqa ecosystem
