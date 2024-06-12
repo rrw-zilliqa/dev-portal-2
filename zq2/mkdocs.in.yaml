@@ -8,6 +8,7 @@ nav:
   - Endpoints: endpoints.md
   - FAQ: faq.md
   - Ecosystem:
+      - ecosystem/index.md
       - DeFi: ecosystem/defi.md
       - Indexers: ecosystem/indexers.md
       - Indexer:
@@ -53,3 +54,5 @@ nav:
   - Zilliqa:
       - Native API: zilliqa/zilliqa.md
       - Introduction: zilliqa/introduction-videos.md
+  - Versions:
+      - versions/index.md

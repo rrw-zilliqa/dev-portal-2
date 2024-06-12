@@ -5,7 +5,7 @@ title: Zilliqa SDKs
 
 # Zilliqa SDKs, repositories, and tools
 
-Note that a list of useful on-chain facilities (contracts, etc.) can be found via the [ecosystem](ecosystem/ecosystem.md) pages.
+Note that a list of useful on-chain facilities (contracts, etc.) can be found via the [ecosystem](ecosystem/index.md) pages.
 
 ## Zilliqa SDKs
 
