@@ -68,19 +68,25 @@ tokens.
 
 #### Will I be able to store ZRC non-fungible tokens in Metamask?
 
-Not initially; we hope to be able to provide this in a future release, though you could also write a gateway contract (similar to our ZRC-2/ERC-20 gateway) yourself.
+Not initially; we hope to be able to provide this in a future release,
+though you could also write a gateway contract (similar to our
+ZRC-2/ERC-20 gateway) yourself.
 
 #### Will I be able to use my Zil on Dex like Uniwap, Sushiswap to trade?
 
-If and when those DEXes deploy to Zilliqa, yes. In the meantime, there are other Zilliqa EVM DEXes such as Plunderswap - [https://plunderswap.com/](https://plunderswap.com/).
+If and when those DEXes deploy to Zilliqa, yes. In the meantime, there
+are other Zilliqa EVM DEXes such as Plunderswap -
+[https://plunderswap.com/](https://plunderswap.com/).
 
 #### Will Devs be able to deploy Uniswap/Sushiswap/1inch on Zilliqa?
 
-Developers should be able to deploy your contracts to EVM on Zilliqa just like any other EVM-compatible chain.
+Developers should be able to deploy your contracts to EVM on Zilliqa
+just like any other EVM-compatible chain.
 
 #### Will I be able to sell my NFTs on NFT marketplace like Opensea/Blur?
 
-Not until they add support for the Zilliqa chain (and even then, you will either need an ERC-721 gateway, or to have EVM NFTs on Zilliqa)
+Not until they add support for the Zilliqa chain (and even then, you
+will either need an ERC-721 gateway, or to have EVM NFTs on Zilliqa)
 
 #### Will I be able to buy a NFT using Zil on Opensea/Blur?
 
@@ -88,7 +94,10 @@ Not until they add support for Zilliqa.
 
 #### Will I be able to use stake.zilliqa.com with Metamask & stake my Zil?
 
-Not directly; please let us know if this is functionality you'd like (or you can write a gateway contract yourself, of course). In the meantime, you'll need to transfer your ZIL to a Zilliqa wallet and stake them from there.
+Not directly; please let us know if this is functionality you'd like
+(or you can write a gateway contract yourself, of course). In the
+meantime, you'll need to transfer your ZIL to a Zilliqa wallet and
+stake them from there.
 
 #### Will I be able to connect Metamask with Zilswap & buy tokens listed on Zilswap with native Zil?
 
@@ -115,26 +124,55 @@ They will be lost, just as they are today - in fact, they'll turn up just fine a
 
 #### How about ZRC-2, ERC-20 and other contract-wrapped tokens?
 
-This is trickier. Suppose you send some ZRC-2 tokens (such as `XCAD` or `ZWAP`) to your EVM address. They'll arrive just fine, but you will now want to send them elsewhere.
+This is trickier. Suppose you send some ZRC-2 tokens (such as `XCAD`
+or `ZWAP`) to your EVM address. They'll arrive just fine, but you will
+now want to send them elsewhere.
 
-In order to do so, you will need to call the ZRC-2 contract with `_sender` equal to your EVM address. But, in order to make that call you need to submit a Zilliqa API transaction from your EVM address, which we've just agreed you can't do. So your funds will be stuck.
+In order to do so, you will need to call the ZRC-2 contract with
+`_sender` equal to your EVM address. But, in order to make that call
+you need to submit a Zilliqa API transaction from your EVM address,
+which we've just agreed you can't do. So your funds will be stuck.
 
-This is not optimal, and you can get out of it using [Scilla->EVM interwork](https://github.com/Zilliqa/ZIP/blob/master/zips/zip-21.md); create a solidity contract which calls the Scilla contract using the `call scilla contract with _sender unchanged` precompile. You can now send a Scilla call from an EVM transaction, and there is a contract available in the
-[zilliqa-developer](https://github.com/zilliqa/zilliqa-developer) repository which does this by building an ERC-20 facade for ZRC-2 assets.
+This is not optimal, and you can get out of it using [Scilla->EVM
+interwork](https://github.com/Zilliqa/ZIP/blob/master/zips/zip-21.md);
+create a solidity contract which calls the Scilla contract using the
+`call scilla contract with _sender unchanged` precompile. You can now
+send a Scilla call from an EVM transaction, and there is a contract
+available in the
+[zilliqa-developer](https://github.com/zilliqa/zilliqa-developer)
+repository which does this by building an ERC-20 facade for ZRC-2
+assets.
 
-This will recover your funds, but might be quite tricky to operate for arbitrary contracts; our roadmap contains a more generic mechanism for arbitrary contracts (though you will still need to know what transition/calldata you need to call).
+This will recover your funds, but might be quite tricky to operate for
+arbitrary contracts; our roadmap contains a more generic mechanism for
+arbitrary contracts (though you will still need to know what
+transition/calldata you need to call).
 
-If you didn't understand the above, please contact your the dApp maintainer, or your developers, who will hopefully be able to help you.
+If you didn't understand the above, please contact your the dApp
+maintainer, or your developers, who will hopefully be able to help
+you.
 
 #### What about NFTs?
 
-Please don't transfer your ZRC-1 or ZRC-6 Zilliqa NFTs to EVM addresses for now! You will be unable to do anything with them when they have been transferred and, though you are likely to be able to transfer them back to your Zilliqa wallet via the interop route described above, doing so is risky.
+Please don't transfer your ZRC-1 or ZRC-6 Zilliqa NFTs to EVM
+addresses for now! You will be unable to do anything with them when
+they have been transferred and, though you are likely to be able to
+transfer them back to your Zilliqa wallet via the interop route
+described above, doing so is risky.
 
 #### How about transferring ERC-20s and other tokens to ZIL API address?
 
-Please don't do that either! Rescuing trapped tokens in EVM contracts is significantly harder than for Scilla contracts, because Scilla contracts have self-describing storage encoding and source is always available.
+Please don't do that either! Rescuing trapped tokens in EVM contracts
+is significantly harder than for Scilla contracts, because Scilla
+contracts have self-describing storage encoding and source is always
+available.
 
-Whilst the interop mechanism can be used to transfer these back to EVM addresses, it is substantially harder to write the code to do so, and probably impossible unless you have the source code (or at least the interface) of the contract in question. Again, the maintainers of the dApp may be able to help, or if you are sophisticated, you may be able to do this yourself.
+Whilst the interop mechanism can be used to transfer these back to EVM
+addresses, it is substantially harder to write the code to do so, and
+probably impossible unless you have the source code (or at least the
+interface) of the contract in question. Again, the maintainers of the
+dApp may be able to help, or if you are sophisticated, you may be able
+to do this yourself.
 
 We will try to provide assistance with the most common cases as they arise.
 
