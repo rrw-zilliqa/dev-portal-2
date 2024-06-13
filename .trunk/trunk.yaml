@@ -46,7 +46,7 @@ lint:
         - zq1/docs/developers/developer-toolings
         - zq1/docs/exchanges
     - linters: [markdownlint]
-        - zq2/docs/ecosystem/index.md # Does not contain multiple headers, but trunk thinks it does
+        - zq2/docs/ecosystem/index.md # multiple headers
         - zq2/docs/zilevm/tools/remix.md # Don't care about line length
     - linters: [ALL]
       paths:
