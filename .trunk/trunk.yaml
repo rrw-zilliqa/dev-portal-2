@@ -45,6 +45,10 @@ lint:
         - zq1/docs/developers/transaction-lifecycle # Contains examples.
         - zq1/docs/developers/developer-toolings
         - zq1/docs/exchanges
+    - linters: [markdownlint]
+      paths:
+        - zq2/docs/ecosystem/index.md # multiple headers
+        - zq2/docs/zilevm/tools/remix.md # Don't care about line length
     - linters: [ALL]
       paths:
         - Dockerfile # Annoying, but trunk is now very opinionated on how you write dockerfiles.

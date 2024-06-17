@@ -14,9 +14,7 @@ description: Zilliqa API Endpoints
 
 Chain ids can be found at [chainlist](https://chainlist.org/?search=zilliqa&testnets=true).
 
-Uptime can be found at [status.zilliqa.com](https://status.zilliqa.com) and you can get API examples from the [api](/api) pages.
-
-We have several blockchains running.
+Uptime can be found at [status.zilliqa.com](https://status.zilliqa.com) and you can get API examples from the `versions` pages in the navbar.
 
 ## devnet
 

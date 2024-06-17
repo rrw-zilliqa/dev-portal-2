@@ -5,7 +5,12 @@ title: Zilliqa EVM/native interoperability
 
 # Zilliqa EVM characteristics and interop
 
-This page details the quirks you might see in Zilliqa as an EVM user, and describes how interoperability between EVM and the native Zilliqa layer is achieved.
+This page details the quirks you might see in Zilliqa as an EVM user,
+and describes how interoperability between EVM and the native Zilliqa
+layer is achieved.
+
+The specifications for interop can be found in
+[ZIP-21](https://github.com/Zilliqa/ZIP/blob/master/zips/zip-21.md).
 
 ## Address formats
 
@@ -47,19 +52,14 @@ However, there is a small modification - a ZIL API native token transfer costs 5
 
 ### Rounding
 
-Because ETH and ZIL differ in the number of decimals they support, we
-scale EVM balances by 6 decimal places.
+ETH and ZIL differ in the number of decimals they support - 12 for
+ZIL, 18 for ETH.
 
-If we maintained a 1-1 relationship between ethereum gas and ZIL gas ,
-EVM would be dramatically more expensive than Scilla; in order to
-ameliorate this, we scale ethereum gas when charging and for technical
-reasons, the scaled value (ie. the scilla-equivalent gas price is what
-we track under the hood).
+In Zilliqa 1, we store account balances in Qa and scale them up by
+1_000_000 to report Wei.
 
-As a result, rounding occurs, and the amount of ethereum gas you are
-charged for a transaction will be slightly less than the amount
-estimated, in order that the `effectiveGasPrice * gasUsed` is equal to
-the deduction made for gas.
+In Zillia 2, we store account balances in Wei and scale them down by
+1_000_000 to report Qa.
 
 ## Scilla/EVM interoperability
 

@@ -7,11 +7,11 @@ hide:
 
 This is the developer documentation for [Zilliqa](https://www.zilliqa.com/) 2.0, a fast-finality scalable blockchain.
 
-You can read the white paper and get an overview of Zilliqa 2.0 and how it works from TODO.
+You can read the white paper and get an overview of Zilliqa 2.0 and how it works from [https://roadmap.zilliqa.com](https://roadmap.zilliqa.com).
 
-Zilliqa supports both an EVM compatible execution layer and a custom execution layer based on the [Scilla](https://scilla.readthdocs.io/latest) smart contract language. Standards for the blockchain itself are recorded in [Zilliqa Improvement Proposals](https://github.com/zilliqa/zip) and for Scilla smart contracts, in [Zilliqa Reference Contracts](https://github.com/zilliqa/zrc). Chain governance can be discussed on [the governance forum](https://gov.zilliqa.com) and votes are held on [snapshot](https://governance.zilliqa.com), and staking information can be obtained from [zillion](https://stake.zilliqa.com).
+Zilliqa supports both an EVM compatible execution layer and a custom execution layer based on the [Scilla](https://scilla.readthedocs.io/) smart contract language. Standards for the blockchain itself are recorded in [Zilliqa Improvement Proposals](https://github.com/zilliqa/zip) and for Scilla smart contracts, in [Zilliqa Reference Contracts](https://github.com/zilliqa/zrc). Chain governance can be discussed on [the governance forum](https://gov.zilliqa.com) and votes are held on [snapshot](https://governance.zilliqa.com), and staking information can be obtained from [zillion](https://stake.zilliqa.com).
 
-You can find out more about how EVM and Scilla [interoperate](/interop.md).
+You can find out more about how EVM and Scilla [interoperate](zilevm/interop.md).
 
 Zilliqa supports most standard EVM development tools and wallets, including [metamask](https://metamask.io).
 
