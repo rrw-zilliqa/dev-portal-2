@@ -24,7 +24,7 @@ Here, you will find information about:
 - [What's Changed and transition plans](changes.md) since Zilliqa 1.0
 - The Zilliqa 2.0 blockchain
   - Supported APIs (see the sidebar)
-  - Information about the [SDKs and software](sdk.md) and [Ecosystem](ecosystem/ecosystem.md) available.
+  - Information about the [SDKs and software](sdk.md) and [Ecosystem](../ecosystem/) available.
   - How to run a [node](running/node.md) and become a [validator](running/validator.md), or run your own [network](running/network.md)
 
 Coming soon:

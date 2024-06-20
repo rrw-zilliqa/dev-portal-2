@@ -1,229 +1,64 @@
-# Developer portal
+# Zilliqa developer documentation
 
-## Deploying applications with z
+This repository contains the Zilliqa developer documentation.
 
-`z` is the one-stop shop for the Zilliqa provisioning and deployment operations. To deploy applications with z ensure the `z`
-binary is installed in your operative system PATH environment variable. For more details about `z` please refer to the [documentation](https://github.com/Zilliqa/devops/blob/main/docs/z2.md).
+- The `main` branch has CD at [https://developer-portal.zilstg.dev/]
+- Releases to go to [https://developer-portal.zilliqa.com]
 
-## Deploying applications to localdev
+## How it works
 
-To deploy the localdev/development environment go to the project folder in the zilliqa-developer repository:
+The developer portal is a pair of `mkdocs` materials-themed sites - one for Zilliqa 1 and one for Zilliqa 2.
 
-```sh
-cd ./products/developer-portal
-```
+The Zilliqa 1 site is static.
+The Zilliqa 2 site includes content created by the rust program in `docgen` - see below.
 
-The `./products/developer-portal/z.yaml` contains all the relevant configurations for the development environment.
-Now set the following environment variables to reference the project's `z.yaml` file:
+They are served in production by an nginx container containing the routing between the two, built by the `Dockerfile` and using the config file from `default.conf`.
 
-- `Z_ENV` to the path in which your `z.yaml` resides.
-- `ZQ_USER` to your username (the bit before `@` in your email address)
+The material theme is fairly heavily customised with overrides in both Zilliqa 1 and Zilliqa 2.
 
-for example:
+## Docgen
 
-```sh
-export Z_ENV=z.yaml
-export ZQ_USER=<user_id>@zilliqa.com
-```
+The `docgen` program:
 
-Create the local kind cluster (if not created previously):
+- Reads the `zq2_spec.yaml` file in this directory.
+- Clones Zilliqa 2 into `cache/zq2`
+- Runs the `docgen` program in Zilliqa 2 to generate API documentation.
+- Repeats the process for all the versions of Zilliqa 2 it is to document.
+- Generates an `mkdocs.yaml`
 
-```sh
-z local create
-```
+`mkdocs.yaml` for zq2 is generated from:
 
-Execute the manifests (in this case for ensuring the installation of the ingress-nginx controller, required for localdev/development environments):
+- `zq2/mkdocs.in.yaml`, which inherits from
+- `zq2/parenty.yaml`
 
-```sh
-z k-apply
-```
+## Developing
 
-Build and push the image:
+Development is controlled by the `Makefile` in this directory.
+
+You will need `mkdocs`. Make sure you're in a venv (because `mkdocs` doesn't seem to like installing outside one):
 
 ```sh
-make image/build-and-push
+python -m venv ~/mydir
+source ~/mydir/bin/activate
 ```
 
-And deploy the application to your local cluster with:
+And then:
 
 ```sh
-z app sync
+pip3 install -r requirements.txt
 ```
 
-Verify your application is running correct from the `http://localhost` URL and with `kubectl` commands (if required).
+You will also need enough local tooling installed to build ZQ2; this
+starts with [installing
+Rust](https://www.rust-lang.org/tools/install), but there are other
+tools - including cmake and protobuf required. Check the [zq2
+repository](https://github.com/zilliqa/zq2) for details.
 
-## Deploying applications to staging
+Now,
 
-To deploy the staging environment we need to clone the devops repository and execute `z` from there:
+- `make dev1` will make and serve the ZQ1 docs locally on port 8000.
+- `make dev2` will do the same with the ZQ2 docs.
 
-```sh
-git clone https://github.com/Zilliqa/devops.git
-cd devops
-source setenv
-```
+You can set `SERVEROPTS` to pass option (usually `-a <listen_address>:<port>`) to `mkdocs serve`.
 
-### Set the following environment variables
-
-- `Z_ENV` to the path in which your `z.yaml` resides.
-- `ZQ_USER` to your username (the bit before `@` in your email address)
-- `GITHUB_PAT` (if you are deploying staging or production apps) to a classic PAT with all the repo permissions ticked.
-
-for example:
-
-```sh
-export Z_ENV=`pwd`/infra/live/gcp/non-production/prj-d-staging/z_ase1.yaml
-export ZQ_USER=<user_id>@zilliqa.com
-export GITHUB_PAT=<GITHUB_PAT>
-```
-
-### Login to Google Cloud
-
-```sh
-z login
-```
-
-### Add the application to the staging `z.yaml` file. Skip this step if it is an existing application
-
-1. Create a branch:
-
-   ```sh
-   git checkout -b users/<username>/add_developer_portal_to_staging_cluster
-   ```
-
-2. In the file `infra/live/gcp/non-production/prj-d-staging/z_ase1.yaml` add the following:
-
-   - in `apps` stanza add:
-
-     ```yaml
-     clusters:
-       staging:
-         apps:
-           developer-portal:
-             repo: https://github.com/Zilliqa/zilliqa-developer
-             path: products/developer-portal/cd/overlays/staging
-             track: staging
-             type: kustomize
-     ```
-
-   - in `subdomains` stanza add:
-
-     ```yaml
-     infrastructure:
-     dns:
-       vars:
-       subdomains:
-         developer-portal: {}
-     ```
-
-3. Push the changes
-
-   ```sh
-   git add .
-   git commit -m "Add Developer Portal to staging cluster"
-   git push origin users/<username>/add_developer_portal_to_staging_cluster
-   ```
-
-4. Open a Pull Request to the main branch
-
-5. Apply the changes
-
-   ```sh
-   z plan
-   z apply
-   ```
-
-### Deploy the application
-
-```sh
-z app sync --cache-dir=.cache developer-portal
-```
-
-Verify your application is running correct from the staging URL and with `kubectl` commands (if required).
-
-## Deploying applications to production
-
-To deploy the production environment we need to clone the devops repository and execute `z` from there:
-
-```sh
-git clone https://github.com/Zilliqa/devops.git
-cd devops
-source setenv
-```
-
-### Set the following environment variables
-
-- `Z_ENV` to the path in which your `z.yaml` resides.
-- `ZQ_USER` to your username (the bit before `@` in your email address)
-- `GITHUB_PAT` (if you are deploying staging or production apps) to a classic PAT with all the repo permissions ticked.
-
-for example:
-
-```sh
-export Z_ENV=`pwd`/infra/live/gcp/production/prj-p-prod-apps/z_ase1.yaml
-export ZQ_USER=<user_id>@zilliqa.com
-export GITHUB_PAT=<GITHUB_PAT>
-```
-
-### Login to Google Cloud
-
-```sh
-z login
-```
-
-### Add the application to the production `z.yaml` file. Skip this step if it is an existing application
-
-1. Create a branch:
-
-   ```sh
-   git checkout -b users/<username>/add_developer_portal_to_production_cluster
-   ```
-
-2. In the file `infra/live/gcp/production/prj-p-prod-apps/z_ase1.yaml` add the following:
-
-   - in `apps` stanza add:
-
-     ```yaml
-     clusters:
-       production:
-         apps:
-           developer-portal:
-             repo: https://github.com/Zilliqa/zilliqa-developer
-             path: products/developer-portal/cd/overlays/production
-             track: production
-             type: kustomize
-     ```
-
-   - in `subdomains` stanza add:
-
-     ```yaml
-     infrastructure:
-     dns:
-       vars:
-       subdomains:
-         dev: {}
-     ```
-
-3. Push the changes
-
-   ```sh
-   git add .
-   git commit -m "Add Developer Portal to production cluster"
-   git push origin users/<username>/add_developer_portal_to_production_cluster
-   ```
-
-4. Open a Pull Request to the main branch
-
-5. Apply the changes
-
-   ```sh
-   z plan
-   z apply
-   ```
-
-### Deploy the application
-
-```sh
-z app sync --cache-dir=.cache developer-portal
-```
-
-Verify your application is running correct from the production URL and with `kubectl` commands (if required).
+If you want to check containerised builds, `make run-image` will do that for you and run it on port 8080.
