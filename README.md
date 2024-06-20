@@ -7,14 +7,18 @@ This repository contains the Zilliqa developer documentation.
 
 ## How it works
 
-The developer portal is a pair of `mkdocs` materials-themed sites - one for Zilliqa 1 and one for Zilliqa 2.
+The developer portal is a pair of `mkdocs` materials-themed sites -
+one for Zilliqa 1 and one for Zilliqa 2.
 
 The Zilliqa 1 site is static.
 The Zilliqa 2 site includes content created by the rust program in `docgen` - see below.
 
-They are served in production by an nginx container containing the routing between the two, built by the `Dockerfile` and using the config file from `default.conf`.
+They are served in production by an nginx container containing the
+routing between the two, built by the `Dockerfile` and using the
+config file from `default.conf`.
 
-The material theme is fairly heavily customised with overrides in both Zilliqa 1 and Zilliqa 2.
+The material theme is fairly heavily customised with overrides in both
+Zilliqa 1 and Zilliqa 2.
 
 ## Docgen
 
@@ -35,7 +39,8 @@ The `docgen` program:
 
 Development is controlled by the `Makefile` in this directory.
 
-You will need `mkdocs`. Make sure you're in a venv (because `mkdocs` doesn't seem to like installing outside one):
+You will need `mkdocs`. Make sure you're in a venv (because `mkdocs`
+doesn't seem to like installing outside one):
 
 ```sh
 python -m venv ~/mydir
@@ -59,6 +64,8 @@ Now,
 - `make dev1` will make and serve the ZQ1 docs locally on port 8000.
 - `make dev2` will do the same with the ZQ2 docs.
 
-You can set `SERVEROPTS` to pass option (usually `-a <listen_address>:<port>`) to `mkdocs serve`.
+You can set `SERVEROPTS` to pass option (usually `-a
+<listen_address>:<port>`) to `mkdocs serve`.
 
-If you want to check containerised builds, `make run-image` will do that for you and run it on port 8080.
+If you want to check containerised builds, `make run-image` will do
+that for you and run it on port 8080.
