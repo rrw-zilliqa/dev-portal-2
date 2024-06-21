@@ -49,6 +49,8 @@ lint:
       paths:
         - zq2/docs/ecosystem/index.md # multiple headers
         - zq2/docs/zilevm/tools/remix.md # Don't care about line length
+        - README.md
+        - DEPLOY.md
     - linters: [ALL]
       paths:
         - Dockerfile # Annoying, but trunk is now very opinionated on how you write dockerfiles.
