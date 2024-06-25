@@ -1,21 +1,50 @@
 ---
 hide:
   - title
+  - toc
 ---
 
-# Zilliqa 2 Developer Portal
+# Zilliqa 2.0 Developer Documentation
 
-*Looking for Zilliqa 1 documentation? You can find it at [https://dev.zilliqa.com/zilliqa1/](/zilliqa1/)*
+Welcome to the developer documentation for Zilliqa 2.0, a fast-finality, scalable blockchain protocol. Zilliqa 2.0 features a native EVM execution layer, supporting standard EVM development tools and wallets while also retaining a custom execution layer based on the [Scilla](https://scilla.readthdocs.io/latest) smart contract language. 
 
-You can find an overview at [home](home) or select a page from the menu at the left of this page.
+__For an overview__ of the features and capabilities introduced in Zilliqa 2.0, please visit the [roadmap website](https://roadmap.zilliqa.com/), where you can also find a list of development milestones. 
 
-Useful tools:
+__To learn more__ about the design of the Zilliqa 2.0 protocol, [read the whitepaper](https://drive.google.com/file/d/1XqSySl0w_OtxyxBZ0ahS06cqIv-vd10M/view).
 
-- Plunderswap's [transfer from Zil to EVM wallet or back](https://plunderswap.com/transfer)
-- Swap addresses between hex and bech32 (note: this does _not_ produce an EVM address) <input length=40 id="address" class="disp-input" /> [:octicons-arrow-switch-24:](#){.hexconverter} [:octicons-copy-24:](#){.hexcopy}
+__At the current stage__ of Zilliqa 2.0 development, the core protocol is available to test via the Jasper proto-testnet. 
 
-## Latest News
+__The proto-testnet__ exists as the first implementation of the Zilliqa 2.0 consensus mechanism, which comprises Proof-of-Stake validator selection paired with Pipelined Fast-HotStuff for fast and efficient transaction processing.
 
-### 2024-04-04: New documentation site
+Here you will find documentation related to the current implementation of Zilliqa 2.0, including:
 
-Hopefully this is a little easier to navigate than the previous developer site.
+<div class="grid cards" markdown>
+
+-   __What's new in Zilliqa 2.0__
+
+      [:octicons-arrow-right-24: Read More](/zilliqa2/changes/)
+
+
+-   __URLs of RPC endpoint, faucet and block explorer__
+
+      [:octicons-arrow-right-24: Read More](/zilliqa2/endpoints/)
+
+-   __How to run a node and become a validator__
+
+    [:octicons-arrow-right-24: Read More](/zilliqa2/nodes/)
+
+-   __Development tools, SDKs, and Git repositories__
+
+    [:octicons-arrow-right-24: Read More](/zilliqa2/sdk/)
+
+-   __Supported APIs__
+
+    [:octicons-arrow-right-24: Read More](/zilliqa2/support/)
+
+</div>
+
+More documentation for Zilliqa 2.0 will become available as new functionality is rolled out to the protocol and its capabilities are expanded.
+
+*__Note:__ This documentation refers to Zilliqa 2.0. Documentation for the current production version of Zilliqa is available at
+ [https://dev.zilliqa.com/zilliqa1/](/zilliqa1/)*
+

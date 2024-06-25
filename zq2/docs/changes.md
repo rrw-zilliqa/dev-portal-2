@@ -1,44 +1,50 @@
 ---
+
 id: changes
-title: Changelog and transition plan
+title: What's new in Zilliqa 2.0
 ---
 
-# Zilliqa 2.0 changes and transition plan
+# What's new in Zilliqa 2.0
 
-## Changes
+Zilliqa 2.0 is designed as an entirely new protocol which will be backwards-compatible with Zilliqa 1.0, the original version of Zilliqa currently in production. When ready, the state and all accounts on the current production mainnet will seamlessly be migrated to Zilliqa 2.0.
+</br> </br>
+__There are a number of differences between Zilliqa 1.0 and Zilliqa 2.0:__
 
-There are a number of differences between Zilliqa 1.0 and Zilliqa 2.0 that you should be aware of:
+-   Zilliqa 2.0 uses Proof-of-Stake based on Pipelined Fast-Hotstuff as a consensus algorithm. Mining is no longer necessary.
 
-- Zilliqa 2.0 uses proof of stake based Fast-Hotstuff as a consensus algorithm. Mining is no longer necessary.
-- Zilliqa 2.0 has many fewer nodes, and is thus far cheaper to run, than Zilliqa 1.0 - a typical Zilliqa 2.0 mainnet can run comfortably in 32 nodes.
-- Zilliqa 2.0 has a much faster block time (there is typically a hardwired minimum of 1s/block); dApp operators will need to make sure that where they use block number as a proxy for a timestamp, they allow sufficient blocks for users to react.
-- Zilliqa 2 upgrades are seamless and relatively quick; you don't need to redownload persistence and there is an auto-upgrader you can run if you wish which will run the newer version of zq2 and cut over when ready. We hope this will enable us to eliminate upgrade downtime and to make more frequent bug fixes.
+-   There are no DS epochs, no long delay at TX block 99, and the transaction pool is no longer cleared at the start of an epoch.
 
-## API differences
+-   Zilliqa 2.0 has much fewer nodes and is thus far cheaper to run than Zilliqa 1.0 - a typical Zilliqa 2.0 mainnet can be operated efficiently and securely by 32 validator nodes.
 
-- There are no DS epochs any longer (though some are faked to allow
-  existing applications that retrieve the current DS epoch to work),
-  so the transaction pool is no longer cleared wat the start of a DS
-  epoch.
-- `GetTransactionStatus` no longer depends on an off-chain transaction
-  store, and therefore now works for any transaction.
+-   Zilliqa 2.0 has a much faster block time; dApps will need to make sure that where they use block number as a proxy for a timestamp, they allow sufficient blocks for users to react.
 
-## Continuity
+-   In Zilliqa 1.0, account balances are stored in Qa and scaled up by 1,000,000 to report Wei; in Zilliqa 2.0, they are stored in Wei and scaled down by 1,000,000 to report Qa in non-EVM APIs.
 
-There are also a number of things that have not changed:
+-   Zilliqa 2.0 upgrades are seamless and deployed relatively quickly without the requirement to redownload persistence. This will help eliminate upgrade downtime and accommodate more frequent bug fixes.
+</br> </br>
 
-- Zilliqa 2.0 is (or should be!) compatible with all the same dApps, tokens and sites as Zilliqa 1.
 
-## Transition plan
+__There are also things that have not changed:__
 
-Zilliqa 2.0 will being by running a prototype devnet. This is an empty developer test network that you can use to try out your code.
+-   Zilliqa 2.0 will be compatible with all the same dApps, tokens and sites as Zilliqa 1.0 (EVM -> Scilla contract interoperability is currently unavailable on proto-testnet but will be reintroduced in an upgrade soon).
 
-There will then be:
+-   A non-EVM native token transfer uses 50 gas; an EVM transfer uses 21000 gas. To make both cost the same amount of ZIL we divide EVM gas costs by 420 (== 21000/50). That is why EVM transactions require a minimum gas price of 4761.9048 Gwei.
 
-- A `prototestnet` network - this periodically (once every few days) imports existing Zilliqa 1 testnet persistence and starts a network on it; this allows you to test against existing testnet persistence.
-- A `protomainnet` network - which does the same with mainnet persistence.
-- Existing SSNs will be invited to become validators on the Zilliqa 2 network (bringing their delegated stake with them). We'll contact you individually about this.
-- We will then cut `testnet` over to Zilliqa 2
-- Then `mainnet`
+-   Non-EVM addresses are derived from the SHA256 of the public key, giving a base16 hex string, e.g. 0x70b16b656fc1759193366dab9a56bee486feffda, which is then conventionally expressed in bech32 form zil1wzckket0c96eryekdk4e5447ujr0al76fd6ax4
 
-Note that the `proto` networks will have different chain IDs to the networks they import their state from; this is necessary to avoid replay attacks, but means that you will find the chain ids of old transactions are not the same as the chain ids for new ones.
+-   EVM addresses are derived from the Keccak256 of the public key, giving a base16 hex string, possibly with a checksum embedded in the capitalisation, e.g. 0xB85fF091342e2e7a7461238796d5224fA81ca556.
+
+-   Though both EVM and non-EVM transactions use the secp256k1 curve, non-EVM transactions use Schnorr signatures, whilst EVM transactions use ECDSA.
+
+### Converting address formats and transferring between wallets
+
+EVM DEX Plunderswap offers a free tool that allows you to easily transfer ZIL from a non-EVM Zilliqa wallet to an EVM wallet, and vice versa.
+
+Plunderswap's EVM Token Transfer tool is [available here](https://plunderswap.com/transfer).</br>
+
+You can also use the tool below to swap addresses between base16 and bech32 formats. </br>
+*Note this does not produce an EVM address.*
+
+<input length=40 id="address" class="disp-input" /> [:octicons-arrow-switch-24:](#){.hexconverter} [:octicons-copy-24:](#){.hexcopy}
+
+
