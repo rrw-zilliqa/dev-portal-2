@@ -125,11 +125,11 @@ Now that we have inspected the smart contracts, let’s deploy FeedConsumer.
 
 Go to [Remix IDE](https://remix.ethereum.org/). In the File Explorer tab, add both of the contracts under the contracts folder like this:
 
-<img alt="Remix File Explorer" width="1600" src="../../../../assets/img/chainlink/remix-file-explorer.png" />
+<img alt="Remix File Explorer" width="1600" src="../../assets/img/chainlink/remix-file-explorer.png" />
 
 The next thing to do is to compile our contracts with the built-in compiler. Do this for both contracts:
 
-<img alt="Remix File Explorer" width="800" src="../../../../assets/img/chainlink/remix-compiler.png" />
+<img alt="Remix File Explorer" width="800" src="../../assets/img/chainlink/remix-compiler.png" />
 
 Now we are ready to deploy the contract! Go to the Remix Deployer. Make sure you have selected Zilliqa Testnet in Metamask from the earlier step.
 
@@ -139,15 +139,15 @@ There are three actions we need to take here:
 2. Copy the EVM address from above that belongs to “ZIL / USD (Testnet)” and paste it in the input field that says “address feedAddress”
 3. Click deploy and accept the transaction in your Metamask wallet. Normally it takes around one minute for deployment to complete.
 
-<img alt="Remix File Explorer" width="1600" src="../../../../assets/img/chainlink/remix-transactions-0.png" />
+<img alt="Remix File Explorer" width="1600" src="../..//assets/img/chainlink/remix-transactions-0.png" />
 
 If all went well you should now see your FeedConsumer contract appear under “Deployed Contracts”:
-<img alt="Remix File Explorer" width="800" src="../../../../assets/img/chainlink/remix-transactions-1.png" />
+<img alt="Remix File Explorer" width="800" src="../../assets/img/chainlink/remix-transactions-1.png" />
 
 If so, great! Let’s open this up and call a few of its functions:
 
 Let’s call the description function: after a couple of seconds you should see “ZIL / USD”. Do the same with decimals and getLatestAnswer() and you should see a similar result as below:
-<img alt="Remix File Explorer" width="800" src="../../../../assets/img/chainlink/remix-deployed-contracts.png" />
+<img alt="Remix File Explorer" width="800" src="../../assets/img/chainlink/remix-deployed-contracts.png" />
 
 Remember since this is on-chain data, there are no floats / decimal numbers. So to get the nominal value in a more human readable format, you divide the answer with the decimal points as follows:
 

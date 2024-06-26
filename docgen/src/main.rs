@@ -4,12 +4,11 @@ use std::path::PathBuf;
 use std::{env, fs};
 use zqutils::commands::CommandBuilder;
 
-const API_URL: &str = "https://api.zq2-devnet.zilliqa.com";
-
 #[derive(Clone, Deserialize)]
 struct Version {
     refspec: String,
     name: Option<String>,
+    api_url: String,
 }
 
 #[derive(Clone, Deserialize)]
@@ -34,6 +33,7 @@ async fn main() -> Result<()> {
         vec![Version {
             refspec: "use_zq2_from".to_string(),
             name: Some("use_zq2_from".to_string()),
+            api_url: "http://localhost:5201".to_string(),
         }]
     } else {
         versions.versions.clone()
@@ -137,7 +137,7 @@ async fn main() -> Result<()> {
                     "--key-prefix",
                     &key_prefix,
                     "--api-url",
-                    API_URL,
+                    &vrec.api_url,
                 ],
             )
             .current_dir(&z2_dir.clone())?

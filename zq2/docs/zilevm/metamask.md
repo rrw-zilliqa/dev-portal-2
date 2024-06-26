@@ -44,11 +44,7 @@ Do not send Zilliqa NFTs or fungible tokens to EVM addresses and vice-versa. You
 
 #### Converting addresses
 
-Navigate to [https://devex.zilliqa.com/address/](https://devex.zilliqa.com/address/) to convert using either a ZIL bech32 address or a base16 address.
-
-By pressing the convert button, we can turn a bech32 address (zil...) into a base16 address(0x...), and vice-versa.
-
-!["Coverting address types"](../assets/img/evm/convert_address.png)
+You can do this with the Javascript widget on [the news page](/).
 
 #### ZIL -> EVM
 
@@ -58,7 +54,7 @@ You can then use ZilPay to transfer funds to that bech32 address.
 
 #### ZILEVM -> ZIL
 
-If we know the Zilliqa bech32 address (zil...) we want to send funds to, we need to convert that to a base16 address(0x...) - again, devex can do this for you.
+If we know the Zilliqa bech32 address (zil...) we want to send funds to, we need to convert that to a base16 address(0x...) - again, via [the news page](/).
 
 Once we have the converted wallet address starting 0x... - Metamask can be used like normal to send funds to a Zilliqa address.
 

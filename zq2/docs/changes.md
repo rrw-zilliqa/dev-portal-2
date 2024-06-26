@@ -38,13 +38,4 @@ __There are also things that have not changed:__
 
 ### Converting address formats and transferring between wallets
 
-EVM DEX Plunderswap offers a free tool that allows you to easily transfer ZIL from a non-EVM Zilliqa wallet to an EVM wallet, and vice versa.
-
-Plunderswap's EVM Token Transfer tool is [available here](https://plunderswap.com/transfer).</br>
-
-You can also use the tool below to swap addresses between base16 and bech32 formats. </br>
-*Note this does not produce an EVM address.*
-
-<input length=40 id="address" class="disp-input" /> [:octicons-arrow-switch-24:](#){.hexconverter} [:octicons-copy-24:](#){.hexcopy}
-
-
+- Zilliqa 2.0 is (or should be!) compatible with all the same dApps, tokens and sites as Zilliqa 1.
