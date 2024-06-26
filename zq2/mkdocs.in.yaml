@@ -1,11 +1,10 @@
 INHERIT: ./parent.yaml
 nav:
-  - News: index.md
-  - Home: home.md
-  - New in ZQ2: changes.md
-  - Zilliqa 1:
-      - Documentation: zq1/index.md
-  - Endpoints: endpoints.md
+  - Welcome: index.md
+  - What's new: changes.md
+  - Endpoints and more: endpoints.md
+  - Nodes and Validators: nodes.md
+  - Tools and SDKs: sdk.md
   - FAQ: faq.md
   - Ecosystem:
       - ecosystem/index.md
@@ -42,7 +41,6 @@ nav:
       - Nodes: running/node.md
       - Validators: running/validator.md
       - Networks: running/network.md
-  - SDKs and tools: sdk.md
   - EVM:
       - Interop: zilevm/interop.md
       - Metamask: zilevm/metamask.md

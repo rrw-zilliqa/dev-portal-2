@@ -1,27 +1,41 @@
 ---
 id: endpoints
-title: API endpoints
-hide:
-  - toc
+title: Endpoints, Block Explorer and Faucet
 keywords:
   - api
   - introduction
   - endpoints
-description: Zilliqa API Endpoints
+description: Endpoints, Block Explorer and Faucet
 ---
 
-# Endpoints
+# Endpoints, Block Explorer and Faucet
 
-Chain ids can be found at [chainlist](https://chainlist.org/?search=zilliqa&testnets=true).
+As we introduce additional test networks for Zilliqa 2.0, their public RPC node URLs and chain IDs will be published on [ChainList](https://chainlist.org/?search=zilliqa&testnets=true) alongside existing chain information for Zilliqa 1.0.
 
-Uptime can be found at [status.zilliqa.com](https://status.zilliqa.com) and you can get API examples from the `versions` pages in the navbar.
+## Networks
+Details for the current network versions of Zilliqa 2.0 are listed below.
 
-## devnet
-
-Devnet is a general purpose developer network, synchronised to the latest (or nearly the latest) commit from [https://github.com/zilliqa/zq2](https://github.com/zilliqa/zq2) . Its state and uptime are not guaranteed, but it is useful for checking your contracts against the latest and greatest software versions.
-
-<div class="center-table" markdown>
-|  Name  | Version | ChainId | API | Otterscan | Faucet  | Connect | Notes |
-| ------ | ------- | ------- | --- | --------- | ------  | ------- | ----- |
-| devnet | <span id="devnet_vsn" class="zq2_vsn">api.zq2-devnet.zilliqa.com</span> | [33469](https://chainlist.org/chain/33469) | https://api.zq2-devnet.zilliqa.com | https://explorer.zq2-devnet.zilliqa.com | https://faucet.zq2-devnet.zilliqa.com/ | <a href="javascript:connectZilliqaChain('https://api.zq2-devnet.zilliqa.com', '0x82BD', 'Zilliqa 2 EVM Devnet', 'https://explorer.zq2-devnet.zilliqa.com', 'Zilliqa 2 testnet', 'ZIL')">Metamask</a> | <span class="zq2_docs_devnet_vsn" kind="api">&nbsp;</span> |
+<div class="table" markdown>
+|  Name  | Version | ChainId | API | Otterscan | Faucet  |
+| ------ | ------- | ------- | --- | --------- | ------  |
+| proto-testnet | xx | xx | xx | xx | xx | xx | xx |
 </div>
+
+*__Note__ that this is currently a proto-testnet version of Zilliqa 2.0 designed primarily for testing purposes, and therefore its state and uptime are not guaranteed*
+
+## Block Explorer
+
+The current version of Zilliqa 2.0 is compatible with the Otterscan block explorer and does not support Devex.
+
+The block explorer for the Zilliqa 2.0 proto-testnet is [available here](https://explorer.zq2-prototestnet.zilliqa.com/).
+
+
+## Faucet
+The faucet sends an amount of 100 ZIL to the supplied address for use in testing the network.
+
+Enter the hex address of your compatible EVM wallet into the field below to receive 100 ZIL on the Zilliqa 2.0 proto-testnet:
+``` py title="Receive 100 ZIL on the Zilliqa 2.0 proto-testnet"
+[EMBED Faucet]
+```
+
+*If you are unable to use the tool above, you can also [access the faucet here](https://faucet.devnet.zilliqa.com).*
