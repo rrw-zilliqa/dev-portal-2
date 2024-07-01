@@ -1,56 +1,10 @@
 INHERIT: ./parent.yaml
 nav:
   - Welcome: index.md
-  - What's new: changes.md
-  - Endpoints and more: endpoints.md
+  - What's new in Zilliqa 2.0: changes.md
+  - Endpoints, Block Explorer and Faucet: endpoints.md
   - Nodes and Validators: nodes.md
   - Tools and SDKs: sdk.md
-  - FAQ: faq.md
-  - Ecosystem:
-      - ecosystem/index.md
-      - DeFi: ecosystem/defi.md
-      - Indexers: ecosystem/indexers.md
-      - Indexer:
-          - Indexer Introduction: ecosystem/indexer/indexer-introduction.md
-          - ZILs:
-              - All Transactions: ecosystem/indexer/zil-all-transactions.md
-              - Balance: ecosystem/indexer/zil-balance.md
-          - ZRC-2:
-              - Contract Details: ecosystem/indexer/zrc2-contract-details.md
-              - Contract List: ecosystem/indexer/zrc2-contract-list.md
-              - Balance: ecosystem/indexer/zrc2-balance.md
-              - All Balances: ecosystem/indexer/zrc2-all-balances.md
-              - Transaction History: ecosystem/indexer/zrc2-transaction-history.md
-          - ZRC-6:
-              - Recently Minted: ecosystem/indexer/zrc6-recently-minted.md
-              - Asset Details: ecosystem/indexer/zrc6-asset-details.md
-              - User Assets: ecosystem/indexer/zrc6-user-assets.md
-              - Asset Metadata: ecosystem/indexer/zrc6-asset-metadata.md
-              - Search Attribute: ecosystem/indexer/zrc6-search-attribute.md
-          - Marketplace:
-              - Fixed Price: ecosystem/indexer/marketplace-fixed-price.md
-              - English Auction: ecosystem/indexer/marketplace-english-auction.md
-              - Brand Collectible List: ecosystem/indexer/marketplace-brand-collectible-list.md
-              - Brand Collectible Assets: ecosystem/indexer/marketplace-brand-collectible-assets.md
-              - Brand Collectible Details: ecosystem/indexer/marketplace-brand-collectible-details.md
-      - Oracles: ecosystem/chainlink.md
-      - NFTs: ecosystem/nft.md
-      - Nodes: ecosystem/nodes.md
-      - Wrapped ZIL: ecosystem/wzil.md
-  - Running:
-      - Nodes: running/node.md
-      - Validators: running/validator.md
-      - Networks: running/network.md
-  - EVM:
-      - Interop: zilevm/interop.md
-      - Metamask: zilevm/metamask.md
-      - Tools:
-          - Hardhat: zilevm/tools/hardhat.md
-          - OpenZeppelin: zilevm/tools/openzeppelin.md
-          - RemixIDE: zilevm/tools/remix.md
-          - VSCode Plugins: zilevm/tools/vsc-plugins.md
-  - Zilliqa:
-      - Native API: zilliqa/zilliqa.md
-      - Introduction: zilliqa/introduction-videos.md
-  - Versions:
-      - versions/index.md
+  - APIs:
+      - apis/index.md
+  - Support & Feedback: support.md

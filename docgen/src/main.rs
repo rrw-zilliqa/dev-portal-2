@@ -66,7 +66,7 @@ async fn main() -> Result<()> {
             ));
         }
 
-        let id_prefix = format!("Versions/{name}");
+        let id_prefix = format!("APIs/{name}");
         let target_dir = root_path.clone().join("zq2").join("docs");
         let target_dir_str = target_dir
             .as_os_str()
