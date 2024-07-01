@@ -54,5 +54,5 @@ target/
 cache/**
 !cache/.gitkeep
 # Used for rendering API docs.
-zq2/docs/versions/**
+zq2/docs/apis/**
 docgen/target
