@@ -54,18 +54,22 @@ The `z2 join` command creates the validator node startup script and configuratio
 ###$ Step by step guide
 
 1. Cargo and Rust: You need to have Cargo and Rust installed on your system. You can install them using [rustup](https://rustup.sh).
-2. Pick a directory. You'll need quite a lot of space. Let's call it `/my/dir`.
-3. Clone `git@github.com:zilliqa/zq2` into that directory to get `/my/dir/zq2`.
-4. Source the setenv file `source /my/dir/zq2/scripts/setenv`. This will give you access to the `z2` tool (in `zq2/z2`).
-5. Generate the startup script and the configuration file for your node by running 
+2. Install the following requirements:
+    ```bash
+    sudo apt install -y build-essential pkg-config libssl-dev cmake
+    ```
+3. Pick a directory. You'll need quite a lot of space. Let's call it `/my/dir`.
+4. Clone `git@github.com:zilliqa/zq2` into that directory to get `/my/dir/zq2`.
+5. Source the setenv file `source /my/dir/zq2/scripts/setenv`. This will give you access to the `z2` tool (in `zq2/z2`).
+6. Generate the startup script and the configuration file for your node by running 
     ```bash
     z2 join --chain prototestnet
     ```
-6. Generate the node private key (save it because you need to use it in case you need to restart your node)
+7. Generate the node private key (save it because you need to use it in case you need to restart your node)
     ```bash
     export PRIVATE_KEY=$(openssl rand -hex 32)
     ```
-7. Start the validator
+8. Start the validator
     ```bash
     chmod +x start_validator.sh && \
     ./start_validator.sh $PRIVATE_KEY
