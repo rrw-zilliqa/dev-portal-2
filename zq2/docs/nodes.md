@@ -68,11 +68,13 @@ and run.
 ### Step by step guide
 
 1. Cargo and Rust: You need to have Cargo and Rust installed on your system.
-   You can install them using [rustup](https://rustup.sh).
+   You can install them using [rustup](https://rustup.rs/).
 2. Install the following requirements:
 
    ```bash
-   sudo apt install -y build-essential pkg-config libssl-dev cmake
+    sudo add-apt-repository ppa:ethereum/ethereum && sudo apt update && \
+    sudo apt install -y solc build-essential pkg-config libssl-dev cmake \
+    protobuf-compiler
    ```
 
 3. Pick a directory. You'll need quite a lot of space. Let's call it `/my/dir`.
