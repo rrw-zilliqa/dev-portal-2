@@ -43,6 +43,4 @@ Plunderswap’s EVM Token Transfer tool is available [here](https://plunderswap.
 You can also use the tool below to swap addresses between base16 and
 bech32 formats. Note this does not produce an EVM address.
 
-```py
-[embed tool]
-```
+<input length=40 id="address" class="disp-input"> [:octicons-arrow-switch-24:](#/){.hexconverter} [:octicons-copy-24:](#/){.hexcopy}
