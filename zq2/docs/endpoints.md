@@ -13,6 +13,7 @@ description: Endpoints, Block Explorer and Faucet
 As we introduce additional test networks for Zilliqa 2.0, their public RPC node URLs and chain IDs will be published on [ChainList](https://chainlist.org/?search=zilliqa&testnets=true) alongside existing chain information for Zilliqa 1.0.
 
 ## Networks
+
 Details for the current network versions of Zilliqa 2.0 are listed below.
 
 <div class="table" markdown>
@@ -21,7 +22,7 @@ Details for the current network versions of Zilliqa 2.0 are listed below.
 | proto-testnet | xx | xx | xx | xx | xx | xx | xx |
 </div>
 
-*__Note__ that this is currently a proto-testnet version of Zilliqa 2.0 designed primarily for testing purposes, and therefore its state and uptime are not guaranteed*
+_**Note** that this is currently a proto-testnet version of Zilliqa 2.0 designed primarily for testing purposes, and therefore its state and uptime are not guaranteed_
 
 ## Block Explorer
 
@@ -29,13 +30,14 @@ The current version of Zilliqa 2.0 is compatible with the Otterscan block explor
 
 The block explorer for the Zilliqa 2.0 proto-testnet is [available here](https://explorer.zq2-prototestnet.zilliqa.com/).
 
-
 ## Faucet
+
 The faucet sends an amount of 100 ZIL to the supplied address for use in testing the network.
 
 Enter the hex address of your compatible EVM wallet into the field below to receive 100 ZIL on the Zilliqa 2.0 proto-testnet:
-``` py title="Receive 100 ZIL on the Zilliqa 2.0 proto-testnet"
-[EMBED Faucet]
-```
 
-*If you are unable to use the tool above, you can also [access the faucet here](https://faucet.devnet.zilliqa.com).*
+<div class="fish">
+ <iframe width="80%" height="200px" src="https://faucet.zq2-devnet.zilliqa.com/">
+ </div>
+
+_If you are unable to use the tool above, you can also [access the faucet here](https://faucet.devnet.zilliqa.com)._
