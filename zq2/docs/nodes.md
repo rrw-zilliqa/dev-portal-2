@@ -68,39 +68,41 @@ and run.
 ### Step by step guide
 
 1. Cargo and Rust: You need to have Cargo and Rust installed on your system.
-   You can install them using [rustup](https://rustup.rs/).
+   You can install them using [rustup](https://rustup.rs/).Once rustup is installed,
+   you can update Rust to the latest stable version.
 2. Install the following requirements:
 
-   ```bash
-    sudo add-apt-repository ppa:ethereum/ethereum && sudo apt update && \
-    sudo apt install -y solc build-essential pkg-config libssl-dev cmake \
-    protobuf-compiler
-   ```
+      ```bash
+      sudo add-apt-repository ppa:ethereum/ethereum && sudo apt update && \
+      sudo apt install -y solc build-essential pkg-config libssl-dev cmake \
+      protobuf-compiler
+      ```
 
 3. Pick a directory. You'll need quite a lot of space. Let's call it `/my/dir`.
 4. Clone `git@github.com:zilliqa/zq2` into that directory to get `/my/dir/zq2`.
-5. Source the setenv file `source /my/dir/zq2/scripts/setenv`.
+5. Build the code using `cargo build`.
+6. Source the setenv file `source /my/dir/zq2/scripts/setenv`.
    This will give you access to the `z2` tool (in `zq2/z2`).
-6. Generate the startup script and the configuration file for your node by
+7. Generate the startup script and the configuration file for your node by
    running
 
-   ```bash
-   z2 join --chain prototestnet
-   ```
+      ```bash
+      z2 join --chain prototestnet
+      ```
 
-7. Generate the node private key (save it because you need to use it in case
+8. Generate the node private key (save it because you need to use it in case
    you need to restart your node)
 
-   ```bash
-   export PRIVATE_KEY=$(openssl rand -hex 32)
-   ```
+      ```bash
+      export PRIVATE_KEY=$(openssl rand -hex 32)
+      ```
 
-8. Start the validator
+9. Start the validator
 
-   ```bash
-   chmod +x start_validator.sh && \
-   ./start_validator.sh $PRIVATE_KEY
-   ```
+      ```bash
+      chmod +x start_validator.sh && \
+      ./start_validator.sh $PRIVATE_KEY
+      ```
 
 For additional details on `z2` and the `join` capability refer to:
 
@@ -124,6 +126,4 @@ Once you have sufficient $ZILs you can register your node as validator.
 
 Below is a guide on how to register a validator node for Zilliqa 2.0:
 
-```py
-[INSERT GUIDE HERE]
-```
+<https://github.com/Zilliqa/zq2/blob/main/z2/docs/deposit.md>
