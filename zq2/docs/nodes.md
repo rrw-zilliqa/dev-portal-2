@@ -68,7 +68,7 @@ and run.
 ### Step by step guide
 
 1. Cargo and Rust: You need to have Cargo and Rust installed on your system.
-   You can install them using [rustup](https://rustup.rs/).Once rustup is installed,
+   You can install them using [rustup](https://rustup.rs/). Once rustup is installed,
    you can update Rust to the latest stable version.
 2. Install the following requirements:
 
@@ -79,25 +79,29 @@ and run.
    ```
 
 3. Pick a directory. You'll need quite a lot of space. Let's call it `/my/dir`.
-4. Clone `git@github.com:zilliqa/zq2` into that directory to get `/my/dir/zq2`.
+4. Clone `git@github.com:zilliqa/zq3` into that directory to get `/my/dir/zq2`.
 5. Build the code using `cargo build`.
-6. Source the setenv file `source /my/dir/zq2/scripts/setenv`.
+6. Source the setenv file:
+
+   ```bash
+   source /my/dir/zq2/scripts/setenv
+   ```
+
    This will give you access to the `z2` tool (in `zq2/z2`).
-7. Generate the startup script and the configuration file for your node by
-   running
+
+7. Generate the startup script and the configuration file for your node by running:
 
    ```bash
    z2 join --chain zq2-prototestnet
    ```
 
-8. Generate the node private key (save it because you need to use it in case
-   you need to restart your node)
+8. Generate the node private key (save it because you need to use it in case you need to restart your node):
 
    ```bash
    export PRIVATE_KEY=$(openssl rand -hex 32)
    ```
 
-9. Start the validator
+9. Start the validator node:
 
    ```bash
    chmod +x start_validator.sh && \
