@@ -87,7 +87,7 @@ and run.
    running
 
    ```bash
-   z2 join --chain prototestnet
+   z2 join --chain zq2-prototestnet
    ```
 
 8. Generate the node private key (save it because you need to use it in case
