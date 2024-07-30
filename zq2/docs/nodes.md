@@ -79,7 +79,7 @@ and run.
    ```
 
 3. Pick a directory. You'll need quite a lot of space. Let's call it `/my/dir`.
-4. Clone `git@github.com:zilliqa/zq3` into that directory to get `/my/dir/zq2`.
+4. Clone `git@github.com:zilliqa/zq2` into that directory to get `/my/dir/zq2`.
 5. Build the code using `cargo build`.
 6. Source the setenv file:
 
