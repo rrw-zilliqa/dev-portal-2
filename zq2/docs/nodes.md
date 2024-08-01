@@ -98,12 +98,14 @@ and run.
 - Generate the validator node private key.
 
   ```bash
-  export PRIVATE_KEY=$(openssl rand -hex 32)
+  openssl rand -hex 32 > validator-private-key.txt
+  export PRIVATE_KEY=$(cat validator-private-key.txt)
+
   ```
 
-  _NOTE: Please save the validator node key, as you may need it in the future to
-  restart the validator node and when registering the validator in the
-  deposit contract._
+  _NOTE: Please save the validator node key as described above. You may need it
+  in the future to restart the validator node and when registering the validator
+  in the deposit contract._
 
 - Start the validator node:
 
