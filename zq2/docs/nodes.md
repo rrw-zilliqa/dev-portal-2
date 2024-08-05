@@ -142,7 +142,7 @@ on the current proto-testnet you need to request the minimum required stake of
 10 million ZIL in order for you to register as a validator.
 
 To register as a validator on the Jasper proto-testnet, please complete and
-submit [this](#form-link) form.
+submit validator join form.
 
 Once you have sufficient $ZILs you can register your node as validator.
 
