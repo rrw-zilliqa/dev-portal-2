@@ -114,9 +114,10 @@ and run.
   ./start_validator.sh $PRIVATE_KEY
   ```
 
-Great! The validator node should now be syncing with the network. It may take up
-to 1.5 hours for the node to fully sync. You can check the progress of the node by
-running the following command, which should return the latest block height after syncing.
+Great! The validator node should now be syncing with the network. It may
+take up to 1.5 hours for the node to fully sync. You can check the progress
+of the node by running the following command, which should return the latest
+block height after syncing.
 
 ```bash
 curl --request POST \
