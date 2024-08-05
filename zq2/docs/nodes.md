@@ -3,7 +3,7 @@ id: nodes
 title: Nodes and Validators
 ---
 
-# Nodes and Validators
+# [Nodes and Validators](#nodes-and-validators)
 
 The current proto-testnet version of Zilliqa 2.0 allows users to setup a node
 and join the network.
@@ -15,7 +15,7 @@ will be added as we approach the mainnet launch.
 
 ## Zilliqa 2.0 (proto-testnet) Prerequisites
 
-### Hardware requirements
+### [Hardware requirements](#hardware-requirements)
 
 - CPU:
   - 1 Core / 2 threads or more
@@ -24,7 +24,7 @@ will be added as we approach the mainnet launch.
 - Disk:
   - 100 GB or more
 
-### Virtual machines on Cloud Platforms
+### [Virtual machines on Cloud Platforms](#virtual-machines-on-cloud-platforms)
 
 We are running our Zilliqa 2.0 validators on Google Cloud Platform, GCP,
 GCE VM `e2-standard-2` instance with 256 GB SSD (`pd-ssd`).
@@ -32,12 +32,12 @@ GCE VM `e2-standard-2` instance with 256 GB SSD (`pd-ssd`).
 If you running on other cloud provider, please do select an instance with
 similar specs.
 
-### Software requirements
+### [Software requirements](#software-requirements)
 
 1. Operating System: We build and run on Ubuntu 20.04LTS
 2. Docker: 27.0.3+
 
-### Port-forwarding
+### [Port-forwarding](#port-forwarding)
 
 The following TCP ports need to be open to the internet for both inbound and
 outbound.
@@ -55,7 +55,7 @@ public internet.
 4201/TCP - JSONRPC over HTTP: API port, only necessary if you want your API to
 be accessible via the internet.
 
-### Running a Node
+### [Running a Node](#running-a-node)
 
 To run a Zilliqa 2.0 node and join the proto-testnet, we provide the `z2`
 utility as part of the [zq2](https://github.com/Zilliqa/zq2/blob/main/) code
@@ -104,8 +104,8 @@ and run.
   ```
 
   _NOTE: Please save the validator node key as described above. You may need it
-  in the future to restart the validator node and when registering the validator
-  in the deposit contract._
+  in the future to restart the validator node to generate the BLS public
+  key of the validator node._
 
 - Start the validator node:
 
@@ -114,12 +114,24 @@ and run.
   ./start_validator.sh $PRIVATE_KEY
   ```
 
+Great! The validator node should now be syncing with the network. It may
+take up to 1.5 hours for the node to fully sync. You can check the progress
+of the node by running the following command, which should return the latest
+block height after syncing.
+
+```bash
+curl --request POST \
+  --url http://localhost:4201/ \
+  --header 'Content-Type: application/json' \
+  --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}'
+```
+
 For additional details on `z2` and the `join` capability refer to:
 
 - <https://github.com/Zilliqa/zq2/blob/main/z2/docs/README.md>
 - <https://github.com/Zilliqa/zq2/blob/main/z2/docs/join.md>
 
-### Becoming a Validator
+### [Becoming a Validator](#becoming-a-validator)
 
 Under the consensus mechanism introduced in Zilliqa 2.0, validators stake ZIL
 to secure the network, in return for which they receive a share of block
@@ -130,7 +142,7 @@ on the current proto-testnet you need to request the minimum required stake of
 10 million ZIL in order for you to register as a validator.
 
 To register as a validator on the Jasper proto-testnet, please complete and
-submit this form.
+submit validator join form.
 
 Once you have sufficient $ZILs you can register your node as validator.
 
