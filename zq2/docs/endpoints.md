@@ -19,7 +19,7 @@ Details for the current network versions of Zilliqa 2.0 are listed below.
 <div class="table" markdown>
 |  Name  | Version | ChainId | API | Otterscan | Faucet  |
 | ------ | ------- | ------- | --- | --------- | ------  |
-| proto-testnet | xx | xx | xx | xx | xx | xx | xx |
+| proto-testnet | v0.1.0 | 33103 | https://api.zq2-prototestnet.zilliqa.com	 | https://explorer.zq2-prototestnet.zilliqa.com | https://faucet.zq2-prototestnet.zilliqa.com |
 </div>
 
 _**Note** that this is currently a proto-testnet version of Zilliqa 2.0 designed primarily for testing purposes, and therefore its state and uptime are not guaranteed_
