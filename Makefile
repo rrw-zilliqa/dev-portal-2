@@ -26,7 +26,10 @@ zq2/docs/mkdocs.yml autogen:
 	(cd $(HERE)/docgen && cargo run $(HERE))
 
 dev1:
-	(cd zq1 && DOC_SOURCE=$(HERE)/zq1/docs mkdocs serve $(SERVEOPTS))
+	(cd zq1 && DOC_SOURCE=$(HERE)/zq1/docs mkdocs serve -f mkdocs.zq2.yml $(SERVEOPTS))
+
+dev1nozq2:
+	(cd zq1 && DOC_SOURCE=$(HERE)/zq1/docs mkdocs serve -f mkdocs.nozq2.yml $(SERVEOPTS))
 
 dev2: zq2/docs/mkdocs.yml
 	(cd zq2 && DOC_SOURCE=$(HERE)/zq2/docs mkdocs serve $(SERVEOPTS))
@@ -45,12 +48,18 @@ assemble:
 	cp -r $(HERE)/zq2 $(BINDIR)
 
 IMAGE_TAG ?= developer-portal:latest
+IMAGE_TAG_NOZQ2 ?= developer-portal-nozq2:latest
 
 build:
-	docker buildx build --build-arg VERSION="${VERSION}" . -t $(IMAGE_TAG)
+	docker buildx build --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG)
+	docker buildx build --build-arg VERSION="${VERSION}" -f Dockerfile.nozq2 . -t $(IMAGE_TAG_NOZQ2)
+
 
 run-image: build
 	docker run --rm -p 8080:80 "$(IMAGE_TAG)"
+
+run-image-nozq2: build
+	docker run --rm -p 8080:80 "$(IMAGE_TAG_NOZQ2)"
 
 STG_TAG=asia-docker.pkg.dev/prj-d-dev-apps-n3p4o97j/zilliqa/developer-portal
 ## Push to the dev repo so you can check that the docker container actually works .. 
