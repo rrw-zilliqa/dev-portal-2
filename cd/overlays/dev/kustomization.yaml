@@ -7,6 +7,20 @@ resources:
 
 patches:
   - target:
+      kind: BackendConfig
+      name: developer-portal
+    patch: |-
+      - op: replace
+        path: "/spec/healthCheck/requestPath"
+        value: "/"
+  - target:
+      kind: Deployment
+      name: developer-portal
+    patch: |-
+      - op: replace
+        path: "/spec/template/spec/containers/0/image"
+        value:  asia-docker.pkg.dev/prj-d-dev-apps-n3p4o97j/zilliqa/developer-portal-nozq2:latest
+  - target:
       kind: Ingress
       name: developer-portal
     patch: |-

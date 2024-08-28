@@ -61,13 +61,17 @@ run-image: build
 run-image-nozq2: build
 	docker run --rm -p 8080:80 "$(IMAGE_TAG_NOZQ2)"
 
-STG_TAG=asia-docker.pkg.dev/prj-d-dev-apps-n3p4o97j/zilliqa/developer-portal
+DEV_TAG=asia-docker.pkg.dev/prj-d-dev-apps-n3p4o97j/zilliqa/developer-portal
+DEV_TAG_NOZQ2=$(DEV_TAG)-nozq2
 ## Push to the dev repo so you can check that the docker container actually works .. 
 push-dev-image: build
-	docker tag "${IMAGE_TAG}" "${STG_TAG}"
-	docker push "${STG_TAG}"
+	docker tag "${IMAGE_TAG}" "${DEV_TAG}:latest"
+	docker push "${DEV_TAG}"
+	docker tag "${IMAGE_TAG_NOZQ2}" "${DEV_TAG_NOZQ2}:latest"
+	docker push "${DEV_TAG_NOZQ2}"
 	echo Now restart the pod ..
 
 ## Build and push the Docker image
 image/build-and-push: build
 	docker push "$(IMAGE_TAG)"
+	docker push "$(IMAGE_TAG_NOZQ2)"

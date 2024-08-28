@@ -70,6 +70,7 @@ jobs:
         env:
           ENVIRONMENT: stg
           IMAGE_TAG: ${{ steps.set-tag.outputs.tags }}
+          IMAGE_TAG_NOZQ2: ${{ steps.set-tag.outputs.tags }}-nozq2
         run: |
           cd ${{ matrix.path }}
           make image/build-and-push
@@ -79,6 +80,7 @@ jobs:
         env:
           ENVIRONMENT: stg
           IMAGE_TAG: "${{ env.REGISTRY }}/${{ matrix.image_name }}:latest"
+          IMAGE_TAG_NOZQ2: "${{ env.REGISTRY }}/${{ matrix.image_name }}-nozq2:latest"
         run: |
           cd ${{ matrix.path }}
           make image/build-and-push
