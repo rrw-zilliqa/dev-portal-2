@@ -67,6 +67,7 @@ jobs:
         env:
           ENVIRONMENT: prd
           IMAGE_TAG: ${{ steps.set-tag.outputs.tags }}
+          ZQ2: 0
         run: |
           cd ${{ matrix.path }}
           make image/build-and-push
@@ -78,6 +79,7 @@ jobs:
           IMAGE_TAG: ${{ env.REGISTRY }}/${{ matrix.image_name }}:${{ github.ref_name }}
           ENV_FILES_DECRYPTER_NONPRD: ${{ secrets.ENV_FILES_DECRYPTER_NONPRD }}
           ENV_FILES_DECRYPTER_PRD: ${{ secrets.ENV_FILES_DECRYPTER_PRD }}
+          ZQ2: 0
         run: |
           cd ${{ matrix.path }}
           make image/build-and-push
@@ -89,6 +91,7 @@ jobs:
           IMAGE_TAG: ${{ env.REGISTRY }}/${{ matrix.image_name }}:latest
           ENV_FILES_DECRYPTER_NONPRD: ${{ secrets.ENV_FILES_DECRYPTER_NONPRD }}
           ENV_FILES_DECRYPTER_PRD: ${{ secrets.ENV_FILES_DECRYPTER_PRD }}
+          ZQ2: 0
         run: |
           cd ${{ matrix.path }}
           make image/build-and-push

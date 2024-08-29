@@ -49,10 +49,11 @@ assemble:
 
 IMAGE_TAG ?= developer-portal:latest
 IMAGE_TAG_NOZQ2 ?= developer-portal-nozq2:latest
+ZQ2 ?= 1
 
 build:
-	docker buildx build --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG)
-	docker buildx build --build-arg VERSION="${VERSION}" -f Dockerfile.nozq2 . -t $(IMAGE_TAG_NOZQ2)
+	docker buildx build --build-arg ZQ2=1 --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG)
+	docker buildx build --build-arg ZQ2=0 --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG_NOZQ2)
 
 
 run-image: build
@@ -72,6 +73,6 @@ push-dev-image: build
 	echo Now restart the pod ..
 
 ## Build and push the Docker image
-image/build-and-push: build
+image/build-and-push:
+	docker buildx build --build-arg ZQ2=$(ZQ2) --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG)
 	docker push "$(IMAGE_TAG)"
-	docker push "$(IMAGE_TAG_NOZQ2)"

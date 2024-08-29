@@ -8,4 +8,4 @@ metadata:
 spec:
   timeoutSec: 120
   healthCheck:
-    requestPath: /zilliqa2/
+    requestPath: /h
