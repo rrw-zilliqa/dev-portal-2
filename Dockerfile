@@ -9,15 +9,22 @@ RUN apt-get install -y python3 python3-pip python3-setuptools --no-install-recom
 RUN apt-get install -y protobuf-compiler build-essential libssl-dev pkg-config git cmake
 RUN apt-get autoremove
 
-COPY .  /build
+# Nonsensical, but allows us to cache requirements.
+RUN mkdir /build
+COPY requirements.txt /build/requirements.txt
 RUN pip3 install --no-cache-dir -r /build/requirements.txt
 
+COPY .  /build
 
 ENV DOC_SOURCE=docs
 WORKDIR /build/zq1
 RUN  mkdocs build -f mkdocs.zq2.yml
 WORKDIR /build/docgen
-RUN cargo run /build
+RUN --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=/build/docgen/target \
+    --mount=type=cache,target=/build/cache/zq2 \
+    cargo run /build
+
 WORKDIR /build/zq2
 ARG VERSION
 ENV VERSION=$VERSION

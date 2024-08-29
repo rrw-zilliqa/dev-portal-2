@@ -9,8 +9,12 @@ RUN apt-get install -y python3 python3-pip python3-setuptools --no-install-recom
 RUN apt-get install -y protobuf-compiler build-essential libssl-dev pkg-config git cmake
 RUN apt-get autoremove
 
-COPY .  /build
+# Nonsensical, but allows us to cache requirements.
+RUN mkdir /build
+COPY requirements.txt /build/requirements.txt
 RUN pip3 install --no-cache-dir -r /build/requirements.txt
+
+COPY .  /build
 
 ENV DOC_SOURCE=docs
 WORKDIR /build/zq1
@@ -18,8 +22,8 @@ RUN  mkdocs build -f mkdocs.nozq2.yml
 
 FROM nginx:alpine-slim
 
-RUN mkdir -p /usr/share/nginx/html
-COPY --from=builder --chown=nginx:nginx /build/zq1/site/. /usr/share/nginx/html/.
+RUN mkdir -p /usr/share/nginx/html/zilliqa1
+COPY --from=builder --chown=nginx:nginx /build/zq1/site/. /usr/share/nginx/html/zilliqa1/.
 COPY default.nozq2.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
