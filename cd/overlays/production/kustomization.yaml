@@ -7,9 +7,19 @@ resources:
 
 patches:
   - target:
+      kind: BackendConfig
+      name: developer-portal
+    patch: |-
+      - op: replace
+        path: "/spec/healthCheck/requestPath"
+        value: "/zilliqa1/"
+  - target:
       kind: Deployment
       name: developer-portal
     patch: |-
+      - op: replace
+        path: "/spec/template/spec/containers/0/readinessProbe/httpGet/path"
+        value: "/zilliqa1/"
       - op: replace
         path: "/spec/template/spec/containers/0/image"
         value: developer-portal-nozq2
