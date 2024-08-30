@@ -12,7 +12,7 @@ patches:
     patch: |-
       - op: replace
         path: "/spec/template/spec/containers/0/image"
-        value:  asia-docker.pkg.dev/prj-d-dev-apps-n3p4o97j/zilliqa/developer-portal-nozq2:latest
+        value:  asia-docker.pkg.dev/prj-d-dev-apps-n3p4o97j/zilliqa/developer-portal:latest
   - target:
       kind: Ingress
       name: developer-portal

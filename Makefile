@@ -68,8 +68,10 @@ DEV_TAG_NOZQ2=$(DEV_TAG)-nozq2
 push-dev-image: build
 	docker tag "${IMAGE_TAG}" "${DEV_TAG}:latest"
 	docker push "${DEV_TAG}"
-	docker tag "${IMAGE_TAG_NOZQ2}" "${DEV_TAG_NOZQ2}:latest"
-	docker push "${DEV_TAG_NOZQ2}"
+
+push-dev-image-nozq2: build
+	docker tag "${IMAGE_TAG_NOZQ2}" "${DEV_TAG}:latest"
+	docker push "${DEV_TAG}"
 	echo Now restart the pod ..
 
 ## Build and push the Docker image

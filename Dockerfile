@@ -39,7 +39,6 @@ RUN mkdir -p /usr/share/nginx/html/zilliqa1
 RUN mkdir -p /usr/share/nginx/html/zilliqa2
 COPY --from=builder --chown=nginx:nginx /build/zq1/site/. /usr/share/nginx/html/zilliqa1/.
 COPY --from=builder --chown=nginx:nginx /build/zq2/site/. /usr/share/nginx/html/zilliqa2/.
-COPY --from=builder /f.txt /f.txt
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY default.nozq2.conf /etc/nginx/conf.d/default.nozq2.conf
 ARG ZQ2
