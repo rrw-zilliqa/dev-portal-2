@@ -59,7 +59,6 @@ lint:
     - linters: [ALL]
       paths:
         - Dockerfile # Annoying, but trunk is now very opinionated on how you write dockerfiles.
-        - Dockerfile.nozq2
         - zq2/docs/js/** # trunk does not know this is looking for metamask in the user's browser.
         - zq2/docs/index.md # contains legitimate empty links
         - .trunk/*out/**
