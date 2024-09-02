@@ -9,6 +9,8 @@ description: All native zil transactions
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get native ZIL transactions
 
 ## Parameters

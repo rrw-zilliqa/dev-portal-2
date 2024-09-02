@@ -9,6 +9,8 @@ description: Zilliqa 2.0 Validator instructions
 
 ---
 
+<!-- markdownlint-disable MD025 -->
+
 # Running a Zilliqa 2.0 validator
 
 Zilliqa validators help secure the Zilliqa 2.0 mainnet (and PoS

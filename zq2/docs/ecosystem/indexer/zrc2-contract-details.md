@@ -9,6 +9,8 @@ description: Get ZRC2 contract details
 
 ---
 
+<!-- markdownlint-disable -->
+
 Retrieve the details of a given ZRC-2 contract.
 
 ### Parameters

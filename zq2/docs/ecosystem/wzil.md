@@ -10,6 +10,8 @@ description: wZIL
 
 ---
 
+<!-- markdownlint-disable -->
+
 ## Introduction to wrap token
 
 A wrapped token is a tokenized version of a cryptocurrency. Wrapped tokens are

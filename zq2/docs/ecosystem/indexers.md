@@ -3,6 +3,8 @@ id: indexers
 title: Zilliqa indexers
 ---
 
+<!-- markdownlint-disable -->
+
 # Zilliqa Indexers and data ingest
 
 Zilliqa 2 EVM supports [TheGraph](https://thegraph.com/) ; it is hoped that we will have a Zilliqa native plugin available.

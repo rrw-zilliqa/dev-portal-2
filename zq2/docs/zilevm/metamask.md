@@ -8,7 +8,9 @@ description: Wallets that can interact with ZILEVM
 
 ---
 
-## MetaMask
+<!-- markdownlint-disable MD025 MD013 -->
+
+# MetaMask
 
 !!! warning
 
@@ -29,7 +31,7 @@ description: Wallets that can interact with ZILEVM
     your Zilliqa address into it's base 16 representation which
     Metamask can understand.
 
-### Configure MetaMask with ZILEVM network
+## Configure MetaMask with ZILEVM network
 
 To add a new network to MetaMask - click the current network selected at the top
 of the extenstion and press 'Add Network'.
@@ -38,27 +40,27 @@ Enter the network RPC, ChainID and block explorer URL for your chosen chain from
 
 The token symbol is `ZIL`.
 
-### Sending funds
+## Sending funds
 
 Do not send Zilliqa NFTs or fungible tokens to EVM addresses and vice-versa. You will lose your assets - see the [interop](interop.md) docs.
 
-#### Converting addresses
+### Converting addresses
 
 You can do this with the Javascript widget on [the news page](/).
 
-#### ZIL -> EVM
+### ZIL -> EVM
 
 If you know the Metamask base16 address (0x...) we want to send funds to, we need to convert that into a bech32 address(zil...) with devex.
 
 You can then use ZilPay to transfer funds to that bech32 address.
 
-#### ZILEVM -> ZIL
+### ZILEVM -> ZIL
 
 If we know the Zilliqa bech32 address (zil...) we want to send funds to, we need to convert that to a base16 address(0x...) - again, via [the news page](/).
 
 Once we have the converted wallet address starting 0x... - Metamask can be used like normal to send funds to a Zilliqa address.
 
-#### EVM -> EVM
+### EVM -> EVM
 
 Once Metamask has been configured with EVM network details, you can send ZIL to other base 16 addresses (0x...).
 

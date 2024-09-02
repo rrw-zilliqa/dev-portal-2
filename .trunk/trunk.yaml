@@ -17,8 +17,8 @@ runtimes:
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   enabled:
-    - clippy@1.65.0
-    - rustfmt@1.65.0
+    - clippy@1.80.1
+    - rustfmt@1.80.1
     - taplo@0.9.3
     - actionlint@1.7.1
     - bandit@1.7.9
@@ -50,6 +50,7 @@ lint:
         - zq1/docs/exchanges
     - linters: [markdownlint]
       paths:
+        - zq1/**  # Not worth fixing.
         - zq2/docs/ecosystem/index.md # multiple headers
         - zq2/docs/zilevm/tools/remix.md # Don't care about line length
         - README.md
@@ -62,6 +63,9 @@ lint:
         - zq2/docs/js/** # trunk does not know this is looking for metamask in the user's browser.
         - zq2/docs/index.md # contains legitimate empty links
         - .trunk/*out/**
+        - cd/base/deployment.yaml
+        - zq1/** # Legacy
+
 
 actions:
   enabled:

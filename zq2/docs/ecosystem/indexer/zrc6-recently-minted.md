@@ -8,6 +8,8 @@ description: Recently minted NFTs
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get the details of recently minted NFTs.
 
 ### Parameters

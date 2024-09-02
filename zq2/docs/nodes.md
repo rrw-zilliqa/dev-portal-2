@@ -3,6 +3,8 @@ id: nodes
 title: Nodes and Validators
 ---
 
+<!-- markdownlint-disable MD025 -->
+
 # [Nodes and Validators](#nodes-and-validators)
 
 The current proto-testnet version of Zilliqa 2.0 allows users to setup a node

@@ -10,7 +10,7 @@ keywords:
 description: Learn how to use Chainlink oracles on Zilliqa.
 ---
 
----
+<!-- markdownlint-disable -->
 
 ## How to use Chainlink Community Deployment price feeds with smart contracts on Zilliqa
 
