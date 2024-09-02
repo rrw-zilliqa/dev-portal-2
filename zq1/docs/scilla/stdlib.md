@@ -308,7 +308,7 @@ end
   current one. If the current number is `Zero`, the result is `None`. If the
   current number is `Succ x`, then the result is `Some x`.
 - `nat_fold_while : ('T -> Nat -> Option 'T) -> 'T -> Nat -> 'T`: Takes
-  arguments `f : 'T -> Nat -> Option 'T`, `` z : `T `` and `m : Nat`. This is
+  arguments `f : 'T -> Nat -> Option 'T`, ``z : `T`` and `m : Nat`. This is
   `nat_fold` with early termination. Continues recursing so long as `f` returns
   `Some y` with new accumulator `y`. Once `f` returns `None`, the recursion
   terminates.

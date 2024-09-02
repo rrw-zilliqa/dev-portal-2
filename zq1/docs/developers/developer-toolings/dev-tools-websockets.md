@@ -489,7 +489,7 @@ async function test() {
   const zilliqa = new Zilliqa("https://dev-api.zilliqa.com");
 
   const subscriber = zilliqa.subscriptionBuilder.buildNewBlockSubscriptions(
-    "wss://dev-ws.zilliqa.com"
+    "wss://dev-ws.zilliqa.com",
   );
 
   // if subscribe success, it will echo the subscription info
@@ -529,7 +529,7 @@ async function test() {
         "0x2ce491a0fd9e318b39172258101b7c836da7449b",
         "0x167e3980e04eab1e89ff84523ae8c77e008932dc",
       ],
-    }
+    },
   );
 
   subscriber.emitter.on(StatusType.SUBSCRIBE_EVENT_LOG, (event) => {

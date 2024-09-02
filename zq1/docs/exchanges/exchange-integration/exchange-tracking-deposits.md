@@ -59,7 +59,7 @@ export class DepositCron {
       // lastFetchedTxBlock to current
       const transactions = await pMap(
         range(this.lastFetchedTxBlock + 1, currentTxBlock),
-        (blk) => this.svc.getDeposits(this.addresses, blk)
+        (blk) => this.svc.getDeposits(this.addresses, blk),
       ).then(flatten);
 
       this.lastFetchedTxBlock = currentTxBlock;
@@ -67,7 +67,7 @@ export class DepositCron {
       // we are only logging to stdout, but in a real application, you would
       // be writing the result to the database.
       console.log(
-        `Found ${transactions.length} deposits for ${this.addresses}`
+        `Found ${transactions.length} deposits for ${this.addresses}`,
       );
     }
   }
@@ -119,7 +119,7 @@ export class DepositCron {
       // lastFetchedTxBlock to current
       const transactions = await pMap(
         range(this.lastFetchedTxBlock + 1, currentTxBlock),
-        (blk) => this.svc.getDeposits(this.addresses, blk)
+        (blk) => this.svc.getDeposits(this.addresses, blk),
       ).then(flatten);
 
       this.lastFetchedTxBlock = currentTxBlock;
@@ -127,7 +127,7 @@ export class DepositCron {
       // we are only logging to stdout, but in a real application, you would
       // be writing the result to the database.
       console.log(
-        `Found ${transactions.length} deposits for ${this.addresses}`
+        `Found ${transactions.length} deposits for ${this.addresses}`,
       );
     }
   }
@@ -156,7 +156,7 @@ const zilliqaSvc = new services.ZilliqaService(
   "https://stress-test-api.aws.z7a.xyz",
   {
     [config.get("mnemonic")]: 8,
-  }
+  },
 );
 
 // boot up cron jobs

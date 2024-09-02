@@ -20,9 +20,6 @@
   --md-default-fg-color--light: #ffffff;
   --md-default-fg-color--dark: #ffffff;
   --md-default-fg-color--lightest: #808080;
-;
-
-
   --md-typeset-color: #ffffff;
   --md-typeset-a-color: #00d0c6;
   --md-accent-fg-color: #00d0c6;
@@ -44,7 +41,6 @@
   --md-code-default-fg-color--light: #ffffff;
   --md-code-hl-variable-color: #c02080;
   --md-code-hl-name-color: #00d0c6;
-  ;
   --md-code-hl-operator-color: #90c090;
 }
 
@@ -130,15 +126,17 @@ td {
   font-size: 14pt;
 }
 
-.md-typeset h1,.md-typeset h2,.md-typeset h3 {
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
   font-weight: 600;
-  letter-spacing: -.01em
+  letter-spacing: -0.01em;
 }
 
 .highlight span.filename {
-  border-bottom: .05rem solid var(--md-default-fg-color--lighter);
+  border-bottom: 0.05rem solid var(--md-default-fg-color--lighter);
 }
 
-.md-typeset em{
-  color: var(--md-default-fg-color--lightest)
+.md-typeset em {
+  color: var(--md-default-fg-color--lightest);
 }
