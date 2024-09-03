@@ -10,6 +10,8 @@ description: Native ZIL balance of a given wallet
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get the ZIL balance oof a wallet.
 
 ### Parameters

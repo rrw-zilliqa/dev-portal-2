@@ -212,7 +212,7 @@ const CreateListingModal: React.FC<props> = (props) => {
       kitchen,
       tv,
       laundry,
-      hvac
+      hvac,
     );
   };
 
@@ -365,7 +365,7 @@ const ManageListingModal: React.FC<props> = (props) => {
       kitchen,
       tv,
       laundry,
-      hvac
+      hvac,
     );
   };
 

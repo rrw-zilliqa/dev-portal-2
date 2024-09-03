@@ -9,6 +9,8 @@ description: Get the metadata of an asset
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get the metadata of an NFT or asset. This is the data stored in the `tokenURI`.
 
 ### Parameters

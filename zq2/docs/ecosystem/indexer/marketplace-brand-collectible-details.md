@@ -9,6 +9,8 @@ description: Brand collectible details of an NFT
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get brand collectible details of an NFT.
 
 ### Parameters

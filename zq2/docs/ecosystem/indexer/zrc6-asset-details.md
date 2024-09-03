@@ -9,6 +9,8 @@ description: Get details of an nft
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get the details of a particular NFT or asset
 
 ### Parameters

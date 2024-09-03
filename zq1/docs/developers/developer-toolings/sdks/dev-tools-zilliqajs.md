@@ -108,9 +108,8 @@ let userAddress = localStorage.getItem("userAddress"); //userAddress is retrieve
 const { Zilliqa } = require("@zilliqa-js/zilliqa");
 const zilliqa = new Zilliqa("https://dev-api.zilliqa.com");
 
-let smartContractState = await zilliqa.blockchain.getSmartContractState(
-  tokenContractAddress
-);
+let smartContractState =
+  await zilliqa.blockchain.getSmartContractState(tokenContractAddress);
 if (smartContractState) {
   let balances_map = smartContractState.result.balances_map;
   userAddress = userAddress.toLowerCase();
@@ -165,7 +164,7 @@ sendTransaction = async () => {
         amount: new BN(0),
         gasPrice: myGasPrice,
         gasLimit: Long.fromNumber(10000),
-      }
+      },
     );
   } catch (err) {
     console.log(err);

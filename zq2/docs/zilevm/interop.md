@@ -3,6 +3,8 @@ id: interop
 title: Zilliqa EVM/native interoperability
 ---
 
+<!-- markdownlint-disable MD025 MD013 -->
+
 # Zilliqa EVM characteristics and interop
 
 This page details the quirks you might see in Zilliqa as an EVM user,

@@ -12,7 +12,7 @@ description: Getting started with Scilla and hardhat
 
 ---
 
-<!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD036 MD013 -->
 
 **Note that the Scilla hardhat plugin is currently experimental; use at your own risk**
 

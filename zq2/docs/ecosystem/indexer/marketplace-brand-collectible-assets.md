@@ -9,6 +9,8 @@ description: Assets in a brand collectible
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get list of all NFTs in a brand collectible.
 
 ### Parameters

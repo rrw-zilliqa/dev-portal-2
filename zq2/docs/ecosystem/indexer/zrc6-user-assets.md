@@ -9,6 +9,8 @@ description: Get all the NFTs of owned by a user
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get all the NFTs owned by a wallet address
 
 ### Parameters

@@ -10,6 +10,8 @@ description: Balance for a given wallet
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get the balance of a specific ZRC2 token for a given wallet.
 
 ### Parameters
