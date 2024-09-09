@@ -1,6 +1,5 @@
 use anyhow::{anyhow, Result};
 use serde::Deserialize;
-use serde_yaml;
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
 use std::{env, fs};
@@ -48,7 +47,7 @@ async fn fixup_api_paths(
                         prefix,
                         api_prefixes,
                         add_component,
-                        &elem,
+                        elem,
                         triggered,
                     )?);
                 }
@@ -83,7 +82,7 @@ async fn fixup_api_paths(
                     } else {
                         new_map.insert(
                             key_val.clone(),
-                            process_value(&prefix, api_prefixes, add_component, val, triggered)?,
+                            process_value(prefix, api_prefixes, add_component, val, triggered)?,
                         );
                     }
                 }
@@ -171,8 +170,8 @@ async fn main() -> Result<()> {
             ));
         }
 
-        let id_prefix = format!("{name}");
-        api_prefixes.insert(format!("nav/{}", name.to_string()));
+        let id_prefix = name.to_string();
+        api_prefixes.insert(format!("nav/{}", name));
         let target_dir = root_path.clone().join("zq2").join("docs").join("api");
         let target_dir_str = target_dir
             .as_os_str()
