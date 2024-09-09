@@ -1,8 +1,12 @@
 use anyhow::{anyhow, Result};
 use serde::Deserialize;
-use std::path::PathBuf;
+use serde_yaml;
+use std::collections::HashSet;
+use std::path::{Path, PathBuf};
 use std::{env, fs};
 use zqutils::commands::CommandBuilder;
+
+const API_DIRNAME: &str = "api";
 
 #[derive(Clone, Deserialize)]
 struct Version {
@@ -16,10 +20,107 @@ struct Zq2Spec {
     versions: Vec<Version>,
 }
 
+/// There is an annoying bug in docgen in the zq2 code which fixes id-prefix and
+/// nav-prefix to be the same - you can't have things in the nav heirarchy which
+/// have more file components than they have id components.
+/// But of course, we want to. And so we postprocess mkdocs.yaml to synthetically
+/// add those prefixes for the paths we care about.
+async fn fixup_api_paths(
+    for_index_file: &Path,
+    api_prefixes: &HashSet<String>,
+    add_component: &str,
+) -> Result<()> {
+    // This is positively the worst way to do this, but it is the quickest, and
+    // N is small.
+    fn process_value(
+        prefix: &Option<String>,
+        api_prefixes: &HashSet<String>,
+        add_component: &str,
+        value: &serde_yaml::Value,
+        triggered: bool,
+    ) -> Result<serde_yaml::Value> {
+        match value {
+            serde_yaml::Value::Sequence(seq) => {
+                // Just iterate.
+                let mut new_seq = serde_yaml::value::Sequence::new();
+                for elem in seq {
+                    new_seq.push(process_value(
+                        prefix,
+                        api_prefixes,
+                        add_component,
+                        &elem,
+                        triggered,
+                    )?);
+                }
+                Ok(serde_yaml::Value::Sequence(new_seq))
+            }
+            serde_yaml::Value::Mapping(map) => {
+                let mut new_map = serde_yaml::value::Mapping::new();
+                let mut triggered = triggered;
+                if let Some(v) = &prefix {
+                    if api_prefixes.contains(v) {
+                        triggered = true;
+                    }
+                }
+                for (key_val, val) in map {
+                    if let serde_yaml::Value::String(key) = key_val {
+                        let new_key = key.to_string();
+                        let new_prefix = Some(if let Some(v) = prefix {
+                            format!("{v}/{key}")
+                        } else {
+                            key.to_string()
+                        });
+                        new_map.insert(
+                            serde_yaml::Value::String(new_key),
+                            process_value(
+                                &new_prefix,
+                                api_prefixes,
+                                add_component,
+                                val,
+                                triggered,
+                            )?,
+                        );
+                    } else {
+                        new_map.insert(
+                            key_val.clone(),
+                            process_value(&prefix, api_prefixes, add_component, val, triggered)?,
+                        );
+                    }
+                }
+                Ok(serde_yaml::Value::Mapping(new_map))
+            }
+            serde_yaml::Value::String(s) => {
+                if triggered {
+                    // The starts_with check protects us from upstream fixes.
+                    let new_s = if !s.starts_with(add_component) {
+                        format!("{}{}", add_component, s)
+                    } else {
+                        s.to_string()
+                    };
+                    Ok(serde_yaml::Value::String(new_s))
+                } else {
+                    Ok(serde_yaml::Value::String(s.to_string()))
+                }
+            }
+            _ => Ok(value.clone()),
+        }
+    }
+
+    // Read `for_index_file`. Now, for each prefix in `api_prefixes` (dot-separated),
+    // add an initial component of `add_component` to their referenced paths.
+    let contents = fs::read_to_string(for_index_file)?;
+    let value_pre: serde_yaml::Value = serde_yaml::from_str(&contents)?;
+    let value = process_value(&None, api_prefixes, add_component, &value_pre, false)?;
+    let result = serde_yaml::to_string(&value)?;
+    fs::write(for_index_file, result.as_bytes())?;
+    Ok(())
+}
+
 #[tokio::main]
 async fn main() -> Result<()> {
     let args: Vec<String> = env::args().collect();
     let here = String::from(&args[1]);
+    let mut api_prefixes: HashSet<String> = HashSet::new();
 
     // Set NO_CHECKOUT to skip the checkout steps - this allows you to do debugging with symlinks or similar.
     let mut checkout = std::env::var("NO_CHECKOUT").is_err();
@@ -39,6 +140,10 @@ async fn main() -> Result<()> {
         versions.versions.clone()
     };
 
+    let index_file_path = root_path.clone().join("zq2").join("mkdocs.yaml");
+    let index_file_template_path = root_path.clone().join("zq2").join("mkdocs.in.yaml");
+    // Now copy the mkdocs file ..
+    tokio::fs::copy(&index_file_template_path, &index_file_path).await?;
     for vrec in &vtable {
         let refspec = &vrec.refspec;
         let name: String = match vrec.name {
@@ -66,8 +171,9 @@ async fn main() -> Result<()> {
             ));
         }
 
-        let id_prefix = format!("APIs/{name}");
-        let target_dir = root_path.clone().join("zq2").join("docs");
+        let id_prefix = format!("{name}");
+        api_prefixes.insert(format!("nav/{}", name.to_string()));
+        let target_dir = root_path.clone().join("zq2").join("docs").join("api");
         let target_dir_str = target_dir
             .as_os_str()
             .to_str()
@@ -81,11 +187,11 @@ async fn main() -> Result<()> {
             if fs::metadata(zq2_checkout_dir.clone().join(".git")).is_ok() {
                 // Update.
                 CommandBuilder::new()
-                    .cmd("git", &["fetch", "https://github.com/zilliqa/zq2", refspec])
+                    .cmd("git", &["pull", "https://github.com/zilliqa/zq2", refspec])
                     .current_dir(&zq2_checkout_dir.clone())?
                     .run_logged()
                     .await?
-                    .success_or("Cannot run git fetch")?;
+                    .success_or("Cannot run git pull")?;
             } else if let Some(val) = &cache_dir {
                 // Clone
                 CommandBuilder::new()
@@ -110,10 +216,6 @@ async fn main() -> Result<()> {
             fs::remove_dir_all(&doc_dir)?;
         }
 
-        let index_file_path = root_path.clone().join("zq2").join("mkdocs.yaml");
-        let index_file_template_path = root_path.clone().join("zq2").join("mkdocs.in.yaml");
-        // Now copy the mkdocs file ..
-        tokio::fs::copy(&index_file_template_path, &index_file_path).await?;
         let index_file_name = index_file_path
             .as_os_str()
             .to_str()
@@ -145,5 +247,12 @@ async fn main() -> Result<()> {
             .await?
             .success_or("Couldn't run z2")?;
     }
+    // Now fix up the API paths
+    fixup_api_paths(
+        &index_file_path,
+        &api_prefixes,
+        &format!("{}/", API_DIRNAME),
+    )
+    .await?;
     Ok(())
 }
