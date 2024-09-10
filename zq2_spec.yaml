@@ -1,4 +1,7 @@
 versions:
-  - refspec: 1123f1a7b3157ef07c54f222bfd33d500b15236d
-    name: 1123f1a7
+  - refspec: main
+    name: current
+    api_url: "https://api.zq2-devnet.zilliqa.com"
+  - refspec: v0.1.0
+    name: v0.1.0
     api_url: "https://api.zq2-devnet.zilliqa.com"

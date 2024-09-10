@@ -5,6 +5,4 @@ nav:
   - Endpoints, Block Explorer and Faucet: endpoints.md
   - Nodes and Validators: nodes.md
   - Tools and SDKs: sdk.md
-  - APIs:
-      - apis/index.md
   - Support & Feedback: support.md
