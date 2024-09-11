@@ -1,7 +1,7 @@
 site_name: Zilliqa Developer Portal
 site_url: https://dev.zilliqa.com/zilliqa2
 docs_dir: !ENV DOC_SOURCE
-site_description: Zilliqa blockchain
+site_description: Welcome to the developer documentation for Zilliqa 2.0. Access guides, tools, and APIs for building on the scalable and user-friendly Zilliqa 2.0 network.
 site_author: Zilliqa
 
 extra_css:
@@ -12,10 +12,11 @@ extra_javascript:
   - js/connect.js
   - js/chain.js
   - js/buffer.js
+  - js/add-zilliqa-chain.js
 
 theme:
   name: material
-  logo: assets/zilliqa.png
+  logo: assets/zilliqa.svg
   font:
     text: Poppins
     code: Roboto Mono
@@ -139,5 +140,6 @@ extra:
       link: https://status.zilliqa.com
 
 plugins:
-  - search
+  - search:
   - markdownextradata: {}
+ 
