@@ -3,16 +3,16 @@ id: APIs/1123f1a7/api/zilliqa/GetDSBlock
 title: GetDSBlock
 keywords: DS,block,get
 ---
----
 
+---
 
 !!! warning
 
     This API is not yet implemented in this version of Zilliqa 2.0
 
 Returns the details of a specified Directory Service block.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -25,16 +25,12 @@ Returns the details of a specified Directory Service block.
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
     const dsBlock = await zilliqa.blockchain.getDSBlock("1");
     console.log(dsBlock.result);
     ```
-
-
 
 === "java"
 
@@ -48,8 +44,6 @@ Returns the details of a specified Directory Service block.
     }
     ```
 
-
-
 === "python"
 
     ```python
@@ -57,8 +51,6 @@ Returns the details of a specified Directory Service block.
     chain.set_active_chain(chain.MainNet)
     print(chain.active_chain.api.GetDsBlock("9000
     ```
-
-
 
 === "go"
 
@@ -71,11 +63,7 @@ Returns the details of a specified Directory Service block.
     }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -106,9 +94,7 @@ Returns the details of a specified Directory Service block.
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description                                          |
 | --------- | ------ | -------- | ---------------------------------------------------- |
@@ -116,4 +102,3 @@ Returns the details of a specified Directory Service block.
 | `jsonrpc` | string | Required | `"2.0"`                                              |
 | `method`  | string | Required | `"GetDsBlock"`                                       |
 | `params`  | string | Required | Specified DS block number to return. Example: `"40"` |
-

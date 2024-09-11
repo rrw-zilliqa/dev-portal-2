@@ -3,16 +3,16 @@ id: APIs/1123f1a7/api/zilliqa/GetNumTransactions
 title: GetNumTransactions
 keywords: get,transactions,count
 ---
----
 
+---
 
 !!! warning
 
     This API is not yet implemented in this version of Zilliqa 2.0
 
 Returns the current number of validated Transactions in the network. This is represented as a `String.`
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -25,16 +25,12 @@ Returns the current number of validated Transactions in the network. This is rep
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
     const numTransactions = await zilliqa.blockchain.getNumTransactions();
     console.log(numTransactions.result);
     ```
-
-
 
 === "java"
 
@@ -48,8 +44,6 @@ Returns the current number of validated Transactions in the network. This is rep
     }
     ```
 
-
-
 === "python"
 
     ```python
@@ -57,8 +51,6 @@ Returns the current number of validated Transactions in the network. This is rep
     chain.set_active_chain(chain.MainNet)
     print(chain.active_chain.api.GetNumTransactions())
     ```
-
-
 
 === "go"
 
@@ -71,11 +63,7 @@ Returns the current number of validated Transactions in the network. This is rep
     }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -85,9 +73,7 @@ Returns the current number of validated Transactions in the network. This is rep
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description            |
 | --------- | ------ | -------- | ---------------------- |
@@ -95,4 +81,3 @@ Returns the current number of validated Transactions in the network. This is rep
 | `jsonrpc` | string | Required | `"2.0"`                |
 | `method`  | string | Required | `"GetNumTransactions"` |
 | `params`  | string | Required | Empty string `""`      |
-

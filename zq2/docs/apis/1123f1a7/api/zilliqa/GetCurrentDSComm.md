@@ -3,16 +3,16 @@ id: APIs/1123f1a7/api/zilliqa/GetCurrentDSComm
 title: GetCurrentDSComm
 keywords: DS,committee,get,current
 ---
----
 
+---
 
 !!! warning
 
     This API is not yet implemented in this version of Zilliqa 2.0
 
 Gives information on the public keys of DS committee members. Also, returns a parameter indicating the number of dsguards in the network.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -25,19 +25,7 @@ Gives information on the public keys of DS committee members. Also, returns a pa
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
-
-
-
-
-
-
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -56,9 +44,7 @@ Gives information on the public keys of DS committee members. Also, returns a pa
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description          |
 | --------- | ------ | -------- | -------------------- |
@@ -66,4 +52,3 @@ Gives information on the public keys of DS committee members. Also, returns a pa
 | `jsonrpc` | string | Required | `"2.0"`              |
 | `method`  | string | Required | `"GetCurrentDSComm"` |
 | `params`  | string | Required | Empty string `""`    |
-

@@ -3,16 +3,16 @@ id: APIs/1123f1a7/api/zilliqa/GetDSBlockRate
 title: GetDSBlockRate
 keywords: DS,block,get,rate
 ---
----
 
+---
 
 !!! warning
 
     This API is not yet implemented in this version of Zilliqa 2.0
 
 Returns the current Directory Service blockrate per second.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -25,16 +25,12 @@ Returns the current Directory Service blockrate per second.
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
     const dsBlockRate = await zilliqa.blockchain.getDSBlockRate();
     console.log(dsBlockRate.result);
     ```
-
-
 
 === "java"
 
@@ -48,8 +44,6 @@ Returns the current Directory Service blockrate per second.
     }
     ```
 
-
-
 === "python"
 
     ```python
@@ -57,8 +51,6 @@ Returns the current Directory Service blockrate per second.
     chain.set_active_chain(chain.MainNet)
     print(chain.active_chain.api.GetDSBlockRate())
     ```
-
-
 
 === "go"
 
@@ -71,11 +63,7 @@ Returns the current Directory Service blockrate per second.
     }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -85,9 +73,7 @@ Returns the current Directory Service blockrate per second.
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description        |
 | --------- | ------ | -------- | ------------------ |
@@ -95,4 +81,3 @@ Returns the current Directory Service blockrate per second.
 | `jsonrpc` | string | Required | `"2.0"`            |
 | `method`  | string | Required | `"GetDSBlockRate"` |
 | `params`  | string | Required | Empty string `""`  |
-

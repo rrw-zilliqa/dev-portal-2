@@ -3,13 +3,12 @@ id: APIs/1123f1a7/api/zilliqa/GetNumTxBlocks
 title: GetNumTxBlocks
 keywords: get,number,count,tx,blocks
 ---
+
 ---
 
-
-
 Returns the current number of Transaction blocks in the network. This is represented as a `String`.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -22,16 +21,12 @@ Returns the current number of Transaction blocks in the network. This is represe
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
     const numTxBlock = await zilliqa.blockchain.getNumTxBlocks();
     console.log(numTxBlock.result);
     ```
-
-
 
 === "java"
 
@@ -45,8 +40,6 @@ Returns the current number of Transaction blocks in the network. This is represe
     }
     ```
 
-
-
 === "python"
 
     ```python
@@ -54,8 +47,6 @@ Returns the current number of Transaction blocks in the network. This is represe
     chain.set_active_chain(chain.MainNet)
     print(chain.active_chain.api.GetNumTxBlocks())
     ```
-
-
 
 === "go"
 
@@ -68,11 +59,7 @@ Returns the current number of Transaction blocks in the network. This is represe
      }
      ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -82,9 +69,7 @@ Returns the current number of Transaction blocks in the network. This is represe
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description        |
 | --------- | ------ | -------- | ------------------ |
@@ -92,4 +77,3 @@ Returns the current number of Transaction blocks in the network. This is represe
 | `jsonrpc` | string | Required | `"2.0"`            |
 | `method`  | string | Required | `"GetNumTxBlocks"` |
 | `params`  | string | Required | Empty string `""`  |
-

@@ -3,16 +3,16 @@ id: APIs/1123f1a7/api/zilliqa/GetNumDSBlocks
 title: GetNumDSBlocks
 keywords: DS,get,blocks,count,number
 ---
----
 
+---
 
 !!! warning
 
     This API is not yet implemented in this version of Zilliqa 2.0
 
 Returns the current number of validated Directory Service blocks in the network. This is represented as a `String`.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -25,16 +25,12 @@ Returns the current number of validated Directory Service blocks in the network.
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
     const numDsBlock = await zilliqa.blockchain.getNumDSBlocks();
     console.log(numDsBlock.result);
     ```
-
-
 
 === "java"
 
@@ -48,8 +44,6 @@ Returns the current number of validated Directory Service blocks in the network.
     }
     ```
 
-
-
 === "python"
 
     ```python
@@ -57,8 +51,6 @@ Returns the current number of validated Directory Service blocks in the network.
     chain.set_active_chain(chain.MainNet)
     print(chain.active_chain.api.GetNumDSBlocks())
     ```
-
-
 
 === "go"
 
@@ -71,11 +63,7 @@ Returns the current number of validated Directory Service blocks in the network.
     }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -85,9 +73,7 @@ Returns the current number of validated Directory Service blocks in the network.
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description        |
 | --------- | ------ | -------- | ------------------ |
@@ -95,4 +81,3 @@ Returns the current number of validated Directory Service blocks in the network.
 | `jsonrpc` | string | Required | `"2.0"`            |
 | `method`  | string | Required | `"GetNumDSBlocks"` |
 | `params`  | string | Required | Empty string `""`  |
-

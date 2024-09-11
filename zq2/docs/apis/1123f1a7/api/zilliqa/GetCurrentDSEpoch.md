@@ -3,8 +3,8 @@ id: APIs/1123f1a7/api/zilliqa/GetCurrentDSEpoch
 title: GetCurrentDSEpoch
 keywords: DS,epoch,get,current
 ---
----
 
+---
 
 !!! warning
 
@@ -12,8 +12,8 @@ keywords: DS,epoch,get,current
 
 Returns the current number of DS blocks in the network. This is represented as a
 `String`.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -26,16 +26,12 @@ Returns the current number of DS blocks in the network. This is represented as a
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
     const currentDSEpoch = await zilliqa.blockchain.getCurrentDSEpoch();
     console.log(currentDSEpoch.result);
     ```
-
-
 
 === "java"
 
@@ -49,8 +45,6 @@ Returns the current number of DS blocks in the network. This is represented as a
     }
     ```
 
-
-
 === "python"
 
     ```python
@@ -58,8 +52,6 @@ Returns the current number of DS blocks in the network. This is represented as a
     chain.set_active_chain(chain.MainNet)
     print(chain.active_chain.api.GetCurrentDSEpoch())
     ```
-
-
 
 === "go"
 
@@ -72,11 +64,7 @@ Returns the current number of DS blocks in the network. This is represented as a
     }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -86,9 +74,7 @@ Returns the current number of DS blocks in the network. This is represented as a
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description           |
 | --------- | ------ | -------- | --------------------- |
@@ -96,4 +82,3 @@ Returns the current number of DS blocks in the network. This is represented as a
 | `jsonrpc` | string | Required | `"2.0"`               |
 | `method`  | string | Required | `"GetCurrentDSEpoch"` |
 | `params`  | string | Required | Empty string `""`     |
-

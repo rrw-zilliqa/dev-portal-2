@@ -3,8 +3,8 @@ id: APIs/1123f1a7/api/zilliqa/GetPrevDSDifficulty
 title: GetPrevDSDifficulty
 keywords: get,difficulty,DS
 ---
----
 
+---
 
 !!! warning
 
@@ -12,8 +12,8 @@ keywords: get,difficulty,DS
     result in an error. This documentation is retained for historical reasons.
 
 Returns the minimum DS difficulty of the previous block. This is represented as an `Number`.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -26,16 +26,12 @@ Returns the minimum DS difficulty of the previous block. This is represented as 
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
     const prevDSDifficulty = await zilliqa.blockchain.getPrevDSDifficulty();
     console.log(prevDSDifficulty.result);
     ```
-
-
 
 === "java"
 
@@ -49,8 +45,6 @@ Returns the minimum DS difficulty of the previous block. This is represented as 
     }
     ```
 
-
-
 === "python"
 
     ```python
@@ -58,8 +52,6 @@ Returns the minimum DS difficulty of the previous block. This is represented as 
     chain.set_active_chain(chain.MainNet)
     print(chain.active_chain.api.GetPrevDSDifficulty())
     ```
-
-
 
 === "go"
 
@@ -72,11 +64,7 @@ Returns the minimum DS difficulty of the previous block. This is represented as 
     }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -86,9 +74,7 @@ Returns the minimum DS difficulty of the previous block. This is represented as 
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description             |
 | --------- | ------ | -------- | ----------------------- |
@@ -96,4 +82,3 @@ Returns the minimum DS difficulty of the previous block. This is represented as 
 | `jsonrpc` | string | Required | `"2.0"`                 |
 | `method`  | string | Required | `"GetPrevDSDifficulty"` |
 | `params`  | string | Required | Empty string `""`       |
-

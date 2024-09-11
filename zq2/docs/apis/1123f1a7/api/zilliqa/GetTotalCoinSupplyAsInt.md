@@ -3,8 +3,8 @@ id: APIs/1123f1a7/api/zilliqa/GetTotalCoinSupplyAsInt
 title: GetTotalCoinSupplyAsInt
 keywords: get,coin,supply,int,total
 ---
----
 
+---
 
 !!! warning
 
@@ -12,8 +12,8 @@ keywords: get,coin,supply,int,total
 
 `GetTotalCoinSupplyAsInt` Returns the total supply (ZIL) of coins in the network. This is represented as a
 `Rounded Number`.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -26,19 +26,7 @@ keywords: get,coin,supply,int,total
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
-
-
-
-
-
-
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -48,9 +36,7 @@ keywords: get,coin,supply,int,total
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description                                       |
 | --------- | ------ | -------- | ------------------------------------------------- |
@@ -58,4 +44,3 @@ keywords: get,coin,supply,int,total
 | `jsonrpc` | string | Required | `"2.0"`                                           |
 | `method`  | string | Required | `"GetTotalCoinSupply or GetTotalCoinSupplyAsInt"` |
 | `params`  | string | Required | Empty string `""`                                 |
-

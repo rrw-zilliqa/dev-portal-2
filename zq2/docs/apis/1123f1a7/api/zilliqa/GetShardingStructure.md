@@ -3,8 +3,8 @@ id: APIs/1123f1a7/api/zilliqa/GetShardingStructure
 title: GetShardingStructure
 keywords: get,sharding,structure
 ---
----
 
+---
 
 !!! warning
 
@@ -12,8 +12,8 @@ keywords: get,sharding,structure
     result in an error. This documentation is retained for historical reasons.
 
 Retrieves the sharding structure from the lookup server. In Zilliqa 2.0, this is replaced by the XShard on-chain query mechanism.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -26,27 +26,13 @@ Retrieves the sharding structure from the lookup server. In Zilliqa 2.0, this is
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
-
-
-
-
-
-
-
-
-
 ### Example response
-
 
 ```json
 { "id": "1", "jsonrpc": "2.0", "result": { "NumPeers": [0] } }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description              |
 | --------- | ------ | -------- | ------------------------ |
@@ -54,4 +40,3 @@ Retrieves the sharding structure from the lookup server. In Zilliqa 2.0, this is
 | `jsonrpc` | string | Required | `"2.0"`                  |
 | `method`  | string | Required | `"GetShardingStructure"` |
 | `params`  | string | Required | Empty string `""`        |
-

@@ -3,13 +3,12 @@ id: APIs/1123f1a7/api/zilliqa/GetLatestTxBlock
 title: GetLatestTxBlock
 keywords: Tx,block,get,latest
 ---
+
 ---
 
-
-
 Returns the details of the most recent Transaction block.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -22,16 +21,12 @@ Returns the details of the most recent Transaction block.
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
     const txBlock = await zilliqa.blockchain.getLatestTxBlock();
     console.log(txBlock.result);
     ```
-
-
 
 === "java"
 
@@ -45,8 +40,6 @@ Returns the details of the most recent Transaction block.
     }
     ```
 
-
-
 === "python"
 
     ```python
@@ -54,8 +47,6 @@ Returns the details of the most recent Transaction block.
     chain.set_active_chain(chain.MainNet)
     print(chain.active_chain.api.GetLatestTxBlock())
     ```
-
-
 
 === "go"
 
@@ -68,11 +59,7 @@ Returns the details of the most recent Transaction block.
     }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -127,9 +114,7 @@ Returns the details of the most recent Transaction block.
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description          |
 | --------- | ------ | -------- | -------------------- |
@@ -137,4 +122,3 @@ Returns the details of the most recent Transaction block.
 | `jsonrpc` | string | Required | `"2.0"`              |
 | `method`  | string | Required | `"GetLatestTxBlock"` |
 | `params`  | string | Required | Empty string `""`    |
-

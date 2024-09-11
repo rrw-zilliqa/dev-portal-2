@@ -3,13 +3,12 @@ id: APIs/1123f1a7/api/ots/ots_getBlockDetails
 title: ots_getBlockDetails
 keywords: ots,details,block
 ---
+
 ---
 
-
-
 Returns details of a numbered block for otterscan
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -22,19 +21,7 @@ Returns details of a numbered block for otterscan
         }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
-
-
-
-
-
-
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -72,11 +59,8 @@ Returns details of a numbered block for otterscan
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description               |
 | --------- | ------ | -------- | ------------------------- |
 | `block`   | number | Required | The block number to query |
-

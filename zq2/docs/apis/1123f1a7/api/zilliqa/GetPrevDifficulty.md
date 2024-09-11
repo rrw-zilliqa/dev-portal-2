@@ -3,8 +3,8 @@ id: APIs/1123f1a7/api/zilliqa/GetPrevDifficulty
 title: GetPrevDifficulty
 keywords: get,difficulty
 ---
----
 
+---
 
 !!! warning
 
@@ -12,8 +12,8 @@ keywords: get,difficulty
     result in an error. This documentation is retained for historical reasons.
 
 Returns the minimum shard difficulty of the previous block. This is represented as an `Number`. This is no longer required in Zilliqa 2.0 because of the change to proof of stake consensus.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -26,16 +26,12 @@ Returns the minimum shard difficulty of the previous block. This is represented 
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
     const prevDifficulty = await zilliqa.blockchain.getPrevDifficulty();
     console.log(prevDifficulty.result);
     ```
-
-
 
 === "java"
 
@@ -49,8 +45,6 @@ Returns the minimum shard difficulty of the previous block. This is represented 
     }
     ```
 
-
-
 === "python"
 
     ```python
@@ -58,8 +52,6 @@ Returns the minimum shard difficulty of the previous block. This is represented 
     chain.set_active_chain(chain.MainNet)
     print(chain.active_chain.api.GetPrevDifficulty())
     ```
-
-
 
 === "go"
 
@@ -72,11 +64,7 @@ Returns the minimum shard difficulty of the previous block. This is represented 
     }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -86,9 +74,7 @@ Returns the minimum shard difficulty of the previous block. This is represented 
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description           |
 | --------- | ------ | -------- | --------------------- |
@@ -96,4 +82,3 @@ Returns the minimum shard difficulty of the previous block. This is represented 
 | `jsonrpc` | string | Required | `"2.0"`               |
 | `method`  | string | Required | `"GetPrevDifficulty"` |
 | `params`  | string | Required | Empty string `""`     |
-

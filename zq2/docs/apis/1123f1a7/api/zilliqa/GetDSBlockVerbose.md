@@ -3,16 +3,16 @@ id: APIs/1123f1a7/api/zilliqa/GetDSBlockVerbose
 title: GetDSBlockVerbose
 keywords: DS,block,get,verbose
 ---
----
 
+---
 
 !!! warning
 
     This API is not yet implemented in this version of Zilliqa 2.0
 
 Returns verbose details of a specified Directory Service block.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -25,19 +25,7 @@ Returns verbose details of a specified Directory Service block.
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
-
-
-
-
-
-
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -133,9 +121,7 @@ Returns verbose details of a specified Directory Service block.
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description                                          |
 | --------- | ------ | -------- | ---------------------------------------------------- |
@@ -143,4 +129,3 @@ Returns verbose details of a specified Directory Service block.
 | `jsonrpc` | string | Required | `"2.0"`                                              |
 | `method`  | string | Required | `"GetDsBlockVerbose"`                                |
 | `params`  | string | Required | Specified DS block number to return. Example: `"40"` |
-

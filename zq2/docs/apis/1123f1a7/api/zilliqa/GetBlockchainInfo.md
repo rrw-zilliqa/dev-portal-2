@@ -3,17 +3,16 @@ id: APIs/1123f1a7/api/zilliqa/GetBlockchainInfo
 title: GetBlockchainInfo
 keywords: blockchain,info,get
 ---
+
 ---
-
-
 
 Returns the current network statistics for the specified network. See [https://chainlist.org/?search=zilliqa&testnets=true](https://chainlist.org/?search=zilliqa&testnets=true) for details of deployed chains.
 
 !!! note
 
     `CHAIN_ID` from `2` to `9` are reserved for Zilliqa Core use.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -64,19 +63,7 @@ Returns the current network statistics for the specified network. See [https://c
     }
     ```
 
-
-
-
-
-
-
-
-
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -101,9 +88,7 @@ Returns the current network statistics for the specified network. See [https://c
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description           |
 | --------- | ------ | -------- | --------------------- |
@@ -111,4 +96,3 @@ Returns the current network statistics for the specified network. See [https://c
 | `jsonrpc` | string | Required | `"2.0"`               |
 | `method`  | string | Required | `"GetBlockchainInfo"` |
 | `params`  | string | Required | Empty string `""`     |
-

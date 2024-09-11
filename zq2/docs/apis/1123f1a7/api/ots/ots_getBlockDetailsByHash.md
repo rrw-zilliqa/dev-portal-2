@@ -3,13 +3,12 @@ id: APIs/1123f1a7/api/ots/ots_getBlockDetailsByHash
 title: ots_getBlockDetailsByHash
 keywords: ots,api,hash,block,details
 ---
+
 ---
 
-
-
 Returns details of a block for otterscan by hash
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -22,19 +21,7 @@ Returns details of a block for otterscan by hash
         }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
-
-
-
-
-
-
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -72,11 +59,8 @@ Returns details of a block for otterscan by hash
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description             |
 | --------- | ------ | -------- | ----------------------- |
 | `hash`    | string | Required | The block hash to query |
-

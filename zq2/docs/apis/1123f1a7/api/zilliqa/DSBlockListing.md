@@ -3,8 +3,8 @@ id: APIs/1123f1a7/api/zilliqa/DSBlockListing
 title: DSBlockListing
 keywords: ds,block,listing
 ---
----
 
+---
 
 !!! warning
 
@@ -13,8 +13,8 @@ keywords: ds,block,listing
 Returns a paginated list of up to **10** Directory Service (DS) blocks and their
 block hashes for a specified page. The `maxPages` variable that specifies the
 maximum number of pages available is also returned.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -27,16 +27,12 @@ maximum number of pages available is also returned.
         }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
         const dsBlockListing = await zilliqa.blockchain.getDSBlockListing(1);
         console.log(dsBlockListing.result);
     ```
-
-
 
 === "java"
 
@@ -50,8 +46,6 @@ maximum number of pages available is also returned.
         }
     ```
 
-
-
 === "python"
 
     ```python
@@ -59,8 +53,6 @@ maximum number of pages available is also returned.
         chain.set_active_chain(chain.MainNet)
         print(chain.active_chain.api.DSBlockListing(1))
     ```
-
-
 
 === "go"
 
@@ -73,11 +65,7 @@ maximum number of pages available is also returned.
         }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -131,9 +119,7 @@ maximum number of pages available is also returned.
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description                                                |
 | --------- | ------ | -------- | ---------------------------------------------------------- |
@@ -141,4 +127,3 @@ maximum number of pages available is also returned.
 | `jsonrpc` | string | Required | `"2.0"`                                                    |
 | `method`  | string | Required | `"DSBlockListing"`                                         |
 | `params`  | number | Required | Specifed page of DS blocks listing to return. Example: `1` |
-

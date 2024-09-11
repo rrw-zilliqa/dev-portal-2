@@ -3,8 +3,8 @@ id: APIs/1123f1a7/api/zilliqa/GetTotalCoinSupply
 title: GetTotalCoinSupply
 keywords: get,coin,total,supply
 ---
----
 
+---
 
 !!! warning
 
@@ -12,8 +12,8 @@ keywords: get,coin,total,supply
 
 `GetTotalCoinSupply` Returns the total supply (ZIL) of coins in the network. This is represented as a
 `String`.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -26,16 +26,12 @@ keywords: get,coin,total,supply
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
 === "node.js"
 
     ```js
     const totalCoinSupply = await zilliqa.blockchain.getTotalCoinSupply();
     console.log(totalCoinSupply);
     ```
-
-
 
 === "java"
 
@@ -49,15 +45,11 @@ keywords: get,coin,total,supply
     }
     ```
 
-
-
 === "python"
 
     ```python
     from pyzil.zilliqa import chain
     from pyzil.zilliqa.api import ZilliqaAPI
-
-
 
 === "go"
 
@@ -70,11 +62,7 @@ keywords: get,coin,total,supply
     }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -84,9 +72,7 @@ keywords: get,coin,total,supply
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description                                       |
 | --------- | ------ | -------- | ------------------------------------------------- |
@@ -94,4 +80,3 @@ keywords: get,coin,total,supply
 | `jsonrpc` | string | Required | `"2.0"`                                           |
 | `method`  | string | Required | `"GetTotalCoinSupply or GetTotalCoinSupplyAsInt"` |
 | `params`  | string | Required | Empty string `""`                                 |
-

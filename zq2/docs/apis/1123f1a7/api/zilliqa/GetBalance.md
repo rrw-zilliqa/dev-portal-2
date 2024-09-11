@@ -3,9 +3,8 @@ id: APIs/1123f1a7/api/zilliqa/GetBalance
 title: GetBalance
 keywords: balance,zilliqa,get,account
 ---
+
 ---
-
-
 
 - Returns the current `balance` of an account, measured in the smallest
   accounting unit **Qa** (or 10^-12 **Zil**). This is represented as a
@@ -15,8 +14,8 @@ keywords: balance,zilliqa,get,account
   `Number`.
 
 If the account does not exist, returns error code -5.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -29,8 +28,6 @@ If the account does not exist, returns error code -5.
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com/"
     ```
 
-
-
 === "node.js"
 
     ```js
@@ -39,8 +36,6 @@ If the account does not exist, returns error code -5.
     );
     console.log(balance.result);
     ```
-
-
 
 === "java"
 
@@ -54,8 +49,6 @@ If the account does not exist, returns error code -5.
     }
     ```
 
-
-
 === "python"
 
     ```python
@@ -63,8 +56,6 @@ If the account does not exist, returns error code -5.
     chain.set_active_chain(chain.MainNet)
     print(chain.active_chain.api.GetBalance("1eefc4f453539e5ee732b49eb4792b268c2f3908"))
     ```
-
-
 
 === "go"
 
@@ -77,11 +68,7 @@ If the account does not exist, returns error code -5.
     }
     ```
 
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -97,12 +84,14 @@ If the account does not exist, returns error code -5.
 or, if the account does not exist:
 
 ```json
-{"error":{"code":-5,"data":null,"message":"Account is not created"},"id":"1","jsonrpc":"2.0"}
+{
+  "error": { "code": -5, "data": null, "message": "Account is not created" },
+  "id": "1",
+  "jsonrpc": "2.0"
+}
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description                                                                                                                                                                                              |
 | --------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -110,4 +99,3 @@ or, if the account does not exist:
 | `jsonrpc` | string | Required | `"2.0"`                                                                                                                                                                                                  |
 | `method`  | string | Required | `"GetBalance"`                                                                                                                                                                                           |
 | `params`  | string | Required | An User's account address of 20 bytes. <br/> Example: `"1eefc4f453539e5ee732b49eb4792b268c2f3908"` <br/><br/> Also supports Bech32 address <br/> Example: `"zil1rmhufazn2w09aeejkj0tg7fty6xz7wggup2tsh"` |
-

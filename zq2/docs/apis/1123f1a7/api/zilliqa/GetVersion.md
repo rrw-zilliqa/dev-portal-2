@@ -3,13 +3,12 @@ id: APIs/1123f1a7/api/zilliqa/GetVersion
 title: GetVersion
 keywords: get,version
 ---
+
 ---
 
-
-
 Returns the software version of the Zilliqa node. Additionally, returns a commit id if defined.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -22,19 +21,7 @@ Returns the software version of the Zilliqa node. Additionally, returns a commit
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
-
-
-
-
-
-
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -47,9 +34,7 @@ Returns the software version of the Zilliqa node. Additionally, returns a commit
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description       |
 | --------- | ------ | -------- | ----------------- |
@@ -57,4 +42,3 @@ Returns the software version of the Zilliqa node. Additionally, returns a commit
 | `jsonrpc` | string | Required | `"2.0"`           |
 | `method`  | string | Required | `"GetVersion"`    |
 | `params`  | string | Required | Empty string `""` |
-

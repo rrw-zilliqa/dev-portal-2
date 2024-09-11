@@ -3,13 +3,12 @@ id: APIs/1123f1a7/api/erigon/erigon_getHeaderByNumber
 title: erigon_getHeaderByNumber
 keywords: erigon,header,number
 ---
+
 ---
 
-
-
 Returns the erigon headers for a given block number
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -22,19 +21,7 @@ Returns the erigon headers for a given block number
         }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
-
-
-
-
-
-
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -64,11 +51,8 @@ Returns the erigon headers for a given block number
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description               |
 | --------- | ------ | -------- | ------------------------- |
 | `block`   | number | Required | The block number to query |
-

@@ -3,8 +3,8 @@ id: APIs/1123f1a7/api/zilliqa/GetMinerInfo
 title: GetMinerInfo
 keywords: miner,info,get
 ---
----
 
+---
 
 !!! warning
 
@@ -20,8 +20,8 @@ the specified DS block.
    given chain.
 1. For the Zilliqa mainnet, this API is only available from DS block 5500
    onwards.
-### Example Request
 
+### Example Request
 
 === "cURL"
 
@@ -34,19 +34,7 @@ the specified DS block.
     }' -H "Content-Type: application/json" -X POST "https://api.zq2-devnet.zilliqa.com"
     ```
 
-
-
-
-
-
-
-
-
-
-
-
 ### Example response
-
 
 ```json
 {
@@ -92,9 +80,7 @@ the specified DS block.
 }
 ```
 
-
 ### Arguments
-
 
 | Parameter | Type   | Required | Description                        |
 | --------- | ------ | -------- | ---------------------------------- |
@@ -102,4 +88,3 @@ the specified DS block.
 | `jsonrpc` | string | Required | `"2.0"`                            |
 | `method`  | string | Required | `"GetMinerInfo"`                   |
 | `params`  | string | Required | DS block number. Example: `"5500"` |
-
