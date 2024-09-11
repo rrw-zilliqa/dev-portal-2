@@ -450,9 +450,8 @@ If the response json received above is stored in the variable
 `smartContractState`, total supply would then be:
 
 ```js
-let smartContractState = await zilliqa.blockchain.getSmartContractState(
-  contractAddress
-);
+let smartContractState =
+  await zilliqa.blockchain.getSmartContractState(contractAddress);
 let totalSupply = smartContractState.result.total_supply; // Total Supply
 ```
 

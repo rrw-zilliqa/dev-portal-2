@@ -8,6 +8,8 @@ description: Hardhat allows developers to easily compile, test, and deploy their
 
 ---
 
+<!-- markdownlint-disable MD013 -->
+
 ## Hardhat
 
 [Hardhat](https://hardhat.org/) is a development environment for the Solidity programming language. One of the primary use cases for Hardhat is to make it easier for developers to compile and deploy their Solidity smart contracts. Another common use case for Hardhat is to make it easier to write and run automated tests for Solidity smart contracts. This can help to ensure that the contracts are working as intended and can help to catch any bugs or issues before they are deployed to the main network.

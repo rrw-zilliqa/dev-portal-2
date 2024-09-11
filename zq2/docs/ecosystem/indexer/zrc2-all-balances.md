@@ -10,6 +10,8 @@ description: All ZRC2 tokens for a given wallet
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get all available ZR2 token balances for a given wallet.
 
 ### Parameters

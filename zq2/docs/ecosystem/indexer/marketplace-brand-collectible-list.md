@@ -9,6 +9,8 @@ description: Brand collectible list
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get list of all collectibles owned by a brand.
 
 ### Parameters

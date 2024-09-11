@@ -20,6 +20,11 @@ config file from `default.conf`.
 The material theme is fairly heavily customised with overrides in both
 Zilliqa 1 and Zilliqa 2.
 
+There are two versions of the Zilliqa 1 documentation - regular, and
+without the zq2 documentation (`nozq2`); the switch is made by
+substituting the relevant `mkdocs.yaml` file from the `zq1/`
+directory.
+
 ## Docgen
 
 The `docgen` program:
@@ -62,6 +67,7 @@ repository](https://github.com/zilliqa/zq2) for details.
 Now,
 
 - `make dev1` will make and serve the ZQ1 docs locally on port 8000.
+- `make dev1nozq2` will make and serve the ZQ1 docs (with no ZQ2 reference) locally on port 8000
 - `make dev2` will do the same with the ZQ2 docs.
 
 You can set `SERVEROPTS` to pass option (usually `-a

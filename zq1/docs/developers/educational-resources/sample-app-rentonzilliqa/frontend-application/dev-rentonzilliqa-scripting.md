@@ -54,7 +54,7 @@ const useContext = () => {
   const [error, setError] = useState<boolean | undefined>(undefined);
   const [contract, setContract] = useState<any | undefined>(undefined);
   const [contractState, setContractState] = useState<any | undefined>(
-    undefined
+    undefined,
   );
   const [currentUser, setCurrentUser] = useState<any | undefined>(undefined);
   const [currentBlockNumber, setCurrentBlockNumber] = useState<
@@ -168,7 +168,7 @@ listing. Prices and rent are converted from `Qa`. Amenities are converted to
 const formatListings = (
   contractState: any,
   currentEpochNumber: number,
-  currentUser: string
+  currentUser: string,
 ) => {
   const {
     listing_name,
@@ -216,7 +216,7 @@ const formatListings = (
           hvac: listing_hvac[key] === "yes",
         },
       };
-    }
+    },
   );
 
   return formattedListings;
@@ -253,7 +253,7 @@ import decodeMessage from "./decodeMessage";
 const transitionMessageAlert = (
   zilPay: any,
   transactionId: string,
-  transitionName: string
+  transitionName: string,
 ) => {
   const transition = new Promise<string>((success, error) => {
     const subscription = zilPay.wallet
@@ -321,7 +321,7 @@ const createUserTransition = async (
   contract: any,
   zilPay: any,
   name: string | undefined,
-  role: string
+  role: string,
 ) => {
   try {
     const callTransition = await contract.call(
@@ -338,7 +338,7 @@ const createUserTransition = async (
           value: role,
         },
       ],
-      getCallParameters(zilPay)
+      getCallParameters(zilPay),
     );
     transitionMessageAlert(zilPay, callTransition.ID, "Creating user");
   } catch (error) {

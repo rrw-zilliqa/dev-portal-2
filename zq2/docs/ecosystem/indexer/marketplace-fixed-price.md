@@ -9,6 +9,8 @@ description: Fixed price marketplace listing
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get fixed price offers for an asset.
 
 ### Parameters

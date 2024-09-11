@@ -3,8 +3,11 @@ nav:
   - Welcome: index.md
   - What's new in Zilliqa 2.0: changes.md
   - Endpoints, Block Explorer and Faucet: endpoints.md
-  - Nodes and Validators: nodes.md
+  - Nodes & Validators:
+      - Overview:
+          - nodes/index.md
+      - Prototestnet Nodes: nodes/prototestnetnodes.md
+      - Checkpoints: nodes/checkpoint.md
+      - FAQs: nodes/faq.md
   - Tools and SDKs: sdk.md
-  - APIs:
-      - apis/index.md
   - Support & Feedback: support.md

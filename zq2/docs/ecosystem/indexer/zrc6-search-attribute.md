@@ -9,6 +9,8 @@ description: Find all NFTS with a given attribute
 
 ---
 
+<!-- markdownlint-disable -->
+
 Find all NFTS with a given attribute.
 This applies to NFTS which follow the ZRC-7 metadata standard
 

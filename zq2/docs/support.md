@@ -1,8 +1,9 @@
 ---
-
 id: support
 title: Support & Feedback
 ---
+
+<!-- markdownlint-disable MD025 MD013 -->
 
 # Support & Feedback
 

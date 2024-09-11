@@ -3,6 +3,8 @@ id: nft
 title: Zilliqa NFT links
 ---
 
+<!-- markdownlint-disable -->
+
 # Zilliqa NFTs
 
 This page collects information about useful NFT facilities available on Zilliqa

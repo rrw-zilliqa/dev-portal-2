@@ -13,6 +13,8 @@ description: Zilliqa and Scilla Development Videos - Write smart contracts and b
 
 ---
 
+<!-- markdownlint-disable MD013 -->
+
 There are numerous channels that cover Zilliqa and Scilla programming content on
 various social media channels. In this section we'll cover videos related to
 Zilliqa and Scilla programming that are available on Zilliqa's official

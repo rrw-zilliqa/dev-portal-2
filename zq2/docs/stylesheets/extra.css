@@ -46,7 +46,6 @@
   --md-code-default-fg-color--light: #ffffff;
   --md-code-hl-variable-color: #c02080;
   --md-code-hl-name-color: #00d0c6;
-  ;
   --md-code-hl-operator-color: #90c090;
   --md-footer-bg-color: #272626;
 }
@@ -147,11 +146,11 @@ td {
 .md-typeset h2,
 .md-typeset h3 {
   font-weight: 600;
-  letter-spacing: -.01em
+  letter-spacing: -0.01em;
 }
 
 .highlight span.filename {
-  border-bottom: .05rem solid var(--md-default-fg-color--lighter);
+  border-bottom: 0.05rem solid var(--md-default-fg-color--lighter);
 }
 
 .md-typeset em {

@@ -10,6 +10,8 @@ description: Get ZRC2 transaction history
 
 ---
 
+<!-- markdownlint-disable -->
+
 Retrieve the details of transactions based on the given parameters.
 
 ## Parameters

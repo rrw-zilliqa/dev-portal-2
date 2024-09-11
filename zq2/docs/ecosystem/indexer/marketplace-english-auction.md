@@ -9,6 +9,8 @@ description: English Auction marketplace listing
 
 ---
 
+<!-- markdownlint-disable -->
+
 Get auction offers for an asset.
 
 ### Parameters

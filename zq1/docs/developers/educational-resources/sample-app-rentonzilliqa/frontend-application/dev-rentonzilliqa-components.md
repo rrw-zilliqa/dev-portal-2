@@ -44,8 +44,8 @@ const Button: React.FC<props> = (props) => {
   const colours = white
     ? "text-gray-900 bg-white"
     : alert
-    ? "text-white bg-red-600"
-    : "text-white bg-gray-900";
+      ? "text-white bg-red-600"
+      : "text-white bg-gray-900";
 
   return (
     <button

@@ -2,12 +2,12 @@
 # To learn more about the format of this file, see https://docs.trunk.io/reference/trunk-yaml
 version: 0.1
 cli:
-  version: 1.22.1
+  version: 1.22.3
 # Trunk provides extensibility via plugins. (https://docs.trunk.io/plugins)
 plugins:
   sources:
     - id: trunk
-      ref: v1.5.0
+      ref: v1.6.2
       uri: https://github.com/trunk-io/plugins
 # Many linters and tools depend on runtimes - configure them here. (https://docs.trunk.io/runtimes)
 runtimes:
@@ -17,22 +17,25 @@ runtimes:
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   enabled:
-    - actionlint@1.7.0
-    - bandit@1.7.8
-    - black@24.4.2
-    - buildifier@7.1.1
-    - checkov@3.2.103
+    - clippy@1.80.1
+    - rustfmt@1.80.1
+    - taplo@0.9.3
+    - actionlint@1.7.1
+    - bandit@1.7.9
+    - black@24.8.0
+    - buildifier@7.1.2
+    - checkov@3.2.238
     - git-diff-check
     - hadolint@2.12.0
     - isort@5.13.2
-    - markdownlint@0.40.0
-    - osv-scanner@1.7.3
-    - oxipng@9.1.1
-    - prettier@3.2.5
-    - ruff@0.4.4
+    - markdownlint@0.41.0
+    - osv-scanner@1.8.4
+    - oxipng@9.1.2
+    - prettier@3.3.3
+    - ruff@0.6.2
     - svgo@3.3.2
-    - trivy@0.51.2
-    - trufflehog@3.76.3
+    - trivy@0.54.1
+    - trufflehog@3.81.9
     - yamllint@1.35.1
   ignore:
     - linters: [gitleaks]
@@ -47,6 +50,7 @@ lint:
         - zq1/docs/exchanges
     - linters: [markdownlint]
       paths:
+        - zq1/**  # Not worth fixing.
         - zq2/docs/ecosystem/index.md # multiple headers
         - zq2/docs/zilevm/tools/remix.md # Don't care about line length
         - README.md
@@ -58,7 +62,11 @@ lint:
         - Dockerfile # Annoying, but trunk is now very opinionated on how you write dockerfiles.
         - zq2/docs/js/** # trunk does not know this is looking for metamask in the user's browser.
         - zq2/docs/index.md # contains legitimate empty links
+        - zq2/docs/nodes/**
         - .trunk/*out/**
+        - cd/base/deployment.yaml
+        - zq1/** # Legacy
+
 
 actions:
   enabled:

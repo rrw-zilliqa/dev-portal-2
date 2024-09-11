@@ -9,6 +9,8 @@ description: Zindexer API
 
 ---
 
+<!-- markdownlint-disable -->
+
 Note that we hope to move to theGraph-based indexing in the future and the Zilliqa Indexer API service is [no longer receiving enhancements](../../indexers/).
 
 ## GraphQL Playground
