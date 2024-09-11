@@ -28,10 +28,8 @@ ARG VERSION
 ENV VERSION=$VERSION
 RUN mkdocs build
 
-ARG ZQ2
-ENV ZQ2=$ZQ2
 WORKDIR /build/zq1
-RUN if [ "$ZQ2" -eq 0 ]; then mkdocs build -f mkdocs.nozq2.yml; else mkdocs build -f mkdocs.zq2.yml; fi
+RUN mkdocs build -f mkdocs.zq2.yml;
 
 FROM nginx:alpine-slim
 
@@ -40,10 +38,6 @@ RUN mkdir -p /usr/share/nginx/html/zilliqa2
 COPY --from=builder --chown=nginx:nginx /build/zq1/site/. /usr/share/nginx/html/zilliqa1/.
 COPY --from=builder --chown=nginx:nginx /build/zq2/site/. /usr/share/nginx/html/zilliqa2/.
 COPY default.conf /etc/nginx/conf.d/default.conf
-COPY default.nozq2.conf /etc/nginx/conf.d/default.nozq2.conf
-ARG ZQ2
-ENV ZQ2=$ZQ2
-RUN if [ "$ZQ2" -eq 0 ]; then rm -rf /usr/share/nginx/html/zilliqa2 && mv /etc/nginx/conf.d/default.nozq2.conf /etc/nginx/conf.d/default.conf; else rm /etc/nginx/conf.d/default.nozq2.conf; fi
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

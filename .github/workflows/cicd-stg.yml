@@ -70,17 +70,15 @@ jobs:
         env:
           ENVIRONMENT: stg
           IMAGE_TAG: ${{ steps.set-tag.outputs.tags }}
-          ZQ2: 1
         run: |
           cd ${{ matrix.path }}
           make image/build-and-push
 
-      - name: "Build and push ${{ matrix.application }} tag latest - staging"
+          - name: "Build and push ${{ matrix.application }} tag latest - staging"
         if: ${{ matrix.tag_latest == true }}
         env:
           ENVIRONMENT: stg
           IMAGE_TAG: "${{ env.REGISTRY }}/${{ matrix.image_name }}:latest"
-          ZQ2: 1
         run: |
           cd ${{ matrix.path }}
           make image/build-and-push

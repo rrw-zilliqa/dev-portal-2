@@ -48,31 +48,19 @@ assemble:
 	cp -r $(HERE)/zq2 $(BINDIR)
 
 IMAGE_TAG ?= developer-portal:latest
-IMAGE_TAG_NOZQ2 ?= developer-portal-nozq2:latest
 ZQ2 ?= 1
 
 build:
 	docker buildx build --build-arg ZQ2=1 --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG)
-	docker buildx build --build-arg ZQ2=0 --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG_NOZQ2)
-
 
 run-image: build
 	docker run --rm -p 8080:80 "$(IMAGE_TAG)"
 
-run-image-nozq2: build
-	docker run --rm -p 8080:80 "$(IMAGE_TAG_NOZQ2)"
-
 DEV_TAG=asia-docker.pkg.dev/prj-d-dev-apps-n3p4o97j/zilliqa/developer-portal
-DEV_TAG_NOZQ2=$(DEV_TAG)-nozq2
 ## Push to the dev repo so you can check that the docker container actually works .. 
 push-dev-image: build
 	docker tag "${IMAGE_TAG}" "${DEV_TAG}:latest"
 	docker push "${DEV_TAG}"
-
-push-dev-image-nozq2: build
-	docker tag "${IMAGE_TAG_NOZQ2}" "${DEV_TAG}:latest"
-	docker push "${DEV_TAG}"
-	echo Now restart the pod ..
 
 ## Build and push the Docker image
 image/build-and-push:

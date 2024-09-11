@@ -8,6 +8,5 @@ nav:
           - nodes/index.md
       - Prototestnet Nodes: nodes/prototestnetnodes.md
       - Checkpoints: nodes/checkpoint.md
-      - FAQs: nodes/faq.md
   - Tools and SDKs: sdk.md
   - Support & Feedback: support.md
