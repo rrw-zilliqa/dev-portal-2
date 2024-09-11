@@ -74,7 +74,7 @@ jobs:
           cd ${{ matrix.path }}
           make image/build-and-push
 
-          - name: "Build and push ${{ matrix.application }} tag latest - staging"
+      - name: "Build and push ${{ matrix.application }} tag latest - staging"
         if: ${{ matrix.tag_latest == true }}
         env:
           ENVIRONMENT: stg
