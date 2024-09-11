@@ -48,10 +48,9 @@ assemble:
 	cp -r $(HERE)/zq2 $(BINDIR)
 
 IMAGE_TAG ?= developer-portal:latest
-ZQ2 ?= 1
 
 build:
-	docker buildx build --build-arg ZQ2=1 --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG)
+	docker buildx build --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG)
 
 run-image: build
 	docker run --rm -p 8080:80 "$(IMAGE_TAG)"
@@ -64,5 +63,5 @@ push-dev-image: build
 
 ## Build and push the Docker image
 image/build-and-push:
-	docker buildx build --build-arg ZQ2=$(ZQ2) --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG)
+	docker buildx build --build-arg VERSION="${VERSION}" -f Dockerfile . -t $(IMAGE_TAG)
 	docker push "$(IMAGE_TAG)"
