@@ -36,8 +36,14 @@ async fn fixup_api_paths(
         api_prefixes: &HashSet<String>,
         add_component: &str,
         value: &serde_yaml::Value,
-        triggered: bool,
+        triggered_in: bool,
     ) -> Result<serde_yaml::Value> {
+        let mut triggered_out = triggered_in;
+        if let Some(v) = &prefix {
+            if api_prefixes.contains(v) {
+                triggered_out = true;
+            }
+        }
         match value {
             serde_yaml::Value::Sequence(seq) => {
                 // Just iterate.
@@ -48,19 +54,13 @@ async fn fixup_api_paths(
                         api_prefixes,
                         add_component,
                         elem,
-                        triggered,
+                        triggered_out,
                     )?);
                 }
                 Ok(serde_yaml::Value::Sequence(new_seq))
             }
             serde_yaml::Value::Mapping(map) => {
                 let mut new_map = serde_yaml::value::Mapping::new();
-                let mut triggered = triggered;
-                if let Some(v) = &prefix {
-                    if api_prefixes.contains(v) {
-                        triggered = true;
-                    }
-                }
                 for (key_val, val) in map {
                     if let serde_yaml::Value::String(key) = key_val {
                         let new_key = key.to_string();
@@ -76,20 +76,20 @@ async fn fixup_api_paths(
                                 api_prefixes,
                                 add_component,
                                 val,
-                                triggered,
+                                triggered_out,
                             )?,
                         );
                     } else {
                         new_map.insert(
                             key_val.clone(),
-                            process_value(prefix, api_prefixes, add_component, val, triggered)?,
+                            process_value(prefix, api_prefixes, add_component, val, triggered_out)?,
                         );
                     }
                 }
                 Ok(serde_yaml::Value::Mapping(new_map))
             }
             serde_yaml::Value::String(s) => {
-                if triggered {
+                if triggered_out {
                     // The starts_with check protects us from upstream fixes.
                     let new_s = if !s.starts_with(add_component) {
                         format!("{}{}", add_component, s)

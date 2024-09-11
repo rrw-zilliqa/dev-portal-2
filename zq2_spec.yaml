@@ -2,6 +2,3 @@ versions:
   - refspec: main
     name: current
     api_url: "https://api.zq2-devnet.zilliqa.com"
-  - refspec: v0.1.0
-    name: v0.1.0
-    api_url: "https://api.zq2-devnet.zilliqa.com"
