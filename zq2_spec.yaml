@@ -1,4 +1,4 @@
 versions:
-  - refspec: d8c6bfdaca5511dfffe2a62eebd00304374e7923
+  - refspec: 4914811983d965da3eb176979984ca219aa8bbc3
     name: APIs
     api_url: "https://api.zq2-prototestnet.zilliqa.com/"
