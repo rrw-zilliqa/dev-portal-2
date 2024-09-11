@@ -23,7 +23,7 @@ Welcome to the developer documentation for Zilliqa 2.0, a fast-finality, scalabl
 </div>
 
 <div class="md-zil-wrapper" markdown>
-# Everything you need to know
+# Getting started
 <div class="md-zil-cards" markdown>
 <div markdown>
 
@@ -51,7 +51,7 @@ The proto-testnet exists as the first implementation of the Zilliqa 2.0 consens
 </div>
 </div>
 
-# Implementation of the Zilliqa 2.0
+# Everything you need to know
 <div class="grid cards md-zil-cards" markdown>
 
 -  [__What's new <br>in Zilliqa 2.0__](/zilliqa2/changes/)
