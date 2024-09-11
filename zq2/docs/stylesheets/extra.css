@@ -172,7 +172,7 @@ p a {
 }
 
 .md-content__inner {
-  padding-top: 0;
+  padding-top: 3rem;
 }
 
 .md-sidebar {
@@ -193,6 +193,7 @@ p a {
   padding: 4rem;
   position: relative;
   margin-bottom: 3rem;
+  margin-top: -3rem;
 }
 
 .md-typeset .md-zil-banner h1 {
@@ -356,7 +357,7 @@ p a {
   .md-zil-wrapper {
     padding: 1.8rem;
     background-position: 30% center;
-    margin: 0 -0.8rem 1.2rem;
+    margin: -3rem -0.8rem 1.2rem;
   }
   .md-typeset .md-zil-banner h1 {
     max-width: 100%;
