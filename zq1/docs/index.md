@@ -6,4 +6,4 @@ hide:
   - toc
 ---
 
-# Zilliqa Developer Portal
+# Zilliqa 1.0 Developer Portal
