@@ -27,7 +27,7 @@ Here are the steps for downloading the latest checkpoint file.
     - To download, replace <block_num.dat> in the URL with the appropriate block number:
         - For the latest checkpoint file: `https://checkpoints.zq2-prototestnet.zilliqa.com/<block_num.dat>`
         - For an older file: `https://checkpoints.zq2-prototestnet.zilliqa.com/previous/<block_num.dat>`
-    - Download the file into `/my/dir/zq2` directory using `wget` or or by pasting the link directly into the browse.
+    - Use `wget` or paste the link in your browser to download the file to the `/my/dir/zq2` directory:
     ```bash
     wget https://checkpoints.zq2-prototestnet.zilliqa.com/<block_num.dat>
     ```

@@ -22,3 +22,4 @@ six==1.16.0
 urllib3==2.2.2
 watchdog==2.1.9
 mkdocs-markdownextradata-plugin==0.2.5
+mkdocs-redirects==1.2.1

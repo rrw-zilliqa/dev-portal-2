@@ -25,6 +25,10 @@ without the zq2 documentation (`nozq2`); the switch is made by
 substituting the relevant `mkdocs.yaml` file from the `zq1/`
 directory.
 
+If you want to build the docs from a checked out version of zq2, set
+`USE_ZQ2_FROM` to the location of your zq2 directory and `NO_CHECKOUT`
+to skip checkouts.
+
 ## Docgen
 
 The `docgen` program:
@@ -38,7 +42,7 @@ The `docgen` program:
 `mkdocs.yaml` for zq2 is generated from:
 
 - `zq2/mkdocs.in.yaml`, which inherits from
-- `zq2/parenty.yaml`
+- `zq2/parent.yaml`
 
 ## Developing
 

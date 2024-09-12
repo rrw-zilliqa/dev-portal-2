@@ -1,6 +1,6 @@
 use anyhow::{anyhow, Result};
 use serde::Deserialize;
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
 use std::{env, fs};
 use zqutils::commands::CommandBuilder;
@@ -17,6 +17,89 @@ struct Version {
 #[derive(Clone, Deserialize)]
 struct Zq2Spec {
     versions: Vec<Version>,
+}
+
+/// Turns out we want to reorder navigation paths. We do this by including dummy
+/// entries in the navigation; we then read in the sequence in nav, and reorder it
+/// appropiately
+async fn reorder_top_level_navigation(for_index_file: &Path) -> Result<()> {
+    // Read `for_index_file`. Now, for each prefix in `api_prefixes` (dot-separated),
+    // add an initial component of `add_component` to their referenced paths.
+    let contents = fs::read_to_string(for_index_file)?;
+    let mut value_pre: serde_yaml::Value = serde_yaml::from_str(&contents)?;
+    if let serde_yaml::Value::Mapping(top_level_map) = &mut value_pre {
+        // Find "nav".
+        if let Some(serde_yaml::Value::Sequence(top_level_seq)) =
+            top_level_map.get(serde_yaml::Value::String("nav".to_string()))
+        {
+            // OK. We're going to change this sequence. Construct a new sequence ...
+            // Again, O(n^2), I'm afraid.
+            let mut replacement_sequence = serde_yaml::Sequence::new();
+            let mut do_not_copy_elements: HashSet<String> = HashSet::new();
+            let mut elements_by_name: HashMap<String, serde_yaml::Value> = HashMap::new();
+
+            for seq_elem in top_level_seq {
+                //println!("SE {seq_elem:?}");
+                if let serde_yaml::Value::Mapping(inner_map) = seq_elem {
+                    for k in inner_map.keys() {
+                        if let serde_yaml::Value::String(key) = k {
+                            elements_by_name.insert(
+                                key.to_string(),
+                                serde_yaml::Value::Mapping(inner_map.clone()),
+                            );
+                        }
+                    }
+                }
+                if let serde_yaml::Value::String(key) = seq_elem {
+                    //println!("FFF Found {key}");
+                    if let Some(rest) = key.strip_prefix('$') {
+                        // It's a substitution key.
+                        do_not_copy_elements.insert(rest.to_string());
+                    }
+                }
+            }
+
+            //println!("do_not_copy {do_not_copy_elements:?} elements_by_name {elements_by_name:?}");
+
+            for seq_elem in top_level_seq {
+                let mut copy_key = true;
+                match seq_elem {
+                    serde_yaml::Value::Mapping(inner_map) => {
+                        for k in inner_map.keys() {
+                            if let serde_yaml::Value::String(key) = k {
+                                if do_not_copy_elements.contains(key) {
+                                    copy_key = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if copy_key {
+                            replacement_sequence.push(seq_elem.clone());
+                        }
+                    }
+                    serde_yaml::Value::String(key) => {
+                        if let Some(rest) = key.strip_prefix('$') {
+                            //println!("QQQQ {rest}");
+                            if let Some(v) = elements_by_name.get(rest) {
+                                replacement_sequence.push(v.clone());
+                            }
+                        } else {
+                            replacement_sequence.push(seq_elem.clone());
+                        }
+                    }
+                    _ => replacement_sequence.push(seq_elem.clone()),
+                }
+            }
+            //println!("PPPP {replacement_sequence:?}");
+            top_level_map.insert(
+                serde_yaml::Value::String("nav".to_string()),
+                serde_yaml::Value::Sequence(replacement_sequence),
+            );
+        }
+    };
+    let result = serde_yaml::to_string(&value_pre)?;
+    fs::write(for_index_file, result.as_bytes())?;
+    Ok(())
 }
 
 /// There is an annoying bug in docgen in the zq2 code which fixes id-prefix and
@@ -36,8 +119,14 @@ async fn fixup_api_paths(
         api_prefixes: &HashSet<String>,
         add_component: &str,
         value: &serde_yaml::Value,
-        triggered: bool,
+        triggered_in: bool,
     ) -> Result<serde_yaml::Value> {
+        let mut triggered_out = triggered_in;
+        if let Some(v) = &prefix {
+            if api_prefixes.contains(v) {
+                triggered_out = true;
+            }
+        }
         match value {
             serde_yaml::Value::Sequence(seq) => {
                 // Just iterate.
@@ -48,19 +137,13 @@ async fn fixup_api_paths(
                         api_prefixes,
                         add_component,
                         elem,
-                        triggered,
+                        triggered_out,
                     )?);
                 }
                 Ok(serde_yaml::Value::Sequence(new_seq))
             }
             serde_yaml::Value::Mapping(map) => {
                 let mut new_map = serde_yaml::value::Mapping::new();
-                let mut triggered = triggered;
-                if let Some(v) = &prefix {
-                    if api_prefixes.contains(v) {
-                        triggered = true;
-                    }
-                }
                 for (key_val, val) in map {
                     if let serde_yaml::Value::String(key) = key_val {
                         let new_key = key.to_string();
@@ -76,20 +159,20 @@ async fn fixup_api_paths(
                                 api_prefixes,
                                 add_component,
                                 val,
-                                triggered,
+                                triggered_out,
                             )?,
                         );
                     } else {
                         new_map.insert(
                             key_val.clone(),
-                            process_value(prefix, api_prefixes, add_component, val, triggered)?,
+                            process_value(prefix, api_prefixes, add_component, val, triggered_out)?,
                         );
                     }
                 }
                 Ok(serde_yaml::Value::Mapping(new_map))
             }
             serde_yaml::Value::String(s) => {
-                if triggered {
+                if triggered_out {
                     // The starts_with check protects us from upstream fixes.
                     let new_s = if !s.starts_with(add_component) {
                         format!("{}{}", add_component, s)
@@ -253,5 +336,7 @@ async fn main() -> Result<()> {
         &format!("{}/", API_DIRNAME),
     )
     .await?;
+    // And reorder navigation
+    reorder_top_level_navigation(&index_file_path).await?;
     Ok(())
 }
