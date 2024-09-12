@@ -66,6 +66,7 @@
 
 .md-search__inner {
   width: 28rem;
+  max-width: 90%;
 }
 
 .md-typeset__table {
@@ -379,5 +380,17 @@ p a {
   .md-zil-cards > div {
     padding: 1rem;
     min-height: 0;
+  }
+}
+@media screen and (max-width: 400px) {
+  .md-typeset .md-zil-banner h1 {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .md-zil-banner .flex > div:last-child a {
+    padding: 0 1.5rem;
+  }
+  .metamask {
+    font-size: 12px;
   }
 }
