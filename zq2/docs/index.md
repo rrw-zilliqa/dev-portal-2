@@ -67,7 +67,7 @@ The proto-testnet exists as the first implementation of the Zilliqa 2.0 consens
 -   [__Development tools, SDKs, and Git repositories__](/zilliqa2/sdk/)
 
 
--   [__Supported <br>APIs__](/zilliqa2/support/)
+-   [__Supported <br>APIs__](/zilliqa2/api/apis/)
 
 
 </div>
