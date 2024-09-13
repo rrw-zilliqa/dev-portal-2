@@ -196,6 +196,7 @@ p a {
   min-height: 400px;
   background: url("../assets/banner.webp");
   background-position: center;
+  background-repeat: no-repeat;
   padding: 4rem;
   position: relative;
   margin-bottom: 3rem;
