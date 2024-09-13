@@ -40,7 +40,7 @@ Zilliqa 2.0 is based on 2 years of research into cutting-edge blockchain technol
 <div markdown>
 
 ## Core protocol
-At the current stage of Zilliqa 2.0 development, the core protocol is available to test via the Jasper proto-testnet.To achieve the best possible performance, we decided to re-implement our entire protocol in Rust.
+At the current stage of Zilliqa 2.0 development, the core protocol is available to test via the Jasper proto-testnet. To achieve the best possible performance, we decided to re-implement our entire protocol in Rust.
 
 </div>
 <div markdown>
