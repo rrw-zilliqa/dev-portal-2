@@ -9,7 +9,7 @@ description: Frequently asked questions
 ---
 
 # Frequently Asked Questions
-## [Validator node](#validator-faq)
+## [Validator nodes](#validator-faq)
 
 ## How do I sync my validator node? Should I use genesis sync or checkpoint sync ?
 
@@ -17,7 +17,7 @@ Currently, only genesis mode is supported for syncing validator nodes.
 We are actively working on checkpoint sync support feature for validator node. It will be activated through a
 network upgrade coming soon.
 
-## [Non validator node](#non-validator-node-faq)
+## [Non-Validator nodes](#non-validator-node-faq)
 ## How do I sync my node if I'm not a validator node?
 For non-validator node, both genesis sync and checkpoint sync option are supported.
 
