@@ -269,7 +269,17 @@ async fn main() -> Result<()> {
             if fs::metadata(zq2_checkout_dir.clone().join(".git")).is_ok() {
                 // Update.
                 CommandBuilder::new()
-                    .cmd("git", &["pull", "https://github.com/zilliqa/zq2", refspec])
+                    .cmd(
+                        "git",
+                        &[
+                            "fetch",
+                            "--depth=1",
+                            "-f",
+                            "-u",
+                            "https://github.com/zilliqa/zq2",
+                            refspec,
+                        ],
+                    )
                     .current_dir(&zq2_checkout_dir.clone())?
                     .run_logged()
                     .await?

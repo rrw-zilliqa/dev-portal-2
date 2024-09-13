@@ -21,10 +21,7 @@
   --md-default-fg-color: #ffffff;
   --md-default-fg-color--light: #ffffff;
   --md-default-fg-color--dark: #ffffff;
-  --md-default-fg-color--lightest: #808080;
-  ;
-
-
+  --md-default-fg-color--lightest: #393939;
   --md-typeset-color: #ffffff;
   --md-typeset-a-color: #00d0c6;
   --md-accent-fg-color: #00d0c6;
@@ -38,7 +35,7 @@
   --md-code-fg-color: #ffffff;
   --md-code-fg-color--light: #ffffff;
   --md-code-hl-comment-color: #cccc00;
-  --md-typeset-table-color: #808080;
+  --md-typeset-table-color: #393939;
   --md-typeset-table-stripe-color: #303030;
   --md-code-hl-punctuation-color: #808080;
   --md-code-h1-name-color: #606060;
@@ -84,9 +81,9 @@ td {
   border-top: none;
 }
 
-.md-typeset__table {
+/* .md-typeset__table {
   line-height: 1;
-}
+} */
 
 .md-typeset__table table:not([class]) {
   font-size: 0.74rem;
@@ -157,7 +154,11 @@ td {
   color: var(--md-default-fg-color--lightest)
 }
 
-
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    color: #ffffff;
+  }
+}
 /* Cre */
 p a {
   text-decoration: underline;
@@ -176,7 +177,8 @@ p a {
 }
 
 .md-content__inner {
-  padding-top: 0;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .md-sidebar {
@@ -194,10 +196,10 @@ p a {
   min-height: 400px;
   background: url("../assets/banner.webp");
   background-position: center;
+  background-repeat: no-repeat;
   padding: 4rem;
   position: relative;
   margin-bottom: 3rem;
-
 }
 
 .md-typeset .md-zil-banner h1 {
@@ -228,10 +230,10 @@ p a {
 
 .md-zil-banner .flex>div:last-child a {
   border: 1px solid var(--md-accent-fg-color);
-  line-height: 62px;
-  border-radius: 15px;
-  padding: 0 3rem;
-  margin: .5rem 0 0 4rem;
+  line-height: 54px;
+  border-radius: 10px;
+  padding: 0 2rem;
+  margin: 0.5rem 0 0 4rem;
   display: inline-block;
   font-weight: 700;
   letter-spacing: -.5px;
@@ -281,11 +283,9 @@ p a {
 }
 
 .md-zil-cards.cards ul li,
-.md-zil-cards>div {
-
-  border: 1px solid #3B3B3B;
-  border-radius: 15px;
-
+.md-zil-cards > div {
+  border: 1px solid var(--md-typeset-table-color);
+  border-radius: 25px;
 }
 
 .md-zil-cards.cards ul li {
@@ -306,9 +306,12 @@ p a {
   background-position: calc(100% - 20px) 30px;
   background-size: 30px;
   padding-right: 70px;
+  transition: color 300ms ease-in-out;
 }
-
-.md-zil-cards>div {
+.md-zil-cards.cards ul li a:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+.md-zil-cards > div {
   padding: 1.5rem 2rem;
   display: flex;
   min-height: 220px;
@@ -325,6 +328,11 @@ p a {
   margin: 0;
   color: rgba(255, 255, 255, .6);
   font-size: 14px;
+  transition: color 300ms ease-in-out;
+}
+
+.md-zil-cards > div:hover p {
+  color: #fff;
 }
 
 
@@ -366,7 +374,7 @@ p a {
   .md-zil-banner,.md-zil-wrapper{
     padding:1.8rem;
     background-position: 30% center;
-    margin:0 -.8rem 1.2rem
+    margin: 0 -0.8rem 1.2rem;
   }
   .md-typeset .md-zil-banner h1{
     max-width:100%
