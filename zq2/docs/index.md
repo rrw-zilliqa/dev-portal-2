@@ -23,7 +23,7 @@ Welcome to the developer documentation for Zilliqa 2.0, a fast-finality, scalabl
 </div>
 
 <div class="md-zil-wrapper" markdown>
-# Everything you need to know
+# Getting started
 <div class="md-zil-cards" markdown>
 <div markdown>
 
@@ -34,13 +34,13 @@ For an overview of the features and capabilities introduced in Zilliqa 2.0, ple
 <div markdown>
 
 ## The Whitepaper
-To learn more about the design of the Zilliqa 2.0 protocol, [read the whitepaper](https://drive.google.com/file/d/1XqSySl0w_OtxyxBZ0ahS06cqIv-vd10M/view).
+Zilliqa 2.0 is based on 2 years of research into cutting-edge blockchain technology. To learn more about the design of the Zilliqa 2.0 protocol, [read the whitepaper](https://drive.google.com/file/d/1XqSySl0w_OtxyxBZ0ahS06cqIv-vd10M/view).
 
 </div>
 <div markdown>
 
 ## Core protocol
-At the current stage of Zilliqa 2.0 development, the core protocol is available to test via the Jasper proto-testnet.
+At the current stage of Zilliqa 2.0 development, the core protocol is available to test via the Jasper proto-testnet.To achieve the best possible performance, we decided to re-implement our entire protocol in Rust.
 
 </div>
 <div markdown>
@@ -51,7 +51,7 @@ The proto-testnet exists as the first implementation of the Zilliqa 2.0 consens
 </div>
 </div>
 
-# Implementation of the Zilliqa 2.0
+# Everything you need to know
 <div class="grid cards md-zil-cards" markdown>
 
 -  [__What's new <br>in Zilliqa 2.0__](/zilliqa2/changes/)
