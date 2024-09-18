@@ -4,10 +4,10 @@ nav:
   - What's new in Zilliqa 2.0: changes.md
   - Endpoints, Block Explorer & Faucet: endpoints.md
   - Nodes & Validators:
-      - Overview:
-          - nodes/index.md
+      - Overview: nodes/index.md
       - Prototestnet Nodes: nodes/prototestnetnodes.md
       - Checkpoints: nodes/checkpoint.md
+      - Node FAQ: nodes/nodefaq.md
   - Tools and SDKs: sdk.md
   - $use_zq2_from
   - $APIs
