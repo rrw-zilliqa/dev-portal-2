@@ -42,7 +42,7 @@ and you are facing any traversal issue you might have to debug on your own._
 
 #### Required
 
-3333/TCP - P2P protocol port: has to be opened on inbound and outbound to
+3333/UDP - P2P protocol port: has to be opened on inbound and outbound to
 public internet.
 
 #### Optional
