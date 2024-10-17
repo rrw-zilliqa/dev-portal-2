@@ -15,17 +15,12 @@ and join the network.
 - **CPU**:
     - 1 Core / 2 threads or more
 - **RAM**:
-    - 8 GB or more
+    - 2 GB or more
 - **Disk**:
     - 100 GB or more
 
-### [Virtual machines on Cloud Platforms](#virtual-machines-on-cloud-platforms)
-
 We are running our Zilliqa 2.0 Nodes on Google Cloud Platform, GCP,
 GCE VM `e2-standard-2` instance with 256 GB SSD (`pd-ssd`).
-
-If you running on other cloud provider, please do select an instance with
-similar specs.
 
 ### [Software requirements](#software-requirements)
 
