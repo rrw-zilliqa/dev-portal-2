@@ -3,7 +3,7 @@ id: nodes/prototestnetnodes
 title:  Prototestnet nodes 
 ---
 
-# Prototestnet Nodes
+# Nodes
 
 The current proto-testnet version of Zilliqa 2.0 allows users to setup a node
 and join the network.
