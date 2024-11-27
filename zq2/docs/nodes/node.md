@@ -1,5 +1,5 @@
 ---
-id: nodes/prototestnetnodes
+id: nodes/nodes
 title:  Prototestnet nodes 
 ---
 
@@ -18,6 +18,17 @@ and join the network.
     - 2 GB or more
 - **Disk**:
     - 100 GB or more
+
+## Zilliqa 2.0 (proto-mainnet) node Prerequisites
+
+### [Hardware requirements](#hardware-requirements)
+
+- **CPU**:
+    - 4 Core / 8 threads or more
+- **RAM**:
+    - 16 GB or more
+- **Disk**:
+    - 300 GB or more
 
 We are running our Zilliqa 2.0 Nodes on Google Cloud Platform, GCP,
 GCE VM `e2-standard-2` instance with 256 GB SSD (`pd-ssd`).
