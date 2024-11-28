@@ -35,7 +35,7 @@ If you see the following error message in the logs.
 The workaround at present is as follows.
 
 In the `zq2-prototestnet.toml` file, append following settings in the `[nodes.consensus]` section and
-[start the node](../nodes/nodes.md#start-the-node).
+[start the node](../nodes/node.md#start-the-node).
 ```bash
 ... # some content
 [nodes.consensus]
