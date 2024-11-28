@@ -134,6 +134,7 @@ There are two methods for setting the synchronization rules for the node.
   chmod +x start_node.sh && \
   ./start_node.sh -k $PRIVATE_KEY -p <checkpoint_block_num.dat>
   ```
+
 _NOTE: The `<checkpoint_block_num.dat>` file is the one you previously downloaded. Refer to [syncing-from-checkpoint](../nodes/checkpoint.md#syncing-a-node-from-a-checkpoint)_
 
 Great! The node should now be syncing with the network. It may

@@ -63,8 +63,8 @@ The following steps apply to both networks.
     --data '{"method":"eth_getBlockByNumber","params":["0xBB8",false],"id":1,"jsonrpc":"2.0"}' \
     | grep -o '"hash":"[^"]*"' | awk -F':' '{print $2}' | tr -d '"'
     ```
-  Alternatively, you can retrieve the block hash directly from the
-  public explorer of your chosen network by searching for the block number.
+  Alternatively, you can retrieve the block hash directly from the public explorer of your chosen network by searching for the block number.
+  Refer to [block explorers](../endpoints.md#block-explorer) section for public explorer.
   By this stage, your checkpoints configuration should be set up in the `zq2-prototestnet.toml` or `zq2-protomainnet.toml` file.
 
 4. **Launch the node**  
