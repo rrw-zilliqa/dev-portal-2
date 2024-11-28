@@ -68,4 +68,4 @@ The following steps apply to both networks.
   By this stage, your checkpoints configuration should be set up in the `zq2-prototestnet.toml` or `zq2-protomainnet.toml` file.
 
 4. **Launch the node**  
-Now the node is ready to launch. Follow the instructions in the [Start the Node](../nodes/nodes.md#start-the-node) section to start your node.
+Now the node is ready to launch. Follow the instructions in the [Start the Node](../nodes/node.md#start-the-node) section to start your node.

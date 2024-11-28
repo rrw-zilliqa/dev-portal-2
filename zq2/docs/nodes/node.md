@@ -10,7 +10,7 @@ and join the network.
 
 ## Zilliqa 2.0 (proto-testnet) node Prerequisites
 
-### [Hardware requirements](#hardware-requirements)
+### [Hardware requirements](#hardware-requirements-prototestnet)
 
 - **CPU**:
     - 1 Core / 2 threads or more
@@ -21,7 +21,7 @@ and join the network.
 
 ## Zilliqa 2.0 (proto-mainnet) node Prerequisites
 
-### [Hardware requirements](#hardware-requirements)
+### [Hardware requirements](#hardware-requirements-protomainnet)
 
 - **CPU**:
     - 4 Core / 8 threads or more
