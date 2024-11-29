@@ -5,7 +5,7 @@ nav:
   - Endpoints, Block Explorer & Faucet: endpoints.md
   - Nodes & Validators:
       - Overview: nodes/index.md
-      - Prototestnet Nodes: nodes/prototestnetnodes.md
+      - Nodes: nodes/node.md
       - Checkpoints: nodes/checkpoint.md
       - Node FAQ: nodes/nodefaq.md
   - Tools and SDKs: sdk.md

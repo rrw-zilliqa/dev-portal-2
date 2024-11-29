@@ -1,16 +1,16 @@
 ---
-id: nodes/prototestnetnodes
+id: nodes/nodes
 title:  Prototestnet nodes 
 ---
 
-# Prototestnet Nodes
+# Nodes
 
 The current proto-testnet version of Zilliqa 2.0 allows users to setup a node
 and join the network.
 
 ## Zilliqa 2.0 (proto-testnet) node Prerequisites
 
-### [Hardware requirements](#hardware-requirements)
+### [Hardware requirements](#hardware-requirements-prototestnet)
 
 - **CPU**:
     - 1 Core / 2 threads or more
@@ -18,6 +18,17 @@ and join the network.
     - 2 GB or more
 - **Disk**:
     - 100 GB or more
+
+## Zilliqa 2.0 (proto-mainnet) node Prerequisites
+
+### [Hardware requirements](#hardware-requirements-protomainnet)
+
+- **CPU**:
+    - 4 Core / 8 threads or more
+- **RAM**:
+    - 16 GB or more
+- **Disk**:
+    - 300 GB or more
 
 We are running our Zilliqa 2.0 Nodes on Google Cloud Platform, GCP,
 GCE VM `e2-standard-2` instance with 256 GB SSD (`pd-ssd`).
@@ -123,6 +134,7 @@ There are two methods for setting the synchronization rules for the node.
   chmod +x start_node.sh && \
   ./start_node.sh -k $PRIVATE_KEY -p <checkpoint_block_num.dat>
   ```
+
 _NOTE: The `<checkpoint_block_num.dat>` file is the one you previously downloaded. Refer to [syncing-from-checkpoint](../nodes/checkpoint.md#syncing-a-node-from-a-checkpoint)_
 
 Great! The node should now be syncing with the network. It may

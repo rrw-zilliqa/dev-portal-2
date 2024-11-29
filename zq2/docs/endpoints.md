@@ -8,7 +8,7 @@ keywords:
 description: Endpoints, Block Explorer & Faucet
 ---
 
-# Endpoints, Block Explorer & Faucet
+# [Endpoints, Block Explorer & Faucet](#endpoints-block-explorer-faucet)
 
 As we introduce additional test networks for Zilliqa 2.0, their public RPC node URLs and chain IDs will be published on [ChainList](https://chainlist.org/?search=zilliqa&testnets=true) alongside existing chain information for Zilliqa 1.0.
 <br>
@@ -25,27 +25,28 @@ Add Zilliqa 2 EVM proto-mainnet
 </span>
 <br>
 <br>
-## Networks
+## [Networks](#networks)
 
 Details for the current network versions of Zilliqa 2.0 are listed below.
 
 <div class="table" markdown>
-|  Name  | Version | ChainId | API | Otterscan | Faucet  |
-| ------ | ------- | ------- | --- | --------- | ------  |
-| proto-testnet | v0.1.0 | 33103 | https://api.zq2-prototestnet.zilliqa.com	 | https://explorer.zq2-prototestnet.zilliqa.com | https://faucet.zq2-prototestnet.zilliqa.com |
-| proto-mainnet | v0.1.0 | 32770 | https://api.zq2-protomainnet.zilliqa.com	 | https://explorer.zq2-protomainnet.zilliqa.com | https://faucet.zq2-protomainnet.zilliqa.com |
+|  Name  | Version | ChainId | API | Otterscan | Faucet  | Checkpoint Bucket |
+| ------ | ------- | ------- | --- | --------- | ------  | ----------------- |
+| proto-testnet | v0.1.0 | 33103 | https://api.zq2-prototestnet.zilliqa.com	 | https://explorer.zq2-prototestnet.zilliqa.com | https://faucet.zq2-prototestnet.zilliqa.com | https://checkpoints.zq2-prototestnet.zilliqa.com |
+| proto-mainnet | v0.1.0 | 32770 | https://api.zq2-protomainnet.zilliqa.com	 | https://explorer.zq2-protomainnet.zilliqa.com | https://faucet.zq2-protomainnet.zilliqa.com | https://checkpoints.zq2-protomainnet.zilliqa.com |
 </div>
 
 _**Note** that this is currently a proto-testnet and proto-mainnet versions of Zilliqa 2.0 designed primarily for testing purposes, and therefore its state and uptime are not guaranteed_
 
-## Block Explorer
+## [Block Explorer](#block-explorer)
 
 The current version of Zilliqa 2.0 is compatible with the Otterscan block explorer and does not support Devex.
 
-The block explorer for the Zilliqa 2.0 proto-testnet is [available here](https://explorer.zq2-prototestnet.zilliqa.com/).
-The block explorer for the Zilliqa 2.0 proto-mainnet is [available here](https://explorer.zq2-protomainnet.zilliqa.com/).
+- Proto-testnet: [Prototestnet Explorer URL](https://explorer.zq2-prototestnet.zilliqa.com).
 
-## Faucet
+- Proto-mainnet: [Protomainnet Explorer URL](https://explorer.zq2-protomainnet.zilliqa.com).
+
+## [Faucet](#faucet)
 
 The faucet sends an amount of 100 ZIL to the supplied address for use in testing the network.
 
