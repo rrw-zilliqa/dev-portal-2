@@ -24,11 +24,11 @@ and join the network.
 ### [Hardware requirements](#hardware-requirements-protomainnet)
 
 - **CPU**:
-    - 4 Core / 8 threads or more
+    - 2 Core / 4 threads or more
 - **RAM**:
-    - 16 GB or more
+    - 8 GB or more
 - **Disk**:
-    - 300 GB or more
+    - 100 GB or more
 
 We are running our Zilliqa 2.0 Nodes on Google Cloud Platform, GCP,
 GCE VM `e2-standard-2` instance with 256 GB SSD (`pd-ssd`).
