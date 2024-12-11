@@ -16,7 +16,7 @@ Both the proto-testnet and the proto-mainnet version of Zilliqa 2.0 allow users 
 - **RAM**:
     - 4 GB or more
 - **Disk**:
-    - 200 GB or more
+    - 100 GB or more
 
 ## Zilliqa 2.0 (proto-mainnet) node Prerequisites
 
@@ -27,7 +27,7 @@ Both the proto-testnet and the proto-mainnet version of Zilliqa 2.0 allow users 
 - **RAM**:
     - 8 GB or more
 - **Disk**:
-    - 100 GB or more
+    - 200 GB or more
 
 We are running our Zilliqa 2.0 Nodes on Google Cloud Platform, GCP,
 GCE VM `e2-standard-2` instance with 256 GB SSD (`pd-ssd`).
