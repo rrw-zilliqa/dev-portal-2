@@ -5,8 +5,7 @@ title:  Prototestnet nodes
 
 # Nodes
 
-The current proto-testnet version of Zilliqa 2.0 allows users to setup a node
-and join the network.
+Both the proto-testnet and the proto-mainnet version of Zilliqa 2.0 allow users to setup a node and join the network.
 
 ## Zilliqa 2.0 (proto-testnet) node Prerequisites
 
@@ -15,7 +14,7 @@ and join the network.
 - **CPU**:
     - 1 Core / 2 threads or more
 - **RAM**:
-    - 2 GB or more
+    - 4 GB or more
 - **Disk**:
     - 100 GB or more
 
@@ -28,7 +27,7 @@ and join the network.
 - **RAM**:
     - 8 GB or more
 - **Disk**:
-    - 100 GB or more
+    - 200 GB or more
 
 We are running our Zilliqa 2.0 Nodes on Google Cloud Platform, GCP,
 GCE VM `e2-standard-2` instance with 256 GB SSD (`pd-ssd`).
