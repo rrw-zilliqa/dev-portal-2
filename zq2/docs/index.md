@@ -85,6 +85,7 @@ Add Zilliqa 2 EVM proto-testnet
 </span>
 <br>
 <br>
+<br>
 <span id="addZilliqaPMChainButton" class="metamask">
 Add Zilliqa 2 EVM proto-mainnet
 </span>
