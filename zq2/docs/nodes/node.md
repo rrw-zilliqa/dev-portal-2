@@ -126,7 +126,7 @@ Only full archive nodes need to sync from the genesis block. This can take up to
 <br><br>
 Nodes that do not need all historical blocks can be synced much faster from a checkpoint, preferably the latest one. This takes only a few hours at most. The root of trust in this case is the hash of the checkpoint block that can be obtained from and verified against public sources.
 
-* <b>Start the node with Checkpoint:</br></b>
+* <b>start the node with Checkpoint:</br></b>
 (fast, recommended)
   ```bash
   chmod +x start_node.sh && \
