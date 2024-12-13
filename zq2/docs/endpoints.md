@@ -14,13 +14,13 @@ As we introduce additional test networks for Zilliqa 2.0, their public RPC node 
 <br>
 <br>
 
-<span id="addZilliqaChainButton" class="metamask">
+<span id="addZilliqaPTChainButton" class="metamask">
 Add Zilliqa 2 EVM proto-testnet
 </span>
 <br>
 <br>
 
-<span id="addZilliqaChainButton" class="metamask">
+<span id="addZilliqaPMChainButton" class="metamask">
 Add Zilliqa 2 EVM proto-mainnet
 </span>
 <br>
@@ -33,7 +33,7 @@ Details for the current network versions of Zilliqa 2.0 are listed below.
 |  Name  | Version | ChainId | API | Otterscan | Faucet  | Checkpoint Bucket |
 | ------ | ------- | ------- | --- | --------- | ------  | ----------------- |
 | proto-testnet | v0.1.0 | 33103 | https://api.zq2-prototestnet.zilliqa.com	 | https://explorer.zq2-prototestnet.zilliqa.com | https://faucet.zq2-prototestnet.zilliqa.com | https://checkpoints.zq2-prototestnet.zilliqa.com |
-| proto-mainnet | v0.1.0 | 32770 | https://api.zq2-protomainnet.zilliqa.com	 | https://explorer.zq2-protomainnet.zilliqa.com | https://faucet.zq2-protomainnet.zilliqa.com | https://checkpoints.zq2-protomainnet.zilliqa.com |
+| proto-mainnet | v0.4.1 | 32770 | https://api.zq2-protomainnet.zilliqa.com	 | https://explorer.zq2-protomainnet.zilliqa.com | https://faucet.zq2-protomainnet.zilliqa.com | https://checkpoints.zq2-protomainnet.zilliqa.com |
 </div>
 
 _**Note** that this is currently a proto-testnet and proto-mainnet versions of Zilliqa 2.0 designed primarily for testing purposes, and therefore its state and uptime are not guaranteed_

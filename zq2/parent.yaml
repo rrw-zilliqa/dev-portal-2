@@ -12,7 +12,9 @@ extra_javascript:
   - js/connect.js
   - js/chain.js
   - js/buffer.js
-  - js/add-zilliqa-chain.js
+  - js/add-zilliqa-PM-chain.js
+  - js/add-zilliqa-PT-chain.js
+
 
 theme:
   name: material
