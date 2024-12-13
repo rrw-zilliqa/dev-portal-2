@@ -1,14 +1,14 @@
-// add-zilliqa-chain.js
+// add-zilliqa-PM-chain.js
 
 document.addEventListener('DOMContentLoaded', function() {
-    const addZilliqaChainButton = document.getElementById('addZilliqaChainButton');
+    const addZilliqaPMChainButton = document.getElementById('addZilliqaPMChainButton');
     
-    if (addZilliqaChainButton) {
-        addZilliqaChainButton.addEventListener('click', addZilliqaChain);
+    if (addZilliqaPMChainButton) {
+        addZilliqaPMChainButton.addEventListener('click', addZilliqaPMChain);
     }
 });
 
-async function addZilliqaChain() {
+async function addZilliqaPMChain() {
     if (typeof window.ethereum !== 'undefined') {
         try {
             await window.ethereum.request({
@@ -16,7 +16,7 @@ async function addZilliqaChain() {
                 params: [
                     {
                         blockExplorerUrls: [
-                            "https://otterscan.zq2-prototestnet.zilliqa.com/"
+                            "https://explorer.zq2-protomainnet.zilliqa.com"
                         ],
                         iconUrls: [
                             "https://www.zilliqa.com/images/icon-zilliqa-testnet.svg",
@@ -28,14 +28,14 @@ async function addZilliqaChain() {
                             decimals: 18
                         },
                         rpcUrls: [
-                            "https://api.zq2-prototestnet.zilliqa.com"
+                            "https://api.zq2-protomainnet.zilliqa.com"
                         ],
-                        chainId: "0x814f",
-                        chainName: "Zilliqa 2 EVM proto-testnet"
+                        chainId: "0x8002",
+                        chainName: "Zilliqa 2 EVM proto-mainnet"
                     }
                 ],
             });
-            alert('Zilliqa 2 EVM proto-testnet has been added to your wallet!');
+            alert('Zilliqa 2 EVM proto-mainnet has been added to your wallet!');
         } catch (error) {
             console.error(error);
             alert('An error occurred while trying to add the network: ' + error.message);

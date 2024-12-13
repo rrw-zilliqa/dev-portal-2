@@ -14,13 +14,13 @@ As we introduce additional test networks for Zilliqa 2.0, their public RPC node 
 <br>
 <br>
 
-<span id="addZilliqaChainButton" class="metamask">
+<span id="addZilliqaPTChainButton" class="metamask">
 Add Zilliqa 2 EVM proto-testnet
 </span>
 <br>
 <br>
 
-<span id="addZilliqaChainButton" class="metamask">
+<span id="addZilliqaPMChainButton" class="metamask">
 Add Zilliqa 2 EVM proto-mainnet
 </span>
 <br>
