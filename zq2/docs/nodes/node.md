@@ -1,9 +1,9 @@
 ---
 id: nodes/nodes
-title:  Prototestnet nodes 
+title:  Prototestnet Nodes 
 ---
 
-# Nodes
+# Prototestnet nodes
 
 Both the proto-testnet and the proto-mainnet version of Zilliqa 2.0 allow users to setup a node and join the network.
 
