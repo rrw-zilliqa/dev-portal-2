@@ -122,6 +122,10 @@ There are two methods for setting the synchronization rules for the node.
     You can now follow the steps below.
 
 ### [Start the node](#start-the-node)
+Only full archive nodes need to sync from the genesis block. This can take up to a few days depending on the network and the node's hardware. Once a node is fully synced, its data directory can be copied to setup more nodes quickly. Note that running a node with a copied data directory is matter of trust since the data is not verified.
+<br><br>
+Nodes that do not need all historical blocks can be synced much faster from a checkpoint, preferably the latest one. This takes only a few hours at most. The root of trust in this case is the hash of the checkpoint block that can be obtained from and verified against public sources.
+
 * Start the node without Checkpoint:
   ```bash
   chmod +x start_node.sh && \
