@@ -176,3 +176,24 @@ Once you have sufficient $ZILs you can register your node as validator.
 Below is a guide on how to register a validator node for Zilliqa 2.0:
 
 <https://github.com/Zilliqa/zq2/blob/main/z2/docs/deposit.md>
+
+### [Upgrading your node](#upgrading-your-node)
+
+You should try to keep your node version up-to-date with the latest released version of Zilliqa 2.0.
+You can stay informed of new releases via the [repository release page](https://github.com/Zilliqa/zq2/releases).
+
+Sometimes a hard fork will be needed when the execution semantics of blocks or transactions have changed.
+It is important to upgrade your node's version before the block height at which these hard forks are activated.
+Not doing so may lead to your node going out of sync and losing rewards if it is a validator.
+
+To upgrade your node, first edit the `ZQ_VERSION` variable in `start_node.sh` to refer to the newest release. Then run the following:
+
+```bash
+docker pull asia-docker.pkg.dev/prj-p-devops-services-tvwmrf63/zilliqa-public/zq2:${NEW_ZQ_VERSION} # This is optional, but recommended. Pulling the new image before stopping the old version will minimise the downtime of your node.
+docker container ls # Identify the container ID of the existing node. This will look a 12 character hex-string (e.g. af6010f3f9ae).
+docker stop <container id> # Stop the old version.
+./start_node.sh # Start the new version.
+```
+
+You can validate the version your node is running by calling the `GetVersion` API.
+
