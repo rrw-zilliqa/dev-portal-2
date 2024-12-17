@@ -125,7 +125,7 @@ There are two methods for setting the synchronization rules for the node.
 ### [Start the node](#start-the-node)
 Since only full archive nodes need to sync from the genesis block, all other nodes can be started from a checkpoint: 
 
-* <b>start the node from a Checkpoint:</br></b>
+* <b>start the node from a checkpoint:</br></b>
 (fast, recommended)
   ```bash
   chmod +x start_node.sh && \
