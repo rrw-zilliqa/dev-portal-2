@@ -157,7 +157,7 @@ Below is a guide on how to register a validator node for Zilliqa 2.0:
 You should try to keep your node version up-to-date with the latest released version of Zilliqa 2.0.
 You can stay informed of new releases via the [repository release page](https://github.com/Zilliqa/zq2/releases).
 
-Sometimes a hard fork will be needed on chains, when the execution semantics of blocks or transactions has changed.
+Sometimes a hard fork will be needed when the execution semantics of blocks or transactions have changed.
 It is important to upgrade your node's version before the block height at which these hard forks are activated.
 Not doing so may lead to your node going out of sync and losing rewards if it is a validator.
 
