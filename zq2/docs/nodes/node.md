@@ -100,15 +100,6 @@ and run.
 9. Now it's time to decide how the node will synchronize with the network. 
 There are two methods for setting the synchronization rules for the node.
 
-    - Start the node from the genesis.
-
-    This method initializes the node from the genesis block, ensuring that the node processes 
-    the entire blockchain history. However, this process is time-consuming, as the node must 
-    download and validate every block from the genesis block to the latest block height. 
-    Syncing the node to the latest block may take a considerable amount of time, 
-    potentially up to several days to complete fully. If you opt for this method, you can 
-    proceed directly to the [Start the node](#start-the-node) section.
-
     - Start the node from a checkpoint.
 
     Starting from a checkpoint is a significantly faster option. This method leverages a 
@@ -119,21 +110,29 @@ There are two methods for setting the synchronization rules for the node.
     Detailed instructions for this configuration are available in 
     [syncing-from-checkpoints](../nodes/checkpoint.md#syncing-a-node-from-a-checkpoint). 
     Once the checkpoint is set up, your node will be ready to start.
-    You can now follow the steps below.
+
+    - Start the node from the genesis.
+
+    This method initializes the node from the genesis block, ensuring that the node processes 
+    the entire blockchain history. However, this process is time-consuming, as the node must 
+    download and validate every block from the genesis block to the latest block height. 
+    Syncing the node to the latest block may take a considerable amount of time, 
+    potentially up to several days to complete fully. If you opt for this method, you can 
+    proceed directly to the [Start the node](#start-the-node) section.
+
+   
 
 ### [Start the node](#start-the-node)
-Only full archive nodes need to sync from the genesis block. This can take up to a few days depending on the network and the node's hardware. Once a node is fully synced, its data directory can be copied to setup more nodes quickly. Note that running a node with a copied data directory is matter of trust since the data is not verified.
-<br><br>
-Nodes that do not need all historical blocks can be synced much faster from a checkpoint, preferably the latest one. This takes only a few hours at most. The root of trust in this case is the hash of the checkpoint block that can be obtained from and verified against public sources.
+Since only full archive nodes need to sync from the genesis block, all other nodes can be started from a checkpoint: 
 
-* <b>start the node with Checkpoint:</br></b>
+* <b>start the node from a Checkpoint:</br></b>
 (fast, recommended)
   ```bash
   chmod +x start_node.sh && \
   ./start_node.sh -k $PRIVATE_KEY -p <checkpoint_block_num.dat>
   ```
 
-* <b>start the node without Checkpoint:</br></b>
+* <b>start the node from the genesis:</br></b>
 (slow, available after the next network upgrade)
   ```bash
   chmod +x start_node.sh && \
