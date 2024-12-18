@@ -43,14 +43,14 @@ lint:
         - zq2/docs/api # Contains a lot of hashes, etc. that are interpreted as secrets
         - zq1/docs/api # Contains a lot of hashes, etc. that are interpreted as secrets
         - zq1/docs/scilla/interface.md # contains a lot of hashes
-        - zq1/docs/indexer             # contains a lot of hashes
-        - zq2/docs/ecosystem/indexer             # contains a lot of hashes
+        - zq1/docs/indexer # contains a lot of hashes
+        - zq2/docs/ecosystem/indexer # contains a lot of hashes
         - zq1/docs/developers/transaction-lifecycle # Contains examples.
         - zq1/docs/developers/developer-toolings
         - zq1/docs/exchanges
     - linters: [markdownlint]
       paths:
-        - zq1/**  # Not worth fixing.
+        - zq1/** # Not worth fixing.
         - zq2/docs/ecosystem/index.md # multiple headers
         - zq2/docs/zilevm/tools/remix.md # Don't care about line length
         - README.md
@@ -66,7 +66,6 @@ lint:
         - .trunk/*out/**
         - cd/base/deployment.yaml
         - zq1/** # Legacy
-
 
 actions:
   enabled:
