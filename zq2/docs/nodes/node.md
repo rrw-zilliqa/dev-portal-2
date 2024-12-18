@@ -1,15 +1,15 @@
 ---
 id: nodes/nodes
-title:  Prototestnet Nodes 
+title:  Node setup 
 ---
 
-# Prototestnet nodes
+# Node setup
 
 Both the proto-testnet and the proto-mainnet version of Zilliqa 2.0 allow users to setup a node and join the network.
 
-## Zilliqa 2.0 (proto-testnet) node Prerequisites
+## Prerequisites
 
-### [Hardware requirements](#hardware-requirements-prototestnet)
+### [Proto-testnet hardware requirements](#proto-testnet-hardware-requirements)
 
 - **CPU**:
     - 1 Core / 2 threads or more
@@ -18,9 +18,7 @@ Both the proto-testnet and the proto-mainnet version of Zilliqa 2.0 allow users 
 - **Disk**:
     - 100 GB or more
 
-## Zilliqa 2.0 (proto-mainnet) node Prerequisites
-
-### [Hardware requirements](#hardware-requirements-protomainnet)
+### [Proto-mainnet hardware requirements](#proto-mainnet-hardware-requirements)
 
 - **CPU**:
     - 2 Core / 4 threads or more
@@ -55,17 +53,13 @@ public internet.
 4201/TCP - JSONRPC over HTTP: API port, only necessary if you want your API to
 be accessible via the internet.
 
-### [Setting Up Your Environment and Building ZQ2 Node](#setup-a-node)
+## Installation
 
-To run a Zilliqa 2.0 node and join the proto-testnet, we provide the `z2`
-utility as part of the [zq2](https://github.com/Zilliqa/zq2/blob/main/) code
-base.
+### [Setting up your node](#setting-up-your-node)
 
-The `z2 join` command creates the node startup script and configuration
-file that you can copy and paste on your Ubuntu VM, configured as per above specs,
-and run.
-
-### Step by step guide
+To run a Zilliqa 2.0 node and join the proto-mainnet or the proto-testnet,
+we provide the `z2` utility as part of the [zq2](https://github.com/Zilliqa/zq2/blob/main/) code
+base. Follow the step by step guide to setup your node:
 
 1. Cargo and Rust: You need to have Cargo and Rust installed on your system.
   You can install them using [rustup](https://rustup.rs/). Once rustup is installed,
@@ -89,6 +83,8 @@ and run.
   ```bash
   z2 join --chain zq2-prototestnet
   ```
+  _NOTE: You can replace `zq2-prototestnet` with `zq2-protomainnet` depending on
+  which network you want your node to join._
 8. Generate the node private key.
   ```bash
   openssl rand -hex 32 > node-private-key.txt
@@ -98,31 +94,27 @@ and run.
   in the future to restart the node to generate the BLS public
   key of the node._
 9. Now it's time to decide how the node will synchronize with the network. 
-There are two methods for setting the synchronization rules for the node.
+There are two options you can choose from:
 
-    - Start the node from a checkpoint.
+    - Synchronization from a checkpoint.
 
     Starting from a checkpoint is a significantly faster option. This method leverages a 
-    predefined checkpoint block number, enabling the node to sync with the network in just 
-    a few hours, depending on the checkpoint's block height. Before proceeding to 
-    [start the node](#start-the-node) section, you'll need to configure 
-    the necessary settings to start the node from a checkpoint.  
-    Detailed instructions for this configuration are available in 
-    [syncing-from-checkpoints](../nodes/checkpoint.md#syncing-a-node-from-a-checkpoint). 
-    Once the checkpoint is set up, your node will be ready to start.
+    predefined checkpoint block number and hash, enabling the node to sync with the network 
+     in justa few hours, depending on the checkpoint's block height. Before proceeding to 
+    [start the node](#start-the-node) section, you'll need to configure the necessary
+    settings to start the node from a checkpoint. Detailed instructions for this configuration
+    are available in [syncing-from-checkpoints](../nodes/checkpoint.md#syncing-a-node-from-a-checkpoint).
 
-    - Start the node from the genesis.
+    - Synchronization from the genesis.
 
     This method initializes the node from the genesis block, ensuring that the node processes 
     the entire blockchain history. However, this process is time-consuming, as the node must 
     download and validate every block from the genesis block to the latest block height. 
     Syncing the node to the latest block may take a considerable amount of time, 
-    potentially up to several days to complete fully. If you opt for this method, you can 
-    proceed directly to the [Start the node](#start-the-node) section.
-
+    potentially up to several days to complete fully.
    
 
-### [Start the node](#start-the-node)
+### [Starting your node](#starting-your-node)
 Since only full archive nodes need to sync from the genesis block, all other nodes can be started from a checkpoint: 
 
 * <b>start the node from a checkpoint:</br></b>
@@ -133,7 +125,7 @@ Since only full archive nodes need to sync from the genesis block, all other nod
   ```
 
 * <b>start the node from the genesis:</br></b>
-(slow, available after the next network upgrade)
+(slow, available in a future upgrade)
   ```bash
   chmod +x start_node.sh && \
   ./start_node.sh -k $PRIVATE_KEY
@@ -143,7 +135,7 @@ Since only full archive nodes need to sync from the genesis block, all other nod
 _NOTE: The `<checkpoint_block_num.dat>` file is the one you previously downloaded. Refer to [syncing-from-checkpoint](../nodes/checkpoint.md#syncing-a-node-from-a-checkpoint)_
 
 Great! The node should now be syncing with the network. It may
-take up to 1.5 hours for the node to fully sync. You can check the progress
+take up to 1-2 hours for the node to fully synchronize. You can check the progress
 of the node by running the following command, which should return the latest
 block height after syncing.
 ```bash
@@ -152,6 +144,10 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}'
 ```
+
+If you started you node from a checkpoint and it does not respond to
+the above request, then it is still processing the checkpoint file
+and has not started synchronizing yet.
 
 For additional details on `z2` and the `join` capability refer to:
 
@@ -195,5 +191,10 @@ docker stop <container id> # Stop the old version.
 ./start_node.sh # Start the new version.
 ```
 
-You can validate the version your node is running by calling the `GetVersion` API.
-
+You can validate the version your node is running by calling the `GetVersion` API method:
+```bash
+curl --request POST \
+  --url http://localhost:4201/ \
+  --header 'Content-Type: application/json' \
+  --data '{"method":"GetVersion","params":[],"id":1,"jsonrpc":"2.0"}'
+```
