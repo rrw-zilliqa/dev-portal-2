@@ -1,4 +1,4 @@
-FROM rust:1.83.0-slim-bullseye as builder
+FROM rust:slim-bullseye as builder
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV NEEDRESTART_MODE=a
