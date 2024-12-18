@@ -1,5 +1,4 @@
-# Same as zq2 uses, or the z2 build fails :-(
-FROM rust:1.78.0-slim-bullseye as builder
+FROM rust:slim-bullseye as builder
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV NEEDRESTART_MODE=a
