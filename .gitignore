@@ -26,6 +26,7 @@ tsconfig.tsbuildinfo
 **/tsconfig.tsbuildinfotsconfig.tsbuildinfo
 **/tsconfig.tsbuildinfo
 .trunk/
+!.trunk/configs
 
 .secrets.*
 secrets.*
