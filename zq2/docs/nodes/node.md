@@ -145,7 +145,7 @@ curl --request POST \
   --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}'
 ```
 
-If you started you node from a checkpoint and it does not respond to
+If you started your node from a checkpoint and it does not respond to
 the above request, then it is still processing the checkpoint file
 and has not started synchronizing yet.
 
