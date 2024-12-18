@@ -187,6 +187,7 @@ First, update your `start_node.sh` script and configuration file by re-running `
 ```bash
 z2 join --chain zq2-prototestnet
 ```
+_NOTE: Replace `zq2-prototestnet` with the chain you are running on._
 
 To minimise the downtime of your node, we recommend pulling the new image locally before you stop your old node:
 
