@@ -182,19 +182,33 @@ Sometimes a hard fork will be needed when the execution semantics of blocks or t
 It is important to upgrade your node's version before the block height at which these hard forks are activated.
 Not doing so may lead to your node going out of sync and losing rewards if it is a validator.
 
-To upgrade your node, first edit the `ZQ_VERSION` variable in `start_node.sh` to refer to the newest release. Then run the following:
+First, update your `start_node.sh` script and configuration file by re-running `z2 join`:
 
 ```bash
-docker pull asia-docker.pkg.dev/prj-p-devops-services-tvwmrf63/zilliqa-public/zq2:${NEW_ZQ_VERSION} # This is optional, but recommended. Pulling the new image before stopping the old version will minimise the downtime of your node.
+z2 join --chain zq2-prototestnet
+```
+
+To minimise the downtime of your node, we recommend pulling the new image locally before you stop your old node:
+
+```bash
+docker pull asia-docker.pkg.dev/prj-p-devops-services-tvwmrf63/zilliqa-public/zq2:${ZQ_VERSION} # You can copy the new ZQ_VERSION from inside `start_node.sh`
+```
+
+Stop your existing node:
+
+```bash
 docker container ls # Identify the container ID of the existing node. This will look a 12 character hex-string (e.g. af6010f3f9ae).
-docker stop <container id> # Stop the old version.
-./start_node.sh # Start the new version.
+docker stop <container id>
+```
+
+Start your new node:
+
+```bash
+./start_node.sh
 ```
 
 You can validate the version your node is running by calling the `GetVersion` API method:
+
 ```bash
-curl --request POST \
-  --url http://localhost:4201/ \
-  --header 'Content-Type: application/json' \
-  --data '{"method":"GetVersion","params":[],"id":1,"jsonrpc":"2.0"}'
+curl --request POST --url http://localhost:4201 --header 'content-type: application/json' --data '{"method":"GetVersion","id":1,"jsonrpc":"2.0"}'
 ```
