@@ -25,8 +25,9 @@ bazel-*
 tsconfig.tsbuildinfo
 **/tsconfig.tsbuildinfotsconfig.tsbuildinfo
 **/tsconfig.tsbuildinfo
-.trunk/
-!.trunk/configs
+.trunk/[a-b]*
+.trunk/[d-z]*
+!.trunk/trunk.yaml
 
 .secrets.*
 secrets.*
