@@ -182,7 +182,7 @@ Sometimes a hard fork will be needed when the execution semantics of blocks or t
 It is important to upgrade your node's version before the block height at which these hard forks are activated.
 Not doing so may lead to your node going out of sync and losing rewards if it is a validator.
 
-First, update your `start_node.sh` script and configuration file by re-running `z2 join`:
+First, pull the `main` branch and update your `start_node.sh` script and configuration file by re-running `z2 join`:
 
 ```bash
 z2 join --chain zq2-prototestnet
@@ -211,5 +211,5 @@ Start your new node:
 You can validate the version your node is running by calling the `GetVersion` API method:
 
 ```bash
-curl --request POST --url http://localhost:4201 --header 'content-type: application/json' --data '{"method":"GetVersion","id":1,"jsonrpc":"2.0"}'
+curl --request POST --url http://localhost:4202 --header 'content-type: application/json' --data '{"method":"GetVersion","id":1,"jsonrpc":"2.0"}'
 ```
