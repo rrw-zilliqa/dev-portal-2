@@ -79,7 +79,7 @@ async function fillCheckpointTableFromElem(elem) {
             elem.innerHTML = "<table>" + tableHeader + tableContents + "</table>";
           });
         } else {
-          elem.innerHTML = "There are no checkpoints currently stored for this network";
+          elem.innerHTML = '<p><i>There are no checkpoints currently stored for this network</i></p>';
         } })
     }
   );
