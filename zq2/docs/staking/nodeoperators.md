@@ -1,9 +1,9 @@
 ---
-id: staking/exchange
-title: Exchanges & Wallets
+id: staking/nodeoperators
+title: Staking node operators
 ---
 
-<!-- markdownlint-disable MD013 MD051 -->
+<!-- markdownlint-disable -->
 
 ## Transitioning to Zilliqa 2.0 Staking for Exchanges
 

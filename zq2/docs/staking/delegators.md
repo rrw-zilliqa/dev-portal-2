@@ -1,6 +1,6 @@
 ---
-id: staking/users
-title: Users
+id: staking/delegators
+title: Delegators
 ---
 
 <!-- markdownlint-disable -->
