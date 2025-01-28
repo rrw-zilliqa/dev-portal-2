@@ -1,6 +1,6 @@
 ---
 id: staking/delegatedstaking
-title: Delegated Staking
+title: Overview
 ---
 
 <!-- markdownlint-disable MD013 MD051 -->
@@ -11,13 +11,14 @@ title: Delegated Staking
 
 This repository provides the contracts and scripts required to create a staking pool that users can delegate their ZILs to. The staking mechanism supports two variants:
 
-1. **Liquid Variant**
+### 1. **Liquid Variant**
 
-   - Users receive a non-rebasing Liquid Staking Token (LST) when delegating their stake.
-   - The LST can be sent to the validator's contract to withdraw the staked amount plus the corresponding share of validator rewards.
+- Users receive a non-rebasing Liquid Staking Token (LST) when delegating their stake.
+- The LST can be sent to the validator's contract to withdraw the staked amount plus the corresponding share of validator rewards.
 
-2. **Non-Liquid Variant**
-   - Users can regularly withdraw their share of the rewards without withdrawing their staked amount.
+### 2. **Non-Liquid Variant**
+
+- Users can regularly withdraw their share of the rewards without withdrawing their staked amount.
 
 ---
 
@@ -25,9 +26,10 @@ This repository provides the contracts and scripts required to create a staking 
 
 1. **Install an RPC Node**  
    Set up and configure a compatible RPC node to interact with the blockchain.
+   Refer to the [link](../nodes/node.md) for node installation.
 
 2. **Deploy the Staking Contract**  
-   Choose the staking variant (Liquid or Non-Liquid) and deploy the appropriate contract.
+   Choose the staking variant (Liquid or Non-Liquid) and deploy the appropriate contract.The process of contract deployment is outlined [here](https://github.com/Zilliqa/delegated_staking?tab=readme-ov-file#contract-deployment).
 
 3. **Manage Commission**  
    Set and adjust the commission rates for the staking pool as required.
