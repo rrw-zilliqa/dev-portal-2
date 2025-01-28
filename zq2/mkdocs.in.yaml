@@ -6,7 +6,9 @@ nav:
   - Nodes & Validators:
       - Overview: nodes/index.md
       - Nodes: nodes/node.md
-      - Checkpoints: nodes/checkpoint.md
+      - Checkpoints:
+          - nodes/checkpoints/index.md
+          - Prototestnet: nodes/checkpoints/prototestnet.md
       - Node FAQ: nodes/nodefaq.md
   - Tools and SDKs: sdk.md
   - $use_zq2_from

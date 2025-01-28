@@ -9,12 +9,12 @@ extra_css:
 
 extra_javascript:
   - js/versions.js
+  - js/checkpoints.js
   - js/connect.js
   - js/chain.js
   - js/buffer.js
   - js/add-zilliqa-PM-chain.js
   - js/add-zilliqa-PT-chain.js
-
 
 theme:
   name: material
