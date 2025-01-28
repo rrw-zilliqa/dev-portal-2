@@ -8,6 +8,13 @@ nav:
       - Nodes: nodes/node.md
       - Checkpoints: nodes/checkpoint.md
       - Node FAQ: nodes/nodefaq.md
+  - Staking Migration:
+      - staking/staking.md
+      - Delegators: staking/delegators.md
+      - Node operators: staking/nodeoperators.md
+  - Delegated Staking:
+      - staking/delegatedstaking.md
+      - Essential Functions: staking/functions.md
   - Tools and SDKs: sdk.md
   - $use_zq2_from
   - $APIs
