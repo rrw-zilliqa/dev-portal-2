@@ -33,6 +33,6 @@ For technical implementation details, refer to the [Zilliqa 2.0 Whitepaper](#whi
 
 ### 2. Implementing the New EVM-Based Delegated Staking
 
-- Integrate the new EVM-based delegated staking mechanism as outlined in the [Delegated Staking Documentation](#page-link).
+- Integrate the new EVM-based delegated staking mechanism as outlined in the [Delegated Staking Documentation](../staking/delegatedstaking.md).
 
 ---
