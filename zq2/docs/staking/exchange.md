@@ -3,6 +3,8 @@ id: staking/exchange
 title: Exchanges & Wallets
 ---
 
+<!-- markdownlint-disable MD013 MD051 -->
+
 ## Transitioning to Zilliqa 2.0 Staking for Exchanges
 
 Currently, exchanges have integrated Zilliqa 1.0 staking on their platforms. With the launch of Zilliqa 2.0, the Zilliqa 1.0 staking protocol will become inoperational. Exchanges will need to transition to the new EVM-based staking mechanism to ensure seamless staking functionality.

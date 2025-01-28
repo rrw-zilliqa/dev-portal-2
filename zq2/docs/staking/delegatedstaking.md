@@ -3,6 +3,8 @@ id: staking/delegatedstaking
 title: Delegated Staking
 ---
 
+<!-- markdownlint-disable MD013 MD051 -->
+
 [In Progress]
 
 ## Delegated Staking

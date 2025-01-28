@@ -3,7 +3,7 @@ id: staking
 title: Staking Migration Guide
 ---
 
-<!-- markdownlint-disable MD025 -->
+<!-- markdownlint-disable -->
 
 Zilliqa 1.0 (ZQ1) is transitioning to the new Zilliqa 2.0 (ZQ2) platform, introducing significant changes to the staking process. Delegators and operators must adapt their systems to support the updated delegated staking mechanism on the new blockchain network. This document outlines the steps exchanges and users need to follow to ensure a smooth transition.
 

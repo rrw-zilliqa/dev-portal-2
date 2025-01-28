@@ -3,6 +3,8 @@ id: staking/users
 title: Users
 ---
 
+<!-- markdownlint-disable -->
+
 ## Migrating Stake from ZQ1 SSN List Contract to ZQ2 Staking
 
 Follow the steps below to migrate your stake from the ZQ1 SSN List contract to the new ZQ2 staking mechanism.
